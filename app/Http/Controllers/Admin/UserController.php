@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role:all();
+        return view('admin.pages.users.create', compact('roles'));
     }
 
     /**
@@ -41,7 +43,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $role_id = $request->get('role_id');
+        $user = User::create($request->all());
+        $user->uploadImage($request->file('file'));
+        $user->roles()->attach($role_id);
+        $user->save();
+        return redirect()->route('admin.users.index');
     }
 
     /**
