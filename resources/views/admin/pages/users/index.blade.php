@@ -39,16 +39,16 @@
                                 <td class="font-w600">{{ $user->name }}</td>
                                 <td class="d-none d-sm-table-cell">{{ $user->email }}</td>
                                 <td class="d-none d-md-table-cell">
-                                        <span class="badge badge-warning">
-                                            {!! $user->getRole() !!}
-                                        </span>
+                                    @foreach ($user->roles as $role)
+                                        <span class="badge badge-primary">{{ $role->description }}</span>
+                                    @endforeach
                                 </td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <a href="{{ route('users.edit', [$user->id, 'list_id' => intval($i/10)]) }}" class="btn btn-sm btn-secondary js-tooltip-enabled" data-toggle="tooltip" title="" data-original-title="Edit">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        @if($user->role_id != 1)
+                                        @if(!$user->hasRole('admin'))
                                             <form action="{{ route('users.destroy', $user->id) }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
