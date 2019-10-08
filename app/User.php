@@ -39,21 +39,55 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getRole()
+    /**
+     * Get all users roles
+     * @return \Illuminate\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
     {
-        switch ($this->role_id){
-            case 0:
-                return 'Обычный пользователь';
-                break;
-            case 1:
-                echo '<i style="color: red;">Администратор</i>';
-                break;
-            case 2:
-                echo "i равно 2";
-                break;
-        }
+        return $this->belongsToMany(Role::class);
     }
 
+    /**
+     * Authorize role or array of roles
+     *
+     * @param string|array $roles
+     *
+     * @return void
+     */
+    public function authorizeRoles($roles)
+    {
+        if (is_array($roles)) {
+            return $this->hasAnyRole($roles) || abort(401, 'This action is unauthorized');
+        }
+        return $this->hasRole($roles) || abort(401, 'This action is unauthorized');
+    }
+
+    /**
+     * Check multiple roles
+     * @param  array  $roles Array of roles
+     * @return boolean
+     */
+    public function hasAnyRole($roles)
+    {
+        return null !== $this->roles()->whereIn('name', $roles)->first();
+    }
+
+    /**
+     * Check one role
+     * @param  string  $role Role to check
+     * @return boolean
+     */
+    public function hasRole($role)
+    {
+        return null !== $this->roles()->where('name', $role)->first();
+    }
+
+    /**
+     * Upload image for user
+     * @param $image
+     * @return void
+     */
     public function uploadImage($image)
     {
         if($image == null) return;
