@@ -71,8 +71,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $roles = Role::all();
         return view('admin.pages.users.edit', compact(
-            'user'
+            'user', 'roles'
         ));
     }
 

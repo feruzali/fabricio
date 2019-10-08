@@ -122,9 +122,9 @@
                         <div class="form-group">
                             <label for="">Роль</label>
                             <select name="role_id" id="" class="form-control">
-                                <option value="0" @if($user->role_id == 0) selected @endif>Нет</option>
-                                <option value="1" @if($user->role_id == 1) selected @endif>Администратор</option>
-                                <option value="2" @if($user->role_id == 2) selected @endif>Пользователь с админ панелью</option>
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}" @if($user->hasRole($role->name)) selected @endif>{{ $role->description }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
