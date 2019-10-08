@@ -43,23 +43,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required'
+        ]);
         $role_id = $request->get('role_id');
         $user = User::create($request->all());
-        $user->uploadImage($request->file('file'));
+        $user->uploadImage($request->file('image'));
         $user->roles()->attach($role_id);
+        $user->password = Hash::make($request->get('password'));
         $user->save();
         return redirect()->route('admin.users.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -70,7 +65,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $roles = Role::all();
         return view('admin.pages.users.edit', compact(
             'user', 'roles'
@@ -88,8 +83,20 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|unique:users',
+            'email' => 'required',
+            'password' => 'required'
         ]);
+        $user = User::findOrFail($id);
+        $roleId = $request->get('role_id');
+        $password = $request->get('password');
+        $user->update($request->all());
+        $user->uploadImage($request->file('image'));
+        $user->password = Hash::make($password);
+        $user->save();
+        $user->roles()->dettach();
+        $user->roles()->attach($roleId);
+
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -100,7 +107,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect()->route('admin.users.index');
     }
 
     public function passwordChange(Request $request, $id)
