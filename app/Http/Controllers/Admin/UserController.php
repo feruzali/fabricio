@@ -54,7 +54,7 @@ class UserController extends Controller
         $user->roles()->attach($role_id);
         $user->password = Hash::make($request->get('password'));
         $user->save();
-        return redirect()->route('admin.users.index');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -96,7 +96,7 @@ class UserController extends Controller
         $user->roles()->dettach();
         $user->roles()->attach($roleId);
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -108,7 +108,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-        return redirect()->route('admin.users.index');
+        return redirect()->route('users.index');
     }
 
     public function passwordChange(Request $request, $id)
