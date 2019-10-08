@@ -105,7 +105,7 @@
                             <div class="col-md-12">
                                 <div class="form-material floating">
                                     <input type="text" class="form-control" id="material-text2" name="name">
-                                    <label for="material-text2">Логин</label>
+                                    <label for="material-text2">Имя</label>
                                 </div>
                             </div>
                         </div>
