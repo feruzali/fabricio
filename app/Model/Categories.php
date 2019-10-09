@@ -70,6 +70,18 @@ class Categories extends Model
         return $this->hasMany(Product::class, 'category_id', 'id');
     }
 
+    /**
+     * Get all ancestors slugs as url string
+     *
+     * @return string
+    */
+    public function getAncestorsSlugs()
+    {
+        $slugs = $this->ancestors()->pluck('slug');
+        $slugs[] = $this->slug;
+        return implode("/", $slugs->toArray());
+    }
+
     public function sluggable()
     {
         return [

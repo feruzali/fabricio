@@ -84,4 +84,16 @@ class Product extends Model
         return Str::limit($this->description, 150);
     }
 
+    /**
+     * Get all ancestors slugs from category and its ancestors and plus product slug
+     *
+     * @return string
+    */
+    public function getAncestorsSlugs()
+    {
+        $category = $this->category;
+        $categoriesSlugs = ($category) ? $category->getAncestorsSlugs() : '';
+        $slugs = $categoriesSlugs . "/$this->slug";
+        return $slugs;
+    }
 }
