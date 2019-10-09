@@ -44,8 +44,8 @@ class Product extends Model
 
     }
 
-    public function categories(){
-        return $this->hasMany('App\Model\Categories', 'id', 'category_id');
+    public function category(){
+        return $this->hasOne('App\Model\Categories', 'id', 'category_id');
     }
 
     public function uploadImage($image)

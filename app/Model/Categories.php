@@ -65,6 +65,11 @@ class Categories extends Model
         return (isset($this->children[0])) ? true : false;
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id', 'id');
+    }
+
     public function sluggable()
     {
         return [
