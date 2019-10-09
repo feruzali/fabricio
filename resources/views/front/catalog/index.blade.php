@@ -1,0 +1,96 @@
+@extends('front.layouts.app')
+@section('content')
+    <section class="catalog" id="catalog">
+        <div class="container">
+            <h2 class="page-title">Каталог</h2>
+            <div class="catalog__filter">
+                <div class="catalog__sort">
+                    <div class="catalog__sortItem">
+                        <div class="catalog__sortCurrent" id="catalogType">
+                            <span class="lbl">All types&nbsp; <i class="fa fa-angle-down"></i></span>
+                        </div>
+
+                    </div>
+                    <div class="catalog__sortItem">
+                        <div class="catalog__sortCurrent" id="catalogPeople">
+                            <span class="lbl">Категории&nbsp; <i class="fa fa-angle-down"></i></span>
+                        </div>
+
+                    </div>
+                    <div class="catalog__sortItem">
+                        <div class="catalog__sortCurrent" id="catalogBrand">
+                            <span class="lbl">Бренд&nbsp; <i class="fa fa-angle-down"></i></span>
+                        </div>
+                    </div>
+                    <div class="catalog__sortItem">
+                        <div class="catalog__sortCurrent" id="popularity">
+                            <span class="lbl">Сортировать&nbsp; <i class="fa fa-angle-down"></i></span>
+                        </div>
+                    </div>
+                    <div class="catalog__sortItem">
+                        <div class="catalog__sortCurrent" id="popularity">
+                            <span class="lbl">Price&nbsp; <i class="fa fa-angle-down"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- <i class="fa fa-grip-horizontal"></i>
+                 <i class="fa fa-list-ul"></i> -->
+            </div>
+            <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider" index="1">
+                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                    <ul class="uk-slideshow-items">
+                        <li>
+                            <img src="{{ asset('front/img/category/slider/1.jpg') }}" alt="">
+                            <div class="uk-overlay uk-position-center uk-position-small">
+                                <h3 class="catalog-slider__title">The Universe Through A Child S Eyes</h3>
+                                <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="{{ asset('front/img/category/slider/2.jpg') }}" alt="">
+                            <div class="uk-overlay uk-position-center uk-position-small">
+                                <h3 class="catalog-slider__title">The Universe Through A Child S Eyes</h3>
+                                <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="{{ asset('front/img/category/slider/1.jpg') }}" alt="">
+                            <div class="uk-overlay uk-position-center uk-position-small">
+                                <h3 class="catalog-slider__title">The Universe Through A Child S Eyes</h3>
+                                <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+                    <div class="uk-position-bottom-center">
+                        <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin catalog-slider-dotnav"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                @foreach($products as $product)
+                    <div class="col-xl-3 col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                        <div class="catalog-card">
+                            <div class="catalog-card__img">
+                                <img src="{{ $product->getImage() }}" alt="">
+                            </div>
+                            <div class="catalog-card-choice">
+                                @foreach($product->img as $img)
+                                    <div class="catalog-card-choice__elem">
+                                        <img src="{{ $img->getImage() }}" alt="">
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="catalog-card__title">
+                                {{ $product->ru_title }}
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+@endsection
