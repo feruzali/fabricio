@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home.index');
+Route::group(['middleware' => 'catalog'], function() {
+    Route::get('/', 'HomeController@index');
+});
 
 
 Route::prefix('login')->group(function (){

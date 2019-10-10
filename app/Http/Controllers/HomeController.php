@@ -18,9 +18,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Categories::all();
         $sliders = Slider::all();
-        $contact = Contact::find(1);
         return view('front.welcome', compact('categories', 'sliders', 'contact'));
     }
 }
