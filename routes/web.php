@@ -12,7 +12,8 @@
 */
 
 Route::group(['middleware' => 'catalog'], function() {
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/{params}', 'Front\CatalogController@index')->where('params', '.+')->name('catalog.index');
 });
 
 
