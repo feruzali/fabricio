@@ -2,7 +2,7 @@
 @section('content')
     <section class="catalog" id="catalog">
         <div class="container">
-            <h2 class="page-title">Каталог</h2>
+            <h2 class="page-title">{{ $category->ru_title }}</h2>
             <div class="catalog__filter">
                 <div class="catalog__sort">
                     <div class="catalog__sortItem">
