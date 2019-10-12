@@ -19,7 +19,7 @@ class HomeController extends Controller
     public function index()
     {
         $sliders = Slider::all();
-        return view('front.welcome', compact('categories', 'sliders', 'contact'));
+        return view('front.welcome', compact('sliders'));
     }
 
     public function cart(){
