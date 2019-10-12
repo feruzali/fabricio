@@ -1,77 +1,45 @@
-@extends('layouts.app')
+@extends('front.layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<section class="req" id="req">
+	<div class="container">
+		<h2 class="page-title">Введите реквизиты</h2>
+		<form action="" method="post" class="req-form">
+            @csrf
+			<div class="row">
+				<div class="col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-12">
+					<label class="req-form__label" for="req-form-client">Заказчик:</label>
+					<textarea class="req-form__txtarea" name="client" id="req-form-client" cols="45" rows="6" placeholder="Полное название компании" required="">{{ old('client') }}</textarea>
+				</div>
+				<div class="col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-12">
+					<label class="req-form__label" for="req-form-bank">Банк:</label>
+					<textarea class="req-form__txtarea" name="bank" id="req-form-bank" cols="45" rows="6" placeholder="Полный адрес" required="">{{ old('bank') }}</textarea>
+				</div>
+			</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+			<div class="row">
+				<div class="col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-12">
+					<label class="req-form__label" for="req-form-address">Адрес:</label>
+					<textarea class="req-form__txtarea" name="address" id="req-form-address" cols="45" rows="6" placeholder="Полный адрес" required="">{{ old('address') }}</textarea>
+				</div>
+				<div class="col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-12">
+					<div class="flexible">
+						<label class="req-form__label" for="req-form-inn">ИНН:</label>
+						<input class="req-form__input" type="text" name="inn" id="req-form-inn" required="" value="{{ old('inn') }}">
+					</div>
+					<div class="flexible">
+						<label class="req-form__label" for="req-form-oked">ОКЕД:</label>
+						<input class="req-form__input" type="text" name="oked" id="req-form-oked" required="" value="{{ old('oked') }}">
+					</div>
+					<div class="flexible">
+						<label class="req-form__label" for="req-form-mfo">МФО:</label>
+						<input class="req-form__input" type="text" name="mfo" id="req-form-mfo" required="" value="{{ old('mfo') }}">
+					</div>
+				</div>
+			</div>
+			<button class="req-form__btn btn-submit" type="submit"><i class="fa fa-envelope"></i>Отправить</button>
+		</form>
+	</div>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+</section>
 @endsection
