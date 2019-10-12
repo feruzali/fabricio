@@ -48,10 +48,14 @@
             <!-- /.col-6 -->
             <div class="col-xl-5 col-lg-4 col-md-3 col-sm-4 col-5">
                 <div class="header-wrapper">
-                    <img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag">
-                    <span class="header__price">-&nbsp;10 000 сум</span>
-                    <button class="header__auth">Войти</button>
-                    <button  class="header__auth_adap"><i class="fa fa-user"></i></button>
+                    @guest
+                        <a class="header__auth" href="{{ route('login') }}">Войти</a>
+                        <button  class="header__auth_adap"><i class="fa fa-user"></i></button>
+                    @endguest
+                    @auth
+                        <img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag">
+                        <span class="header__price">-&nbsp;10 000 сум</span>
+                    @endauth
                 </div>
             </div>
             <!-- /.col-6 -->
