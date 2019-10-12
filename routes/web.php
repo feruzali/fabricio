@@ -17,6 +17,7 @@ Route::group(['middleware' => 'catalog'], function() {
     Route::post('/login', 'FrontAuth\LoginController@login');
     Route::get('/register', 'FrontAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'FrontAuth\RegisterController@register');
+    Route::get('/cart', 'Front\CartController@index');
     Route::get('/{params}', 'Front\CatalogController@index')->where('params', '.+')->name('catalog.index');
 
 });
