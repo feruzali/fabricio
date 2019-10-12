@@ -13,7 +13,12 @@
 
 Route::group(['middleware' => 'catalog'], function() {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/login', 'FrontAuth\LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'FrontAuth\LoginController@login');
+    Route::get('/register', 'FrontAuth\RegisterController@showRegistrationForm')->name('register');
+    Route::post('/register', 'FrontAuth\RegisterController@register');
     Route::get('/{params}', 'Front\CatalogController@index')->where('params', '.+')->name('catalog.index');
+
 });
 
 
@@ -21,10 +26,6 @@ Route::prefix('login')->group(function (){
     //Admin
     Route::get('/admin', 'AdminAuth\LoginController@showLoginForm')->name('admin.loginForm');
     Route::post('/admin', 'AdminAuth\LoginController@login')->name('admin.login');
-
-    //Front
-    Route::get('/', 'FrontAuth\LoginController@showLoginForm')->name('login');
-    Route::post('/', 'FrontAuth\LoginController@login');
 
 });
 
@@ -66,9 +67,6 @@ Route::middleware('admin.auth')->prefix('admin')->namespace('Admin')->group(func
 // FrontAuthentication Routes...
 Route::get('logout', 'FrontAuth\LoginController@logout')->name('logout');
 
-// Registration Routes...
-Route::get('register', 'FrontAuth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'FrontAuth\RegisterController@register');
 
 // Password Reset Routes...
 Route::get('password/reset', 'FrontAuth\ForgotPasswordController@showLinkRequestForm');
