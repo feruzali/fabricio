@@ -21,4 +21,27 @@ class HomeController extends Controller
         $sliders = Slider::all();
         return view('front.welcome', compact('categories', 'sliders', 'contact'));
     }
+
+    public function cart(){
+        //$contact = Contact::find(1);
+        //$categories = Categories::all();
+        if(isset($_COOKIE['products'])){
+            $cookie = json_decode($_COOKIE['products']);
+        }else{
+            $cookie = [];
+        }
+        $items = [];
+        foreach ($cookie as $key)
+        {
+            $items[] = Product::find($key->id);
+        }
+
+        if(isset($_COOKIE['products'])){
+            $count = count(json_decode($_COOKIE['products']));
+        }
+        return view('front.catalog.card', compact(
+            'items',
+            'cookie'
+        ));
+    }
 }

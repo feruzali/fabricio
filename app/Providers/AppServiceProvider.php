@@ -27,6 +27,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $count = 0;
+        if(isset($_COOKIE['products']))
+        {
+            foreach(json_decode($_COOKIE['products']) as $item)
+            {
+                $count += ((isset($item->count)) ? $item->count : 1);
+            }
+        }
+        View::share('count', $count);
         View::share('key', 'value');
     }
 }
