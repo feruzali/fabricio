@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CardController extends Controller
+class CartController extends Controller
 {
     public function index()
     {
-        return view('front.catalog.card');
+        return view('front.catalog.cart');
     }
 }

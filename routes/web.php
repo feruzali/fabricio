@@ -10,19 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::group(['middleware' => 'catalog'], function() {
-    Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/login', 'FrontAuth\LoginController@showLoginForm')->name('login');
-    Route::post('/login', 'FrontAuth\LoginController@login');
-    Route::get('/register', 'FrontAuth\RegisterController@showRegistrationForm')->name('register');
-    Route::post('/register', 'FrontAuth\RegisterController@register');
-    Route::get('/cart', 'Front\CartController@index');
-    Route::get('/{params}', 'Front\CatalogController@index')->where('params', '.+')->name('catalog.index');
-
-});
-
-
 Route::prefix('login')->group(function (){
     //Admin
     Route::get('/admin', 'AdminAuth\LoginController@showLoginForm')->name('admin.loginForm');
@@ -74,3 +61,14 @@ Route::get('password/reset', 'FrontAuth\ForgotPasswordController@showLinkRequest
 Route::post('password/email', 'FrontAuth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'FrontAuth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'FrontAuth\ResetPasswordController@reset');
+
+Route::middleware('catalog')->group(function() {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/login', 'FrontAuth\LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'FrontAuth\LoginController@login');
+    Route::get('/register', 'FrontAuth\RegisterController@showRegistrationForm')->name('register');
+    Route::post('/register', 'FrontAuth\RegisterController@register');
+    Route::get('/cart', 'Front\CartController@index');
+    Route::get('/{params}', 'Front\CatalogController@index')->where('params', '.+')->name('catalog.index');
+
+});
