@@ -3,9 +3,62 @@
 @section('content')
 
     <section class="main" id="main">
+
+        <div class="main-slider xs_visible">
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="max-height: 490" index="1">
+                
+                <ul class="uk-slideshow-items">
+                    <li>
+                        <img src="img/slider/slide1.jpg" alt="" uk-cover>
+                        <div class="uk-position-top slideshow-items uk-margin-medium-left">
+                            <h1 class="slideshow-items__title">Модные очки</h1>
+                            <p class="slideshow-items__subtitle">По доступным ценам!</p>
+                        </div>
+                        <div class="uk-position-center main-slider-play">
+                            <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
+                        </div>
+                        <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
+                            <button class="slideshow-items__btn">Смотреть каталог</button>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/slider/slide1.jpg" alt="" uk-cover>
+                        <div class="uk-position-top slideshow-items uk-margin-medium-left">
+                            <h1 class="slideshow-items__title">Модные очки</h1>
+                            <p class="slideshow-items__subtitle">По доступным ценам!</p>
+                        </div>
+                        <div class="uk-position-center main-slider-play">
+                            <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
+                        </div>
+                        <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
+                            <button class="slideshow-items__btn">Смотреть каталог</button>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/slider/slide1.jpg" alt="" uk-cover>
+                        <div class="uk-position-top slideshow-items uk-margin-medium-left">
+                            <h1 class="slideshow-items__title">Модные очки</h1>
+                            <p class="slideshow-items__subtitle">По доступным ценам!</p>
+                        </div>
+                        <div class="uk-position-center main-slider-play">
+                            <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
+                        </div>
+                        <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
+                            <button class="slideshow-items__btn">Смотреть каталог</button>
+                        </div>
+                    </li>
+                </ul>
+            
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover slide-btn" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover slide-btn" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+            
+            </div>
+        </div>
+
         <div class="container">
 
-            <div class="main-slider">
+            <div class="main-slider xs_hidden">
                 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="min-height: 0; max-height: 490" index="1">
 
                     <ul class="uk-slideshow-items">
