@@ -68,18 +68,20 @@
 	<div class="container">
 		<h2 class="section-title">165 000 сум</h2>
 		<div class="row">
-			<div class="col-4">
+			<div class="col-lg-4">
 				<h4>Описание</h4>
 				<p>Солнцезащитные очки – это красивый и необходимый аксессуар. Качественные очки от солнца защищают наши глаза от вредного воздействия уф-лучей, ослепления и дарят зрительный комфорт. У нас вы можете купить солнцезащитные очки для различных целей. Например, для отдыха у воды или для вождения автомобиля подойдут очки с поляризационными линзами.</p>
 			</div>
-			<div class="col-4">
+			<div class="col-lg-4  order-last order-lg-0">
 				<h4>Доставка</h4>
-				<p>Free shipping to Uzbekistan
-30 days returns policy
-Duty & tax paid (DDP)
-Five-year warranty</p>
+				<p>
+					Free shipping to Uzbekistan
+					30 days returns policy
+					Duty & tax paid (DDP)
+					Five-year warranty
+				</p>
 			</div>
-			<div class="col-4">
+			<div class="col-lg-4">
 				<h4>Характеристики</h4>
 				<p>Designed with care in Sweden and crafted in Pforzheim, Germany using thoughtfully sourced, high-grade components. Movement from the world-renowned Swiss manufacturer Ronda and a 316L steel case produced with a careful combination of brushed and polished finishes. </p>
 			</div>
