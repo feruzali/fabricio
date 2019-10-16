@@ -36,25 +36,30 @@
                 <!-- <i class="fa fa-grip-horizontal"></i>
                  <i class="fa fa-list-ul"></i> -->
             </div>
+            <div class="active-filters">         
+                <div class="active-filter"><span>Glases</span><i class="fa fa-times"></i></div>
+                <div class="active-filter"><span>RayBan</span><i class="fa fa-times"></i></div>
+                <div class="active-filter"><span>200$</span><i class="fa fa-times"></i></div>
+            </div>
             <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider" index="1">
                 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                     <ul class="uk-slideshow-items">
                         <li>
-                            <img src="{{ asset('front/img/category/slider/1.jpg') }}" alt="">
+                            <img src="{{ asset('front/img/category/slider/1.jpg') }}" alt="" class="uk-cover">
                             <div class="uk-overlay uk-position-center uk-position-small">
                                 <h3 class="catalog-slider__title">The Universe Through A Child S Eyes</h3>
                                 <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
                             </div>
                         </li>
                         <li>
-                            <img src="{{ asset('front/img/category/slider/2.jpg') }}" alt="">
+                            <img src="{{ asset('front/img/category/slider/2.jpg') }}" alt="" class="uk-cover">
                             <div class="uk-overlay uk-position-center uk-position-small">
                                 <h3 class="catalog-slider__title">The Universe Through A Child S Eyes</h3>
                                 <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
                             </div>
                         </li>
                         <li>
-                            <img src="{{ asset('front/img/category/slider/1.jpg') }}" alt="">
+                            <img src="{{ asset('front/img/category/slider/1.jpg') }}" alt="" class="uk-cover">
                             <div class="uk-overlay uk-position-center uk-position-small">
                                 <h3 class="catalog-slider__title">The Universe Through A Child S Eyes</h3>
                                 <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
@@ -90,6 +95,9 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+            <div class="loadmore">
+                load more
             </div>
         </div>
     </section>
