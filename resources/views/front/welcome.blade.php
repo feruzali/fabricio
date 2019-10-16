@@ -6,7 +6,7 @@
 
         <div class="main-slider xs_visible">
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="max-height: 490" index="1">
-                
+
                 <ul class="uk-slideshow-items">
                     <li>
                         <img src="img/slider/slide1.jpg" alt="" uk-cover>
@@ -48,11 +48,11 @@
                         </div>
                     </li>
                 </ul>
-            
+
                 <a class="uk-position-center-left uk-position-small uk-hidden-hover slide-btn" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
                 <a class="uk-position-center-right uk-position-small uk-hidden-hover slide-btn" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
 
-            
+
             </div>
         </div>
 
@@ -69,7 +69,7 @@
                                     <h1 class="slideshow-items__title">
                                         {{$slider->ru_title}}
                                     </h1>
-                                    <p class="slideshow-items__subtitle">{{$slider->ru_description}}</p>
+                                    <p class="slideshow-items__subtitle">{!! $slider->ru_description !!}</p>
                                     <button class="slideshow-items__btn">Смотреть каталог</button>
                                 </div>
                                 <div class="uk-position-bottom-left scrolldown"><img src="{{asset('front/img/slider/mouse.png')}}" alt="" class="scrolldown__img"><span class="scrolldown__txt">Листай вниз</span></div>

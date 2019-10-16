@@ -1,91 +1,149 @@
 @extends('front.layouts.app')
 
 @section('content')
-<section class="card" id="card">
-	<div class="container">
-		<div uk-slideshow>
-		    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-		        <ul class="uk-slideshow-items darkk__bg">
-		            <li>
-		                <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                        <div class="uk-overlay uk-position-center-left uk-position-small">
-        		            <div class="circle" style="background-color: #4986ff;"><i class="fa fa-check"></i></div>
-        		            <div class="circle" style="background-color: #76d2e6;"><i class="fa fa-check"></i></div>
-        		            <div class="circle" style="background-color: #f593a7;"><i class="fa fa-check"></i></div>
-        		        </div>
-		                <div class="uk-overlay uk-position-bottom-right uk-position-small">
-				            <p class="darkk">Мужские солнцезащитные очки + ФУТЛЯР</p>
-				        </div>
-		            </li>
-		            <li>
-		                <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                        <div class="uk-overlay uk-position-center-left uk-position-small">
-        		            <div class="circle" style="background-color: #4986ff;"><i class="fa fa-check"></i></div>
-        		            <div class="circle" style="background-color: #76d2e6;"><i class="fa fa-check"></i></div>
-        		            <div class="circle" style="background-color: #f593a7;"><i class="fa fa-check"></i></div>
-        		        </div>
-		                <div class="uk-overlay uk-position-bottom-right uk-position-small">
-				            <p class="darkk">Мужские солнцезащитные очки + ФУТЛЯР</p>
-				        </div>
-		            </li>
-		            <li>
-		                <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                        <div class="uk-overlay uk-position-center-left uk-position-small">
-        		            <div class="circle" style="background-color: #4986ff;"><i class="fa fa-check"></i></div>
-        		            <div class="circle" style="background-color: #76d2e6;"><i class="fa fa-check"></i></div>
-        		            <div class="circle" style="background-color: #f593a7;"><i class="fa fa-check"></i></div>
-        		        </div>
-		                <div class="uk-overlay uk-position-bottom-right uk-position-small">
-				            <p class="darkk">Мужские солнцезащитные очки + ФУТЛЯР</p>
-				        </div>
-		            </li>
-		            <li>
-		                <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                        <div class="uk-overlay uk-position-center-left uk-position-small">
-        		            <div class="circle" style="background-color: #4986ff;"><i class="fa fa-check"></i></div>
-        		            <div class="circle" style="background-color: #76d2e6;"><i class="fa fa-check"></i></div>
-        		            <div class="circle" style="background-color: #f593a7;"><i class="fa fa-check"></i></div>
-        		        </div>
-		                <div class="uk-overlay uk-position-bottom-right uk-position-small">
-				            <p class="darkk">Мужские солнцезащитные очки + ФУТЛЯР</p>
-				        </div>
-		            </li>
+	<section class="cart" id="cart">
+		<div class="container">
 
-		        </ul>
-		        <div class="">
-		        	<i class="fa fa-long-arrow-left" uk-slideshow-item="previous"></i>
-		        	<i class="fa fa-long-arrow-right" uk-slideshow-item="next"></i>
-		        </div>
-		        <button class="darkk__btn"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button>
-		        <div class="uk-position-center-right uk-position-large">
-		    		<ul class="uk-slideshow-nav uk-dotnav uk-dotnav-vertical"></ul>
-		    	</div>
-		    </div>
+			<div class="row">
+
+				<div class="col-lg-8">
+
+					<div class="cart-goods">
+						<span class="cart-goods__title">Наименование</span>
+						<span class="cart-goods__quantity">Кол-во</span>
+						<div class="cart-good">
+							<div class="cart-good__img">
+								<img src="img/cart/1.png" alt="">
+							</div>
+							<span class="cart-good__title">Fabricio 1845</span>
+							<input type="checkbox" class="cart-good__checkbox uk-checkbox"></input>
+
+							<div class="stepper stepper--style-3 js-spinner card-good__quantity-wrapper">
+							    <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input cart-good__quantity__input">
+							    <div class="stepper__controls">
+							        <button class="cart-good__quantity__btn" type="button" spinner-button="up"><i class="fa fa-caret-right"></i></button>
+							        <button class="cart-good__quantity__btn" type="button" spinner-button="down"><i class="fa fa-caret-left"></i></button>
+							    </div>
+							</div>
+							<span class="cart-good_m">М</span>
+
+							<button class="cart-good_delete"><span>Удалить</span><i class="fa fa-times"></i></button>
+						</div>
+						<div class="cart-good">
+							<div class="cart-good__img">
+								<img src="img/cart/2.png" alt="">
+							</div>
+							<span class="cart-good__title">Fabricio 1845</span>
+							<input type="checkbox" class="cart-good__checkbox uk-checkbox"></input>
+
+							<div class="stepper stepper--style-3 js-spinner card-good__quantity-wrapper">
+							    <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input cart-good__quantity__input">
+							    <div class="stepper__controls">
+							        <button class="cart-good__quantity__btn" type="button" spinner-button="up"><i class="fa fa-caret-right"></i></button>
+							        <button class="cart-good__quantity__btn" type="button" spinner-button="down"><i class="fa fa-caret-left"></i></button>
+							    </div>
+							</div>
+							<span class="cart-good_m">М</span>
+
+							<button class="cart-good_delete"><span>Удалить</span><i class="fa fa-times"></i></button>
+						</div>
+						<div class="cart-good">
+							<div class="cart-good__img">
+								<img src="img/cart/3.png" alt="">
+							</div>
+							<span class="cart-good__title">Fabricio 1845</span>
+							<input type="checkbox" class="cart-good__checkbox uk-checkbox"></input>
+
+							<div class="stepper stepper--style-3 js-spinner card-good__quantity-wrapper">
+							    <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input cart-good__quantity__input">
+							    <div class="stepper__controls">
+							        <button class="cart-good__quantity__btn" type="button" spinner-button="up"><i class="fa fa-caret-right"></i></button>
+							        <button class="cart-good__quantity__btn" type="button" spinner-button="down"><i class="fa fa-caret-left"></i></button>
+							    </div>
+							</div>
+							<span class="cart-good_m">М</span>
+
+							<button class="cart-good_delete"><span>Удалить</span><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+
+					<form action="#" class="choose-req uk-form-horizontal uk-margin-medium-top">
+
+						<div class="uk-form-label choose-req__title">Способ заказа</div>
+				        <div class="uk-form-controls uk-form-controls-text">
+				            <label><input class="uk-radio uk-margin-small-right" type="radio" name="choose-req-radio" required="" checked="">Использовать реквизиты введенные при регистрации</label><br>
+				            <label><input class="uk-radio uk-margin-small-right" type="radio" name="choose-req-radio">Указать другие реквизиты для выставления вам счета</label>
+				        </div>
+
+					</form>
+
+					<form action="#" class="new-req-form">
+
+						<div class="new-req-form__textarea">
+							<label class="new-req-form__label" for="new-req-form-client">Заказчик:</label>
+							<textarea class="new-req-form__txtarea" name="new-req-form-client" id="" cols="45" rows="6" placeholder="Полное название компании" required=""></textarea>
+						</div>
+
+						<div class="new-req-form__textarea">
+							<label class="new-req-form__label" for="new-req-form-bank">Банк:</label>
+							<textarea class="new-req-form__txtarea" name="new-req-form-bank" id="" cols="45" rows="6" placeholder="Полный адрес" required=""></textarea>
+						</div>
+
+
+
+
+						<div class="new-req-form__textarea">
+							<label class="new-req-form__label" for="new-req-form-address">Адрес:</label>
+							<textarea class="new-req-form__txtarea" name="new-req-form-address" id="" cols="45" rows="6" placeholder="Полный адрес" required=""></textarea>
+						</div>
+
+							<div class="new-req-form__inputs">
+								<label class="new-req-form__label" for="new-req-form-inn">ИНН:</label>
+								<input class="new-req-form__input" type="text" name="new-req-form-inn" required="">
+							</div>
+
+							<div class="new-req-form__inputs">
+								<label class="new-req-form__label" for="new-req-form-oked">ОКЕД:</label>
+								<input class="new-req-form__input" type="text" name="new-req-form-oked" required="">
+							</div>
+
+							<div class="new-req-form__inputs">
+								<label class="new-req-form__label" for="new-req-form-mfo">МФО:</label>
+								<input class="new-req-form__input" type="text" name="new-req-form-mfo" required="">
+							</div>
+
+
+
+
+					</form>
+
+				</div>
+
+				<div class="col-lg-4 cart-aside">
+
+					<p class="cart-aside__txt">*Не весь товар бывает в наличии на складе, оставьте контактный телефон, либо вы можете связаться с офисом для уточнения наличия товара</p>
+
+					<form action="#" class="cart-aside-form">
+						<label for="cart-name" class="cart-aside-form__label">Имя</label>
+						<input name="cart-name" type="text" class="cart-aside-form__input">
+						<label for="cart-tel" class="cart-aside-form__label">Телефон</label>
+						<input name="cart-tel" type="tel" class="cart-aside-form__input">
+						<label for="cart-email" class="cart-aside-form__label">Почта</label>
+						<input name="cart-email" type="email" class="cart-aside-form__input">
+						<label for="cart-comment" class="cart-aside-form__label">Комментарий</label>
+						<textarea name="cart-comment" id="" cols="30" rows="10" class="cart-aside-form__txtarea"></textarea>
+					</form>
+
+						<button type="submit" class="cart-aside-form__btn btn-submit"><i class="fa fa-envelope"></i>Отправить</button>
+
+				</div>
+
+			</div>
+
 		</div>
-	</div>
-</section>
-<section class="descr" id="descr">
-	<div class="container">
-		<h2 class="section-title">165 000 сум</h2>
-		<div class="row">
-			<div class="col-lg-4">
-				<h4>Описание</h4>
-				<p>Солнцезащитные очки – это красивый и необходимый аксессуар. Качественные очки от солнца защищают наши глаза от вредного воздействия уф-лучей, ослепления и дарят зрительный комфорт. У нас вы можете купить солнцезащитные очки для различных целей. Например, для отдыха у воды или для вождения автомобиля подойдут очки с поляризационными линзами.</p>
-			</div>
-			<div class="col-lg-4  order-last order-lg-0">
-				<h4>Доставка</h4>
-				<p>
-					Free shipping to Uzbekistan
-					30 days returns policy
-					Duty & tax paid (DDP)
-					Five-year warranty
-				</p>
-			</div>
-			<div class="col-lg-4">
-				<h4>Характеристики</h4>
-				<p>Designed with care in Sweden and crafted in Pforzheim, Germany using thoughtfully sourced, high-grade components. Movement from the world-renowned Swiss manufacturer Ronda and a 316L steel case produced with a careful combination of brushed and polished finishes. </p>
-			</div>
-		</div>
-	</div>
-</section>
+	</section>
+@endsection
+@section('js')
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+	<script src="{{ asset('front/js/stepper.min.js') }}"></script>
 @endsection

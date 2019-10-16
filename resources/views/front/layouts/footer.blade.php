@@ -34,6 +34,7 @@
 
 <script src="{{asset('front/js/script.js')}}"></script>
 <script src="{{asset('front/js/uikit.min.js')}}"></script>
+@yield('js')
 
 </body>
 </html>
