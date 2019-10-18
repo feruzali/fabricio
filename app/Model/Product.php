@@ -38,9 +38,9 @@ class Product extends Model
     }
 
 
-    public function img(){
+    public function colors(){
 
-        return $this->hasMany('App\Model\ProductImage', 'id', 'img_id');
+        return $this->hasMany(ProductColor::class, 'product_id', 'id');
 
     }
 
