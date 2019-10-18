@@ -28,18 +28,11 @@
                         </div>
                     </div>
                     <div class="catalog__sortItem">
-                        <div class="catalog__sortCurrent" id="popularity">
+                        <div class="catalog__sortCurrent" id="catalogPrice">
                             <span class="lbl">Price&nbsp; <i class="fa fa-angle-down"></i></span>
                         </div>
                     </div>
                 </div>
-                <!-- <i class="fa fa-grip-horizontal"></i>
-                 <i class="fa fa-list-ul"></i> -->
-            </div>
-            <div class="active-filters">         
-                <div class="active-filter"><span>Glases</span><i class="fa fa-times"></i></div>
-                <div class="active-filter"><span>RayBan</span><i class="fa fa-times"></i></div>
-                <div class="active-filter"><span>200$</span><i class="fa fa-times"></i></div>
             </div>
             <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider" index="1">
                 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
@@ -97,6 +90,7 @@
                 @endforeach
             </div>
             <div class="loadmore">
+                <div class="spinner-border text-primary" style="width: 40px; height: 40px; margin-right: 10px;" role="status"></div>
                 load more
             </div>
         </div>
