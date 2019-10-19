@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductImage extends Model
 {
-    protected $table = 'product_image';
     protected $fillable = ['product_id'];
 
     public function uploadImage($image)
