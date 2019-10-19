@@ -134,7 +134,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="css-control css-control-primary css-checkbox"><input type="checkbox" class="css-control-input" name="is_private" checked><span class="css-control-indicator"></span>Приватный товар</label>
+                            <label class="css-control css-control-primary css-checkbox"><input type="checkbox" class="css-control-input" name="is_auth" checked><span class="css-control-indicator"></span>Приватный товар</label>
                         </div>
                         <div class="tab-pane active" id="wizard-simple2-step1" role="tabpanel">
                             <div class="col-xs-8" style="margin-top: 10px;margin-bottom: 10px;">
