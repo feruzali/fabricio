@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Model\Categories;
 use App\Model\Product;
 use App\Model\ProductImage;
+use App\Model\ProductColor;
 use App\Model\Brands;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -61,21 +62,21 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'ru_title' => 'required',
+            'ru_description' => 'required',
             'category_id' => 'required',
             'preview_image' =>  'nullable|image'
         ]);
         $data = $request->all();
         $product = Product::create([
-            'is_auth' => $data['is_auth'],
-            'title' => $data['title'],
-            'description' => $data['description'],
+            'title' => $data['ru_title'],
+            'is_auth' => $request->has('is_auth') ? true : false,
+            'description' => $data['ru_description'],
             'category_id' => $data['category_id'],
             'price' => $data['price'],
-            'brand_id' => $data['brand_id']
+            'brand_id' => $data['brand_id'],
+            'preview_image' => ''
         ]);
-
         if($request->get('charTitle') != null){
             $product->ru_characteristics_title  = serialize($request->get('charTitle'));
             $product->save();
@@ -87,17 +88,22 @@ class ProductController extends Controller
         }
 
 
-
         $product->uploadImage($request->file('preview_image'));
 
-        if(is_array($request->file('file')))
-        {
-            foreach ($request->file('file') as $file)
-            {
-                $image = ProductImage::create([
-                    'product_id' => $product->id
+        if ($request->has('colors')) {
+            $colors = $request->get('colors');
+            foreach ($colors as $number => $color) {
+                $productColor = $product->colors()->create([
+                    'name' => $color['name'],
+                    'colorHEX' => $color['hex']
                 ]);
-                $image->uploadImage($file);
+                if ($request->has("color-images-$number")) {
+                    $images = $request->file("color-images-$number");
+                    foreach ($images as $image) {
+                        $productImage = $productColor->images()->create();
+                        $productImage->uploadImage($image);
+                    }
+                }
             }
         }
         return redirect()->route('products.index');
