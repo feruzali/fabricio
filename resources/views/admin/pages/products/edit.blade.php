@@ -112,7 +112,7 @@
                                 <select class="form-control" id="material-select2" name="category_id">
                                     <option value="0" selected>-- нет --</option>
                                     @foreach($categories as $category_list)
-                                        <option value="{{ $category_list->id }}">{{ $category_list->ru_title }}</option>
+                                        <option value="{{ $category_list->id }}" @if($category_list->id == $product->category_id) selected @endif>{{ $category_list->ru_title }}</option>
                                         @if($category_list->hasChildren())
                                             @include('admin.pages.products.categories', ['dilimiter' => '---', 'category' => $category_list])
                                         @endif
