@@ -91,20 +91,7 @@ class ProductController extends Controller
         $product->uploadImage($request->file('preview_image'));
 
         if ($request->has('colors')) {
-            $colors = $request->get('colors');
-            foreach ($colors as $number => $color) {
-                $productColor = $product->colors()->create([
-                    'name' => $color['name'],
-                    'colorHEX' => $color['hex']
-                ]);
-                if ($request->has("color-images-$number")) {
-                    $images = $request->file("color-images-$number");
-                    foreach ($images as $image) {
-                        $productImage = $productColor->images()->create();
-                        $productImage->uploadImage($image);
-                    }
-                }
-            }
+            $this->createColorsForProductFromRequest($product, $request);
         }
         return redirect()->route('products.index');
     }
@@ -130,7 +117,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $categories = Categories::orderBy('id', 'desc')->where('parent_id', null)->get();
-        $gallery = ProductImage::all();
+        $brands = Brands::orderBy('id', 'desc')->get();
         $common = [];
         if($product->ru_characteristics_title != null){
             $first = unserialize(urldecode($product->ru_characteristics_title));
@@ -142,12 +129,11 @@ class ProductController extends Controller
             $common = [$first, $second];
         }
         return view('admin.pages.products.edit', [
-            'category' => [],
             'categories' => $categories,
             'product' => $product,
             'delimiter' => '',
             'common' => $common,
-            'gallery' => $gallery
+            'brands' => $brands
         ]);
 
     }
@@ -166,9 +152,9 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         $product->update([
-            'is_auth' => $data['is_auth'],
-            'title' => $data['title'],
-            'description' => $data['description'],
+            'is_auth' => $request->has('is_auth') ? true : false,
+            'title' => $data['ru_title'],
+            'description' => $data['ru_description'],
             'category_id' => $data['category_id'],
             'price' => $data['price'],
             'brand_id' => $data['brand_id']
@@ -184,16 +170,41 @@ class ProductController extends Controller
             $product->save();
         }
 
-        $product->uploadImage($request->file('img'));
-        if($request->file('file') != null){
-            if(is_array($request->file('file')))
-            {
-                foreach ($request->file('file') as $file)
-                {
-                    $image = ProductImage::create([
-                        'product_id' => $product->id
+        $product->uploadImage($request->file('preview_image'));
+        if(!$request->has('colors'))
+            $product->colors()->delete();
+        else {
+            $colors = $request->get('colors');
+            $productColors = $product->colors;
+            foreach ($productColors as $key => $productColor) {
+                if (!isset($colors[$key]))
+                    ProductColor::destroy($productColor->id);
+                else {
+                    $productColor->name = $colors[$key]['name'];
+                    $productColor->colorHEX = $colors[$key]['hex'];
+                    $productColor->save();
+                    if ($request->has("color-images-$key")) {
+                        $productColor->images()->delete();
+                        foreach ($request->file("color-images-$key") as $image) {
+                            $productImage = $productColor->images()->create();
+                            $productImage->uploadImage($image);
+                        }
+                    }
+                }
+            }
+            foreach ($colors as $key => $color) {
+                if (!isset($productColors[$key])) {
+                    $productColor = $product->colors()->create([
+                        'name' => $color['name'],
+                        'colorHEX' => $color['hex']
                     ]);
-                    $image->uploadImage($file);
+                    $productColor->save();
+                    if ($request->has("color-images-$key")) {
+                        foreach ($request->file("color-images-$key")  as $image) {
+                            $productImage = $productColor->images()->create();
+                            $productImage->uploadImage($image);
+                        }
+                    }
                 }
             }
         }
@@ -210,19 +221,25 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->removePreviewImage();
-        $cat = ProductImage::where('product_id', $id)->get();
-        $path = public_path() . '/uploads/product/';
-        foreach ($cat as $item){
-            if($item->img != null)
-                Storage::delete('uploads/product/' . $item->img);
-
-            $item->delete();
-        }
-        $preview = $path . $product->img;
-        if(File::exists($preview)){
-            File::delete($preview);
-        }
-        Product::find($id)->delete();
+        $product->colors()->delete();
+        $product->delete();
         return redirect()->back();
+    }
+
+    private function createColorsForProductFromRequest(Product $product, Request $request) {
+        $colors = $request->get('colors');
+        foreach ($colors as $number => $color) {
+            $productColor = $product->colors()->create([
+                'name' => $color['name'],
+                'colorHEX' => $color['hex']
+            ]);
+            if ($request->has("color-images-$number")) {
+                $images = $request->file("color-images-$number");
+                foreach ($images as $image) {
+                    $productImage = $productColor->images()->create();
+                    $productImage->uploadImage($image);
+                }
+            }
+        }
     }
 }
