@@ -37,4 +37,16 @@ class ProductImage extends Model
             Storage::delete('uploads/product/' . $this->img);
         }
     }
+
+    /**
+     * Override delete method to delete image too
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function delete()
+    {
+        $this->removeImage();
+        parent::delete();
+    }
 }

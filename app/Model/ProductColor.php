@@ -19,4 +19,16 @@ class ProductColor extends Model
     {
         return $this->hasOne(Product::class, 'id', 'product_id');
     }
+
+    /**
+     * Override delete method to delete image too
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function delete()
+    {
+        $this->images()->delete();
+        parent::delete();
+    }
 }
