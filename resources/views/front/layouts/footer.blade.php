@@ -32,6 +32,7 @@
     <!-- /.container -->
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="{{asset('front/js/script.js')}}"></script>
 <script src="{{asset('front/js/uikit.min.js')}}"></script>
 @yield('js')
