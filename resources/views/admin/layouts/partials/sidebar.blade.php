@@ -114,9 +114,7 @@
                             <li>
                                 <a href="{{ route('users.index') }}">Все пользователи</a>
                             </li>
-                            <li>
-                                <a href="#">Роли пользователей</a>
-                            </li>
+                            <li><a href="{{ route('requests.index') }}">Заявки на регистрацию</a></li>
                         </ul>
                     </li>
                     <li>
