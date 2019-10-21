@@ -28,10 +28,10 @@
                                         <td class="text-center">{{ $request->id }}</td>
                                         <td class="text-center">{{ $request->company_name }}</td>
                                         <td class="text-center">{{ $request->user->email }}</td>
-                                        <th class="text-center">@if($request->confirmed()) <i class="fa fa-check text-success"></i> @else <i class="fa fa-close text-danger"></i>  @endif</th>
+                                        <td class="text-center">@if($request->confirmed()) <i class="fa fa-check text-success"></i> @else <i class="fa fa-close text-danger"></i>  @endif</td>
                                         <td class="text-center">{{ $request->created_at }}</td>
                                         <td class="d-flex justify-content-center">
-                                            <a href="{{ route('requests.show', $request->id) }}" class="btn btn-sm btn-alt-primary"><i class="fa fa-eye"></i></a>
+                                            <a href="{{ route('requests.show', $request->id) }}" data-toggle="tooltip" title="Показать" class="btn btn-sm btn-alt-primary"><i class="fa fa-eye"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
