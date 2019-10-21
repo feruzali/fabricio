@@ -21,10 +21,12 @@
                         <tr>
                             <th class="text-center d-none d-md-none d-lg-table-cell" style="width: 50px;">ID</th>
                             <th class="text-center d-none d-md-none d-lg-table-cell" style="width: 50px;"><i class="si si-picture"></i></th>
-                            <th>Name</th>
+                            <th>Имя</th>
                             <th class="d-none d-sm-table-cell" style="width: 30%;">Email</th>
-                            <th class="d-none d-md-table-cell" style="width: 15%;">Role</th>
-                            <th class="text-center" style="width: 100px;">Actions</th>
+                            <th class="d-none d-md-table-cell" style="width: 15%;">Роль</th>
+                            <th class="d-none d-md-table-cell">Подтверждён</th>
+                            <th class="d-none d-md-table-cell">Заявка</th>
+                            <th class="text-center" style="width: 100px;">Действия</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -32,7 +34,7 @@
                         <?php $i = 10; ?>
                         @foreach($users as $user)
                             <tr>
-                                <td class="font-w600">{{ $user->id }}</td>
+                                <td class="font-w600 text-center">{{ $user->id }}</td>
                                 <td width="50" class="text-center d-none d-md-none d-lg-table-cell">
                                     <img class="img-avatar img-avatar48" src="{{ $user->getImage() }}" alt="">
                                 </td>
@@ -42,6 +44,14 @@
                                     @foreach ($user->roles as $role)
                                         <span class="badge badge-primary">{{ $role->description }}</span>
                                     @endforeach
+                                </td>
+                                <td class="text-center">@if($user->confirmed) <i class="fa fa-check text-success"></i> @else <i class="fa fa-close text-danger"></i>  @endif</td>
+                                <td class="d-flex justify-content-center">
+                                    @if ($user->registrationRequest)
+                                        <a href="{{ route('requests.show', $user->registrationRequest->id) }}" class="btn btn-sm btn-alt-primary d-flex align-items-center" data-toggle="tooltip" title="Показать"><i class="fa fa-eye"></i></a>
+                                    @else
+                                        -
+                                    @endif
                                 </td>
                                 <td class="text-center">
                                     <div class="btn-group">
