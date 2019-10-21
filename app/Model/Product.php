@@ -59,6 +59,28 @@ class Product extends Model
         $this->save();
     }
 
+    private function uploadSideImage($image, string $field)
+    {
+        if (!$image) return;
+        $filename = str_random(10) . '.' . $image->extension();
+        $image->storeAs('uploads/product/', $filename);
+        $this->$field = $filename;
+        $this->save();
+    }
+
+    public function uploadSidesImages($request)
+    {
+        if ($this->left_image && $request->has('left_image'))
+            Storage::delete('uploads/product/'.$this->left_image);
+        if ($this->front_image && $request->has('front_image'))
+            Storage::delete('uploads/product/'.$this->front_image);
+        if ($this->right_image && $request->has('right_image'))
+            Storage::delete('uploads/product/'.$this->right_image);
+        $this->uploadSideImage($request->file('left_image'), 'left_image');
+        $this->uploadSideImage($request->file('front_image'), 'front_image');
+        $this->uploadSideImage($request->file('right_image'), 'right_image');
+    }
+
 
 
     public function getImage()
@@ -68,6 +90,27 @@ class Product extends Model
             return '/img/no-image.png';
         }
         return '/uploads/product/' . $this->preview_image;
+    }
+
+    public function getLeftImage()
+    {
+        if ($this->left_image)
+            return '/uploads/product/' . $this->left_image;
+        return '/img/no-image.png';
+    }
+
+    public function getFrontImage()
+    {
+        if ($this->front_image)
+            return '/uploads/product/' . $this->front_image;
+        return '/img/no-image.png';
+    }
+
+    public function getRightImage()
+    {
+        if ($this->right_image)
+            return '/uploads/product/' . $this->right_image;
+        return '/img/no-image.png';
     }
 
 
