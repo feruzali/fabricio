@@ -11,6 +11,7 @@
 					<div class="cart-goods">
 						<span class="cart-goods__title">Наименование</span>
 						<span class="cart-goods__quantity">Кол-во</span>
+						<hr style="background-color: #f7f7f7;">
 						<div class="cart-good">
 							<div class="cart-good__img">
 								<img src="img/cart/1.png" alt="">
