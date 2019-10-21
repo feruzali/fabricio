@@ -1,45 +1,17 @@
 @extends('front.layouts.app')
 
 @section('content')
-<section class="req" id="req">
-	<div class="container">
-		<h2 class="page-title">Введите реквизиты</h2>
-		<form action="" method="post" class="req-form">
-            @csrf
-			<div class="row">
-				<div class="col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-12">
-					<label class="req-form__label" for="req-form-client">Заказчик:</label>
-					<textarea class="req-form__txtarea" name="client" id="req-form-client" cols="45" rows="6" placeholder="Полное название компании" required="">{{ old('client') }}</textarea>
-				</div>
-				<div class="col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-12">
-					<label class="req-form__label" for="req-form-bank">Банк:</label>
-					<textarea class="req-form__txtarea" name="bank" id="req-form-bank" cols="45" rows="6" placeholder="Полный адрес" required="">{{ old('bank') }}</textarea>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-12">
-					<label class="req-form__label" for="req-form-address">Адрес:</label>
-					<textarea class="req-form__txtarea" name="address" id="req-form-address" cols="45" rows="6" placeholder="Полный адрес" required="">{{ old('address') }}</textarea>
-				</div>
-				<div class="col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-12">
-					<div class="flexible">
-						<label class="req-form__label" for="req-form-inn">ИНН:</label>
-						<input class="req-form__input" type="text" name="inn" id="req-form-inn" required="" value="{{ old('inn') }}">
-					</div>
-					<div class="flexible">
-						<label class="req-form__label" for="req-form-oked">ОКЕД:</label>
-						<input class="req-form__input" type="text" name="oked" id="req-form-oked" required="" value="{{ old('oked') }}">
-					</div>
-					<div class="flexible">
-						<label class="req-form__label" for="req-form-mfo">МФО:</label>
-						<input class="req-form__input" type="text" name="mfo" id="req-form-mfo" required="" value="{{ old('mfo') }}">
-					</div>
-				</div>
-			</div>
-			<button class="req-form__btn btn-submit" type="submit"><i class="fa fa-envelope"></i>Отправить</button>
-		</form>
-	</div>
-
+<section class="form" id="form">
+	<legend class="form__title">Создание аккаунта</legend>
+	<form action="#" class="form-login" method="post">
+		@csrf
+		<label class="form-login__label" for="login-email">Email</label>
+		<input class="form-login__input" type="email" name="email" placeholder="Companyname@gmail.com" required="">
+		<label class="form-login__label" for="login-password">Пароль</label>
+		<input class="form-login__input" type="password" name="password" placeholder="Как минимум 8 символов" required="">
+		<label class="form-login__label" for="login-password">Подвердите пароль</label>
+		<input class="form-login__input" type="password" name="password_confirmation" placeholder="Пароли должны совпадать" required="">
+		<button class="form-login__btn">Создать аккаунт</button>
+	</form>
 </section>
 @endsection
