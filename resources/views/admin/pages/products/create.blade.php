@@ -155,12 +155,66 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="block block-themed">
+                    <div class="block-header bg-primary">
+                        <h3 class="block-title">Изображение слева</h3>
+                    </div>
+                    <div class="block-content block-content block-content-full text-center bg-info-lighter">
+                        <img id="leftBlah" src="#" alt="your image" style="display: none;"/>
+                        <div class="input_file">
+                            <div class="remove" style="display: none;">Удалить</div>
+                            <input id="leftImgInp" accept="image/*" type="file" class="form-control input_file__input" name="left_image">
+                            <div class="input_file__text">
+                                <div class="input_file_text_first select">Выбрать</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="block block-themed">
+                    <div class="block-header bg-primary">
+                        <h3 class="block-title">Изображение прямо</h3>
+                    </div>
+                    <div class="block-content block-content block-content-full text-center bg-info-lighter">
+                        <img id="frontBlah" src="#" alt="your image" style="display: none;"/>
+                        <div class="input_file">
+                            <div class="remove" style="display: none;">Удалить</div>
+                            <input id="frontImgInp" accept="image/*" type="file" class="form-control input_file__input" name="front_image">
+                            <div class="input_file__text">
+                                <div class="input_file_text_first select">Выбрать</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="block block-themed">
+                    <div class="block-header bg-primary">
+                        <h3 class="block-title">Изображение справа</h3>
+                    </div>
+                    <div class="block-content block-content block-content-full text-center bg-info-lighter">
+                        <img id="rightBlah" src="#" alt="your image" style="display: none;"/>
+                        <div class="input_file">
+                            <div class="remove" style="display: none;">Удалить</div>
+                            <input id="rightImgInp" accept="image/*" type="file" class="form-control input_file__input" name="right_image">
+                            <div class="input_file__text">
+                                <div class="input_file_text_first select">Выбрать</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-12">
                 <div class="block block-themed">
                     <div class="block-header bg-primary">
                         <h3 class="block-title text-center">Картинка-превью</h3>
                     </div>
                     <div class="block-content block-content-full text-center bg-info-lighter">
+                        <img id="blah" src="#" alt="your image" style="display: none;"/>
                         <div class="input_file">
                             <div class="remove" style="display: none;">Удалить</div>
                             <input id="imgInp" accept="image/*" type="file" class="form-control input_file__input" name="preview_image">
@@ -168,7 +222,6 @@
                                 <div class="input_file_text_first select">Выбрать</div>
                             </div>
                         </div>
-                        <img id="blah" src="#" alt="your image" style="width: 200px;display: none;"/>
                     </div>
                 </div>
             </div>
@@ -322,6 +375,18 @@
             $("#imgInp").change(function() {
                 readURL(this, '#blah');
                 $('#blah').attr('style', 'display: block;width:200px;');
+            });
+            $("#leftImgInp").change(function() {
+                readURL(this, '#leftBlah');
+                $('#leftBlah').attr('style', 'display: block;width:200px;');
+            });
+            $("#rightImgInp").change(function() {
+                readURL(this, '#rightBlah');
+                $('#rightBlah').attr('style', 'display: block;width:200px;');
+            });
+            $("#frontImgInp").change(function() {
+                readURL(this, '#frontBlah');
+                $('#frontBlah').attr('style', 'display: block;width:200px;');
             });
 
 

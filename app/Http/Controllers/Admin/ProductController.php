@@ -89,6 +89,7 @@ class ProductController extends Controller
 
 
         $product->uploadImage($request->file('preview_image'));
+        $product->uploadSidesImages($request);
 
         if ($request->has('colors')) {
             $this->createColorsForProductFromRequest($product, $request);
@@ -171,6 +172,8 @@ class ProductController extends Controller
         }
 
         $product->uploadImage($request->file('preview_image'));
+        $product->uploadSidesImages($request);
+
         if(!$request->has('colors'))
             $product->colors()->delete();
         else {

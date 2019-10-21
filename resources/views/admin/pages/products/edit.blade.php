@@ -161,6 +161,59 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="block block-themed">
+                    <div class="block-header bg-primary">
+                        <h3 class="block-title">Изображение слева</h3>
+                    </div>
+                    <div class="block-content block-content block-content-full text-center bg-info-lighter">
+                        <img id="leftBlah" src="{{ $product->getLeftImage() }}" alt="your image" @if(!$product->left_image)style="display: none" @else style="width: 200px"@endif/>
+                        <div class="input_file">
+                            <div class="remove" style="display: none;">Удалить</div>
+                            <input id="leftImgInp" accept="image/*" type="file" class="form-control input_file__input" name="left_image">
+                            <div class="input_file__text">
+                                <div class="input_file_text_first select">Выбрать</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="block block-themed">
+                    <div class="block-header bg-primary">
+                        <h3 class="block-title">Изображение прямо</h3>
+                    </div>
+                    <div class="block-content block-content block-content-full text-center bg-info-lighter">
+                        <img id="frontBlah" src="{{ $product->getFrontImage() }}" alt="your image" @if(!$product->front_image)style="display: none" @else style="width: 200px"@endif/>
+                        <div class="input_file">
+                            <div class="remove" style="display: none;">Удалить</div>
+                            <input id="frontImgInp" accept="image/*" type="file" class="form-control input_file__input" name="front_image">
+                            <div class="input_file__text">
+                                <div class="input_file_text_first select">Выбрать</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="block block-themed">
+                    <div class="block-header bg-primary">
+                        <h3 class="block-title">Изображение справа</h3>
+                    </div>
+                    <div class="block-content block-content block-content-full text-center bg-info-lighter">
+                        <img id="rightBlah" src="{{ $product->getRightImage() }}" alt="your image" @if(!$product->right_image)style="display: none" @else style="width: 200px" @endif/>
+                        <div class="input_file">
+                            <div class="remove" style="display: none;">Удалить</div>
+                            <input id="rightImgInp" accept="image/*" type="file" class="form-control input_file__input" name="right_image">
+                            <div class="input_file__text">
+                                <div class="input_file_text_first select">Выбрать</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-12">
                 <div class="block block-themed">
                     <div class="block-header bg-primary">
