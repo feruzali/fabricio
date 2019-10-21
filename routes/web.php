@@ -47,6 +47,10 @@ Route::middleware('admin.auth')->prefix('admin')->namespace('Admin')->group(func
      */
     Route::get('/contact', 'ContactController@index')->name('contact');
     Route::post('/contact/edit', 'ContactController@edit')->name('contact.edit');
+
+    // Registration requests
+    Route::resource('/requests', 'RequestController');
+    Route::get('/requests/{id}/confirm', 'RequestController@confirmRequest')->name('requests.confirm');
 });
 
 
