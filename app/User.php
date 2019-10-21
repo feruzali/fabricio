@@ -120,4 +120,8 @@ class User extends Authenticatable
         $this->password = Hash::make($password);
         $this->save();
     }
+
+    public function registrationRequest() {
+        return $this->hasOne(\App\Model\RegistrationRequest::class);
+    }
 }
