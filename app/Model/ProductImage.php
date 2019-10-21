@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductImage extends Model
 {
-    protected $table = 'product_image';
     protected $fillable = ['product_id'];
 
     public function uploadImage($image)
@@ -37,5 +36,17 @@ class ProductImage extends Model
         {
             Storage::delete('uploads/product/' . $this->img);
         }
+    }
+
+    /**
+     * Override delete method to delete image too
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function delete()
+    {
+        $this->removeImage();
+        parent::delete();
     }
 }

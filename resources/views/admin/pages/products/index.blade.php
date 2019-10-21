@@ -22,8 +22,9 @@
                     <table id="dataTable" class="table table-striped table-vcenter">
                         <thead>
                         <tr>
-                            <th class="text-center d-none d-md-none d-lg-table-cell" style="width: 50px;"><i class="si si-user"></i></th>
+                            <th class="text-center d-none d-md-none d-lg-table-cell" style="width: 50px;"><i class="si si-picture"></i></th>
                             <th>Заголовок</th>
+                            <th>Категория</th>
                             <th class="text-center" style="width: 100px;">Действия</th>
                         </tr>
                         </thead>
@@ -35,7 +36,8 @@
                                 <td width="50" class="text-center d-none d-md-none d-lg-table-cell">
                                     <img class="img-avatar img-avatar48" src="{{ $product->getImage() }}" alt="">
                                 </td>
-                                <td class="font-w600">{{ $product->ru_title}}</td>
+                                <td class="font-w600">{{ $product->title}}</td>
+                                <td class="font-w600">@if($product->category) {{ $product->category->ru_title }} @else - @endif</td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <a href="{{ route('products.edit', [$product->id, 'list_id' => intval($i/10)]) }}" class="btn btn-sm btn-secondary js-tooltip-enabled" data-toggle="tooltip" title="" data-original-title="Edit">

@@ -54,12 +54,17 @@
         .gallery > img {
             margin-top: 15px!important;
         }
+        .delete-button {
+            cursor: pointer;
+        }
     </style>
+
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}">
 @endsection
 
 @section('content')
     <!-- Material Design -->
-    <h2 class="content-heading">Создание</h2>
+    <h2 class="content-heading">Редактирование</h2>
     @if($errors->any())
         <div class="row">
             <div class="col-md-12 mb-3">
@@ -75,98 +80,63 @@
         @csrf
         @method('put')
         <div class="row">
-            <div class="col-md-3">
-
-                <div class="block block-themed">
-                    <div class="block-header bg-info">
-                        <h3 class="block-title">Изображение-превью</h3>
+            <div class="col-12">
+                <div class=" block">
+                    <div class="block-header">
+                        <h3 class="block-title">{{ $product->title }} <small>редактирование</small></h3>
+                        <div class="block-options">
+                            <button type="submit" class="btn btn-alt-success"><i class="fa fa-check"></i> Сохранить</button>
+                        </div>
                     </div>
-                    <div class="block-content block-content-full text-center bg-info-lighter">
-                        <div class="input_file">
-                            <div class="remove" style="display: none;">Удалить</div>
-                            <input type="file" accept="image/*" class="form-control input_file__input" name="img" id="imgInp">
-                            <div class="input_file__text">
-                                <div class="input_file_text_first select">Выбрать</div>
+                    <div class="block-content block-content-full">
+                        <div class="form-group">
+                            <div class="form-material floating">
+                                <input class="form-control" type="text" id="ru_title" name="ru_title" value="{{ $product->title }}">
+                                <label for="ru_title">Название</label>
                             </div>
                         </div>
-                        <img id="blah" src="#" alt="your image" style="width: 200px;display: none;"/>
-                    </div>
-                </div>
-
-
-                <div class="block block-themed">
-                    <div class="block-header bg-info">
-                        <h3 class="block-title">
-                            Галерея
-                        </h3>
-                    </div>
-
-                    <div class="block-content block-content-full text-center bg-info-lighter">
-                        <div class="input_file">
-                            <input accept="image/*" type="file" class="form-control" name="file[]" id="gallery-photo-add" multiple />
-                        </div>
-                        <div class="gallery"></div>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="col-md-9">
-                <div class="js-wizard-simple block">
-                    <!-- Step Tabs -->
-                    <ul class="nav nav-tabs nav-tabs-alt nav-fill" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#wizard-simple2-step1" data-toggle="tab">1. Рус</a>
-                        </li>
-                    </ul>
-                    <!-- END Step Tabs -->
-
-                    <!-- Form -->
-                    <!-- Steps Content -->
-                    <div class="block-content block-content-full tab-content" style="min-height: 267px;">
-                        <!-- Step 1 -->
-                        <div class="tab-pane active" id="wizard-simple2-step1" role="tabpanel">
-                            <div class="form-group">
-                                <div class="form-material floating">
-                                    <input class="form-control" type="text" id="ru_title" name="ru_title" value="{{ $product->ru_title }}">
-                                    <label for="ru_title">Заголовок</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="form-material floating">
-                                    <input class="form-control" type="number" id="price" name="price" value="{{ $product->price }}">
-                                    <label for="price">Цена</label>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="form-material">
-                                    <textarea class="form-control" id="ru_description" name="ru_description">{{ $product->ru_description }}</textarea>
-                                    <label for="ru_description">Описание</label>
-                                </div>
+                        <div class="form-group">
+                            <div class="form-material">
+                                <textarea class="form-control" id="ru_description" name="ru_description">{{ $product->description }}</textarea>
+                                <label for="ru_description">Описание</label>
                             </div>
                         </div>
-                        <!-- END Step 1 -->
-
-                        <div class="form-material floating">
-                            <select class="form-control" id="material-select2" name="category_id">
-                                <option value="0" selected>-- нет --</option>
-                                @foreach($categories as $category_list)
-                                    <option value="{{ $category_list->id }}">{{ $category_list->ru_title }}</option>
-                                    @if($category_list->hasChildren())
-                                        @include('admin.pages.categories.components.categories', ['dilimiter' => '---', 'category' => $category_list])
-                                    @endif
-                                @endforeach
-                            </select>
-                            <label for="material-select2">Родительская категория</label>
+                        <div class="form-group">
+                            <div class="form-material floating">
+                                <input class="form-control" type="number" id="price" name="price" value="{{ $product->price }}">
+                                <label for="price">Цена</label>
+                            </div>
                         </div>
-
-
-
-
-
+                        <div class="form-group">
+                            <div class="form-material floating">
+                                <select class="form-control" id="material-select2" name="category_id">
+                                    <option value="0" selected>-- нет --</option>
+                                    @foreach($categories as $category_list)
+                                        <option value="{{ $category_list->id }}" @if($category_list->id == $product->category_id) selected @endif>{{ $category_list->ru_title }}</option>
+                                        @if($category_list->hasChildren())
+                                            @include('admin.pages.products.categories', ['dilimiter' => '---', 'category' => $category_list])
+                                        @endif
+                                    @endforeach
+                                </select>
+                                <label for="material-select2">Родительская категория</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-material floating">
+                                <select class="form-control" id="material-select2" name="brand_id">
+                                    <option value="0" selected>-- нет --</option>
+                                    @foreach($brands as $brand)
+                                        <option value="{{ $brand->id }}" @if($brand->id == $product->brand_id) selected @endif>
+                                            {{ $brand->title }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <label for="material-select2">Бренд продукта</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="css-control css-control-primary css-checkbox"><input type="checkbox" class="css-control-input" name="is_auth" @if ($product->is_auth) checked @endif><span class="css-control-indicator"></span>Приватный товар</label>
+                        </div>
                         <div class="tab-pane active" id="wizard-simple2-step1" role="tabpanel">
                             <div class="form-group char-container" style="margin-bottom: 0;">
                                 @if(count($common) != 0)
@@ -180,127 +150,259 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="tab-pane active" id="wizard-simple2-step1" role="tabpanel">
-                            <div class="col-xs-8" style="margin-top: 10px;margin-bottom: 10px;">
-                                <button class="add-form btn btn-primary" style="margin-bottom: 10px;">
-                                    Добавить характеристику
-                                </button>
-
-                                <div class="char-content">
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-xs-8">
-                                {!! Form::label('faq_id', 'Выберите загрузки к товару:',['class'=>' control-label']) !!}
-                                <select name="faq_id" class="form-control">
-                                    <option value="0">
-                                        Выберите значение...
-                                    </option>
-                                    @foreach($faqs as $faq)
-                                        @if($faq->id == $product->download_id)
-                                            <option selected value="{{$faq->id}}">{{$faq->title}}</option>
-                                        @else
-                                            <option value="{{$faq->id}}">
-                                                {{$faq->title}}
-                                            </option>
-                                        @endif
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
 
 
                         <!-- END Step 3 -->
                     </div>
-                    <?php $i = 1; ?>
-                    @foreach($gallary as $image)
-                        @if($image->product_id == $product->id)
-                            @if($i == 1)
-                                <div class="row">
-                                    @endif
-                                    <div class="col-md-4">
-                                        <div class="box">
-                                            <div class="box-body">
-                                                <img style="width: 100%" src="{{ asset('uploads/' . $image->img) }}" alt="">
-                                            </div>
-                                            <div class="box-footer">
-                                                <a href="{{ route('custom.ImageDelete', [$image->id, $product->id]) }}" class="btn btn-danger">Delete</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @if($i == 3)
-                                </div>
-                            <?php $i = 1; ?>
-                        @else
-                            <?php $i++; ?>
-                        @endif
-                    @endif
-                @endforeach
-                <!-- END Steps Content -->
+
+                    <!-- END Steps Content -->
                     <!-- END Form -->
                 </div>
             </div>
         </div>
-        <div class="row mb-3">
-            <div class="col-md-12">
-                <div class="block pb-3">
-                    <div class="block-content text-right">
-                        <button class="btn btn-info">Создать</button>
+        <div class="row">
+            <div class="col-12">
+                <div class="block block-themed">
+                    <div class="block-header bg-primary">
+                        <h3 class="block-title text-center">Картинка-превью</h3>
+                    </div>
+                    <div class="block-content block-content-full text-center bg-info-lighter">
+                        <img src="{{ $product->getImage() }}" alt="{{ $product->title }}" style="width: 200px;">
+                        <div class="input_file">
+                            <div class="remove">Удалить</div>
+                            <input id="imgInp" accept="image/*" type="file" class="form-control input_file__input" name="preview_image">
+                            <div class="input_file__text">
+                                <div class="input_file_text_first select">Выбрать</div>
+                            </div>
+                        </div>
+                        <img id="blah" src="#" alt="your image" style="width: 200px;display: none;"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="block">
+                    <div class="block-header">
+                        <h3 class="block-title">Цвета и изображения</h3>
+                        <div class="block-options">
+                            <button class="btn btn-sm btn-alt-primary" type="button" id="addColorButton"><i class="fa fa-plus"></i> Добавить</button>
+                        </div>
+                    </div>
+                    <div class="block-content" id="color-items">
+                        @foreach ($product->colors as $key => $color)
+                            <div class="block block-themed color-item" id="color-item-{{ $key }}">
+                                <div class="block-header bg-primary-light">
+                                    <h3 class="block-title">Цвет товара</h3>
+                                    <div class="block-options">
+                                        <button class="btn-block-option delete-button" type="button" data-toggle="tooltip" title="Удалить цвет" data-block-id="color-item-{{ $key }}"><i class="fa fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="block-content">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <div class="form-material floating form-material-primary">
+                                                    <input type="text" name="colors[{{ $key }}][name]" class="form-control" id="colorName{{ $key }}" value="{{ $color->name }}">
+                                                    <label for="colorName1">Название</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <div class="form-material form-material-primary floating">
+                                                    <input type="text" name="colors[{{ $key }}][hex]" id="colorHex{{ $key }}"
+                                                           class="js-colorpicker form-control" value="{{ $color->colorHEX }}">
+                                                    <label for="colorHex{{ $key }}">Цвет</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="block">
+                                                <div class="block-header block-header-default">
+                                                    <h3 class="block-title text-center">Изображения</h3>
+                                                </div>
+                                                <div class="block-content block-content-full text-center bg-info-lighter">
+                                                    <div class="input_file">
+                                                        <div class="remove" style="display: none;">Удалить</div>
+                                                        <input id="gallery-photo-add" multiple accept="image/*" type="file" class="form-control input_file__input" name="color-images-{{ $key }}[]">
+                                                        <div class="input_file__text">
+                                                            <div class="input_file_text_first select">Выбрать</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="text-align:center;" class="gallery">
+                                                    @foreach ($color->images as $image)
+                                                        <img src="{{ $image->getImage() }}" alt="" style="width: 200px;">
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </form>
+
+    <template id="color-item-template">
+        <div class="block block-themed color-item" id="color-item-{0}">
+            <div class="block-header bg-primary-light">
+                <h3 class="block-title">Цвет товара</h3>
+                <div class="block-options">
+                    <button class="btn-block-option delete-button" type="button" data-toggle="tooltip" title="Удалить цвет" data-block-id="color-item-{0}"><i class="fa fa-trash"></i></button>
+                </div>
+            </div>
+            <div class="block-content">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-material floating form-material-primary">
+                                <input type="text" name="colors[{0}][name]" class="form-control" id="colorName{0}">
+                                <label for="colorName{0}">Название</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-material form-material-primary floating">
+                                <input type="text" name="colors[{0}][hex]" id="colorHex{0}"
+                                       class="js-colorpicker form-control">
+                                <label for="colorHex{6}">Цвет</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="block">
+                            <div class="block-header block-header-default">
+                                <h3 class="block-title text-center">Изображения</h3>
+                            </div>
+                            <div class="block-content block-content-full text-center bg-info-lighter">
+                                <div class="input_file">
+                                    <div class="remove" style="display: none;">Удалить</div>
+                                    <input id="gallery-photo-add" multiple accept="image/*" type="file" class="form-control input_file__input" name="color-images-{0}[]">
+                                    <div class="input_file__text">
+                                        <div class="input_file_text_first select">Выбрать</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align:center;" class="gallery"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
 @endsection
 
 
 @section('js')
     <script>
+        $(document).ready(function(){
 
-        function readURL(input, id) {
 
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+            $('.add-form').click(function (e) {
+                e.preventDefault();
+                counter++;
+                let charTitle = "<div class='row char-elem" + counter + "' style='margin-bottom: 10px;'>";
+                charTitle += "<div class='col-md-3'><input name='charTitle[]' class='form-control char-title' type='text' placeholder='Введите название для характеристики...'></div>";
+                charTitle += "<div class='col-md-3'><input name='charValue[]' class='form-control char-value' type='text' placeholder='Введите значение для характеристики...'></div>";
+                charTitle += "<div class='col-md-3'><span class=' form-control btn btn-primary char-btn' onclick='removeBlock(" + counter + ")'> Удалить </span></div>";
+                charTitle += "</div>";
+                $('.char-content').append(charTitle);
+            });
 
-                reader.onload = function(e) {
-                    $(id).attr('src', e.target.result);
-                }
 
-                reader.readAsDataURL(input.files[0]);
+            function removeBlock(counter) {
+                $('.char-elem' + counter).remove();
             }
-        }
+            var counter = 0;
 
-        $("#imgInp").change(function() {
-            readURL(this, '#blah');
-            $('#blah').attr('style', 'display: block;width:200px;');
-        });
+            function readURL(input, id) {
 
-
-        // Multiple images preview in browser
-        var imagesPreview = function(input, placeToInsertImagePreview) {
-
-            if (input.files) {
-                var filesAmount = input.files.length;
-
-                for (i = 0; i < filesAmount; i++) {
+                if (input.files && input.files[0]) {
                     var reader = new FileReader();
 
-                    reader.onload = function(event) {
-                        $($.parseHTML('<img style="width: 200px;">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                    reader.onload = function(e) {
+                        $(id).attr('src', e.target.result);
                     }
 
-                    reader.readAsDataURL(input.files[i]);
+                    reader.readAsDataURL(input.files[0]);
                 }
             }
 
-        };
+            $("#imgInp").change(function() {
+                readURL(this, '#blah');
+                $('#blah').attr('style', 'display: block;width:200px;');
+            });
 
-        $('#gallery-photo-add').on('change', function() {
-            imagesPreview(this, 'div.gallery');
+
+            // Multiple images preview in browser
+            var imagesPreview = function(input, placeToInsertImagePreview) {
+
+                if (input.files) {
+                    var filesAmount = input.files.length;
+
+                    for (i = 0; i < filesAmount; i++) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(event) {
+                            $($.parseHTML('<img style="width: 200px;">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                        };
+
+                        reader.readAsDataURL(input.files[i]);
+                    }
+                }
+
+            };
+
+            $('#gallery-photo-add').on('change', function() {
+                imagesPreview(this, 'div.gallery');
+            });
         });
 
+    </script>
+    <script src="{{ asset('assets/js/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
+    <script>
+        jQuery(function () {
+            Codebase.helper('colorpicker');
+        })
+    </script>
+    <script>
+        if (!String.prototype.format) {
+            String.prototype.format = function() {
+                var args = arguments;
+                return this.replace(/{(\d+)}/g, function(match, number) {
+                    return typeof args[number] != 'undefined'
+                        ? args[number]
+                        : match
+                        ;
+                });
+            };
+        }
+
+        function deleteColorItem() {
+            let deleteButton = $(this);
+            let blockId = deleteButton.data('block-id');
+            $(`#${blockId}`).remove();
+        }
+
+        jQuery(function() {
+            let counter = {{ count($product->colors) }};
+            let templateString = $('#color-item-template').html();
+            $('#addColorButton').on('click', function() {
+                counter++;
+                let colorItemString = templateString.format(counter);
+                let colorItem = $(colorItemString);
+                colorItem.find('.delete-button').on('click', deleteColorItem);
+                $('#color-items').append(colorItem);
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $(`#color-item-${counter}`).offset().top
+                }, 1000);
+                Codebase.helper('colorpicker');
+            });
+            $('.delete-button').on('click', deleteColorItem);
+        });
     </script>
 @endsection
