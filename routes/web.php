@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use Illuminate\Routing\Route;
+
 Route::prefix('login')->group(function (){
     //Admin
     Route::get('/admin', 'AdminAuth\LoginController@showLoginForm')->name('admin.loginForm');
@@ -54,7 +57,12 @@ Route::middleware('admin.auth')->prefix('admin')->namespace('Admin')->group(func
 });
 
 
-
+// Cart routes
+Route::namespace('Front')->group(function() {
+    Route::post('/cart/add', 'CartController@addToCart');
+    Route::post('/cart/update', 'CartController@update');
+    Route::post('/cart/remove', 'CartController@remove');
+});
 
 // FrontAuthentication Routes...
 Route::get('logout', 'FrontAuth\LoginController@logout')->name('logout');
@@ -65,6 +73,7 @@ Route::get('password/reset', 'FrontAuth\ForgotPasswordController@showLinkRequest
 Route::post('password/email', 'FrontAuth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'FrontAuth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'FrontAuth\ResetPasswordController@reset');
+
 
 Route::middleware('catalog')->group(function() {
     Route::get('/', 'HomeController@index')->name('home');
