@@ -124,4 +124,9 @@ class User extends Authenticatable
     public function registrationRequest() {
         return $this->hasOne(\App\Model\RegistrationRequest::class);
     }
+
+    public function cart()
+    {
+        return $this->belongsToMany(\App\Model\Product::class);
+    }
 }
