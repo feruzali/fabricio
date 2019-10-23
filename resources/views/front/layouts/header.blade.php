@@ -66,8 +66,8 @@
                     @endguest
                     @auth
                         <img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag">
-                        <span class="header__bag__quan">2</span>
-                        <span class="header__price">-&nbsp;10 000 сум</span>
+                        <span class="header__bag__quan" id="cartCount">@if(isset($cartTotalCount)) {{ $cartTotalCount }} @else 0 @endif</span>
+                        <span class="header__price"> &nbsp;@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif сум</span>
                     @endauth
                 </div>
             </div>
