@@ -11,7 +11,6 @@
 |
 */
 
-use Illuminate\Routing\Route;
 
 Route::prefix('login')->group(function (){
     //Admin
