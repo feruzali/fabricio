@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Product;
+use App\Model\Order;
+use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
@@ -67,5 +69,46 @@ class CartController extends Controller
         $quantity = $request->get('quantity');
         $cart[$productId]['quantity'] = $quantity;
         session()->put('cart', $cart);
+    }
+
+    public function createOrder(Request $request) {
+        if ($request->has('useRegistrationRequisites')) {
+            Validator::make($request->all(), [
+                'name' => ['required', 'string'],
+                'phone_number' => ['required', 'string'],
+                'email' => ['required', 'email'],
+                'comment' => ['string']
+            ])->validate();
+            $registrationRequest = auth()->user()->registrationReques;
+            $order = Order::create([
+                'company_name' => $registrationRequest->company_name,
+                'bank' => $registrationRequest->bank,
+                'address' => $registrationRequest->address,
+                'tin' => $registrationRequest->tin,
+                'ctea' => $registrationRequest->ctea,
+                'mfi' => $registrationRequest->mfi,
+                'name' => $request->get('name'),
+                'phone_number' => $request->get('phone_number'),
+                'email' => $request->get('email'),
+                'comment' => $request->get('comment')
+            ]);
+        } else {
+            Validator::make($request->all(), [
+                'name' => ['required', 'string'],
+                'phone_number' => ['required', 'string'],
+                'email' => ['required', 'email'],
+                'comment' => ['string'],
+                'company_name' => ['required', 'string', 'unique:registration_requests'],
+                'bank' => ['required', 'string'],
+                'address' => ['required', 'string'],
+                'tin' => ['required', 'string', 'min:9', 'max:9'],
+                'ctea' => ['required', 'string', 'min:5', 'max:5'],
+                'mfi' => ['required', 'string', 'min:5', 'max:5']
+            ])->validate();
+            $order = Order::create($request->all());
+        }
+        session()->forget('cart');
+        return redirect()->route('home');
+
     }
 }
