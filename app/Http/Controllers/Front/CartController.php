@@ -36,7 +36,7 @@ class CartController extends Controller
             return redirect()->back();
         }
         if (isset($cart[$productId])) {
-            $cart[$productId]['quantity'] = $quantity;
+            $cart[$productId]['quantity'] += $quantity;
             session()->put('cart', $cart);
             return redirect()->back();
         }
