@@ -77,14 +77,13 @@ class CartController extends Controller
     }
 
     public function createOrder(Request $request) {
-        if ($request->has('useRegistrationRequisites')) {
+        if ($request->get('requisites') == 'useRegistration') {
             Validator::make($request->all(), [
                 'name' => ['required', 'string'],
                 'phone_number' => ['required', 'string'],
-                'email' => ['required', 'email'],
-                'comment' => ['string']
+                'email' => ['required', 'email']
             ])->validate();
-            $registrationRequest = auth()->user()->registrationReques;
+            $registrationRequest = auth()->user()->registrationRequest;
             $order = Order::create([
                 'company_name' => $registrationRequest->company_name,
                 'bank' => $registrationRequest->bank,
@@ -95,7 +94,8 @@ class CartController extends Controller
                 'name' => $request->get('name'),
                 'phone_number' => $request->get('phone_number'),
                 'email' => $request->get('email'),
-                'comment' => $request->get('comment')
+                'comment' => $request->get('comment'),
+                'user_id' => auth()->user()->id
             ]);
         } else {
             Validator::make($request->all(), [
@@ -108,7 +108,7 @@ class CartController extends Controller
                 'address' => ['required', 'string'],
                 'tin' => ['required', 'string', 'min:9', 'max:9'],
                 'ctea' => ['required', 'string', 'min:5', 'max:5'],
-                'mfi' => ['required', 'string', 'min:5', 'max:5']
+                'mfi' => ['required', 'string', 'min:5', 'max:5'],
             ])->validate();
             $order = Order::create($request->all());
         }
