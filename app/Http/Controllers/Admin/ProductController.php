@@ -65,7 +65,8 @@ class ProductController extends Controller
             'ru_title' => 'required',
             'ru_description' => 'required',
             'category_id' => 'required',
-            'preview_image' =>  'nullable|image'
+            'preview_image' =>  'nullable|image',
+            'price' => 'required'
         ]);
         $data = $request->all();
         $product = Product::create([
@@ -95,17 +96,6 @@ class ProductController extends Controller
             $this->createColorsForProductFromRequest($product, $request);
         }
         return redirect()->route('products.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

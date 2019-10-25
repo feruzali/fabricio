@@ -82,6 +82,20 @@ class Categories extends Model
         return implode("/", $slugs->toArray());
     }
 
+    /**
+     * Get all brands from category's products
+     *
+     * @return array
+    */
+    public function getAllBrands()
+    {
+        $brands = [];
+        foreach ($this->products as $product)
+            if (!isset($brands[$product->brand_id]))
+                $brands[$product->brand_id] = $product->brand;
+        return $brands;
+    }
+
     public function sluggable()
     {
         return [

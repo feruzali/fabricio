@@ -16,21 +16,21 @@
                 <div class="block-content">
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
-                            <h3 class="font-w600">Заказчик</h3>
+                            <h5 class="font-w600">Заказчик</h5>
                             <p>{{ $request->company_name }}</p>
-                            <h3 class="font-w600">Адрес</h3>
+                            <h5 class="font-w600">Адрес</h5>
                             <p>{{ $request->address }}</p>
-                            <h3 class="font-w600">Email</h3>
+                            <h5 class="font-w600">Email</h5>
                             <p>{{ $request->user->email }}</p>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <h3 class="font-w600">Банк</h3>
+                            <h5 class="font-w600">Банк</h5>
                             <p>{{ $request->bank }}</p>
-                            <h3 class="font-w600">ИНН</h3>
+                            <h5 class="font-w600">ИНН</h5>
                             <p>{{ $request->tin }}</p>
-                            <h3 class="font-w600">ОКЭД</h3>
+                            <h5 class="font-w600">ОКЭД</h5>
                             <p>{{ $request->ctea }}</p>
-                            <h3 class="font-w600">МФО</h3>
+                            <h5 class="font-w600">МФО</h5>
                             <p>{{ $request->mfi }}</p>
                         </div>
                     </div>

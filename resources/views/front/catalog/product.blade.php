@@ -6,14 +6,12 @@
             <div uk-slideshow>=
                 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                     <ul class="uk-slideshow-items card-slideshow__bg">
-                        @foreach($product->img as $productImage)
                             <li>
-                                <img class="uk-position-center uk-margin-large-left" src="{{ $productImage->getImage() }}" alt="{{ $product->title }}">
+                                <img class="uk-position-center uk-margin-large-left" src="" alt="{{ $product->title }}">
                                 <div class="uk-overlay uk-position-bottom-right uk-position-small">
                                     <p class="card-slideshow">{{ $product->title }}</p>
                                 </div>
                             </li>
-                        @endforeach
                     </ul>
                     <div class="uk-position-bottom-right uk-position-medium card-slideshow__nav">
                         <i class="fa fa-long-arrow-left" uk-slideshow-item="previous"></i>
@@ -23,21 +21,21 @@
                         <ul class="uk-slideshow-nav uk-dotnav uk-dotnav-vertical"></ul>
                     </div>
                     <div class="uk-position-center-left uk-position-small">
-                        <div class="circle" style="background-color: #4986ff;"><i class="fa fa-check"></i></div>
-                        <div class="circle" style="background-color: #76d2e6;"><i class="fa fa-check"></i></div>
-                        <div class="circle" style="background-color: #f593a7;"><i class="fa fa-check"></i></div>
+                        @foreach($product->colors as $color)
+                            <div class="circle" style="background-color: {{ $color->colorHEX  }};"><i class="fa fa-check"></i></div>
+                        @endforeach
                     </div>
                     <div class="stepper stepper--style-3 js-spinner">
-                        <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input">
+                        <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input" id="quantityField">
                         <div class="stepper__controls">
                             <button class="" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                             <button class="" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
                         </div>
                     </div>
-                    <button class="card-slideshow__btn"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button> 
+                    <button class="card-slideshow__btn" id="addToCartButton" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button>
                 </div>
             </div>
-            <h2 class="card__title">Fabricio fb1810</h2>
+            <h2 class="card__title">{{ $product->title }}</h2>
         </div>
     </section>
 
@@ -45,7 +43,7 @@
     <section class="card-descr" id="card-descr">
 
         <div class="container">
-            <h2 class="section-title">{{ number_format($product->price, $thousands_sep = ' ') }} сум</h2>
+            <h2 class="section-title">{{ number_format($product->price, 0, ',', ' ') }} сум</h2>
 
             <div class="row">
                 <div class="col-4">
@@ -92,4 +90,25 @@
         </div>
 
     </section>
+@endsection
+
+@section('js')
+    <script>
+        jQuery(function() {
+            $('#addToCartButton').on('click', function(e) {
+                e.preventDefault();
+                let element = $(this);
+                let quantity = parseInt($('#quantityField').val());
+                let productId = element.data('product-id');
+                $.ajax({
+                    url: '{{ route('cart.add') }}',
+                    'method': 'post',
+                    data: {_token: '{{ csrf_token() }}', productId, quantity: quantity},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            });
+        })
+    </script>
 @endsection

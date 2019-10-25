@@ -4,10 +4,10 @@
         <div class="container">
             <h2 class="page-title">{{ $category->ru_title }}</h2>
 
-            <div class="catalog__filter_md">
+            <div class="catalog__filter_md  md_visible">
 
                 <ul class=" uk-nav-parent-icon nav-bar-list catalog__sort_md" uk-nav="multiple: true">
-                    
+
                     <li class="catalog__sortItem_md uk-parent">
                         <a href="#">All types</a>
                         <ul class="uk-nav-sub catalog__sort_md-dropdown">
@@ -63,7 +63,7 @@
 
             </div>
 
-            <div class="catalog__filter">
+            <div class="catalog__filter md_hidden">
                 <div class="catalog__sort">
 
                     <div class="catalog__sortItem">
@@ -143,8 +143,13 @@
 
                 </div>
             </div>
+<<<<<<< HEAD
             
+            <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider uk-margin-medium-bottom md_hidden" index="1">
+=======
+
             <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider" index="1">
+>>>>>>> 38e23ca6066b096de16e6b72988054c903a85097
                 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                     <ul class="uk-slideshow-items">
                         <li>
@@ -177,9 +182,15 @@
                 </div>
             </div>
 
+<<<<<<< HEAD
         </div> 
             
+        <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider uk-margin-medium-bottom md_visible" index="1">
+=======
+        </div>
+
         <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider uk-margin-medium-bottom" index="1">
+>>>>>>> 38e23ca6066b096de16e6b72988054c903a85097
 
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
@@ -216,11 +227,11 @@
 
             </div>
 
-            
 
-        </div>    
 
-        <div class="container">    
+        </div>
+
+        <div class="container">
 
             <div class="row">
 
@@ -231,7 +242,7 @@
                                 <img src="{{ $product->getImage() }}" alt="">
                             </div>
                             <div class="catalog-card-choice">
-                                @foreach($product->img as $img)
+                                @foreach($product->getAllImages() as $img)
                                     <div class="catalog-card-choice__elem">
                                         <img src="{{ $img->getImage() }}" alt="">
                                     </div>
