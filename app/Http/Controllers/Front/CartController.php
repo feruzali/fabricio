@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+
     public function index()
     {
         return view('front.catalog.cart');
@@ -29,7 +34,7 @@ class CartController extends Controller
                     "name" => $product->name,
                     "quantity" => $quantity,
                     "price" => $product->price,
-                    "photo" => $product->photo
+                    "photo" => $product->getImage()
                 ]
             ];
             session()->put('cart', $cart);
