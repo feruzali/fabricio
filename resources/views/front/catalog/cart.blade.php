@@ -12,60 +12,28 @@
 						<span class="cart-goods__title">Наименование</span>
 						<span class="cart-goods__quantity">Кол-во</span>
 						<hr style="background-color: #f7f7f7;">
-						<div class="cart-good">
-							<div class="cart-good__img">
-								<img src="img/cart/1.png" alt="">
-							</div>
-							<span class="cart-good__title">Fabricio 1845</span>
-							<input type="checkbox" class="cart-good__checkbox uk-checkbox"></input>
+                        @if (session('cart'))
+                            @foreach(session('cart') as $id => $details)
+                                <div class="cart-good">
+                                    <div class="cart-good__img">
+                                        <img src="{{ $details['photo'] }}" alt="">
+                                    </div>
+                                    <span class="cart-good__title">{{ $details['name'] }}</span>
+                                    <input type="checkbox" class="cart-good__checkbox uk-checkbox"></input>
 
-							<div class="stepper stepper--style-3 js-spinner card-good__quantity-wrapper">
-							    <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input cart-good__quantity__input">
-							    <div class="stepper__controls">
-							        <button class="cart-good__quantity__btn" type="button" spinner-button="up"><i class="fa fa-caret-right"></i></button>
-							        <button class="cart-good__quantity__btn" type="button" spinner-button="down"><i class="fa fa-caret-left"></i></button>
-							    </div>
-							</div>
-							<span class="cart-good_m">М</span>
+                                    <div class="stepper stepper--style-3 js-spinner card-good__quantity-wrapper">
+                                        <input autofocus type="number" min="1" max="10" step="1" value="{{ $details['quantity'] }}" data-product-id="{{ $id }}" class="stepper__input cart-good__quantity__input">
+                                        <div class="stepper__controls">
+                                            <button class="cart-good__quantity__btn" type="button" spinner-button="up"><i class="fa fa-caret-right"></i></button>
+                                            <button class="cart-good__quantity__btn" type="button" spinner-button="down"><i class="fa fa-caret-left"></i></button>
+                                        </div>
+                                    </div>
+                                    <span class="cart-good_m">М</span>
 
-							<button class="cart-good_delete"><span>Удалить</span><i class="fa fa-times"></i></button>
-						</div>
-						<div class="cart-good">
-							<div class="cart-good__img">
-								<img src="img/cart/2.png" alt="">
-							</div>
-							<span class="cart-good__title">Fabricio 1845</span>
-							<input type="checkbox" class="cart-good__checkbox uk-checkbox"></input>
-
-							<div class="stepper stepper--style-3 js-spinner card-good__quantity-wrapper">
-							    <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input cart-good__quantity__input">
-							    <div class="stepper__controls">
-							        <button class="cart-good__quantity__btn" type="button" spinner-button="up"><i class="fa fa-caret-right"></i></button>
-							        <button class="cart-good__quantity__btn" type="button" spinner-button="down"><i class="fa fa-caret-left"></i></button>
-							    </div>
-							</div>
-							<span class="cart-good_m">М</span>
-
-							<button class="cart-good_delete"><span>Удалить</span><i class="fa fa-times"></i></button>
-						</div>
-						<div class="cart-good">
-							<div class="cart-good__img">
-								<img src="img/cart/3.png" alt="">
-							</div>
-							<span class="cart-good__title">Fabricio 1845</span>
-							<input type="checkbox" class="cart-good__checkbox uk-checkbox"></input>
-
-							<div class="stepper stepper--style-3 js-spinner card-good__quantity-wrapper">
-							    <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input cart-good__quantity__input">
-							    <div class="stepper__controls">
-							        <button class="cart-good__quantity__btn" type="button" spinner-button="up"><i class="fa fa-caret-right"></i></button>
-							        <button class="cart-good__quantity__btn" type="button" spinner-button="down"><i class="fa fa-caret-left"></i></button>
-							    </div>
-							</div>
-							<span class="cart-good_m">М</span>
-
-							<button class="cart-good_delete"><span>Удалить</span><i class="fa fa-times"></i></button>
-						</div>
+                                    <button class="cart-good_delete" data-product-id="{{ $id }}"><span>Удалить</span><i class="fa fa-times"></i></button>
+                                </div>
+                            @endforeach
+                        @endif
 					</div>
 
 					<form action="#" class="choose-req uk-form-horizontal uk-margin-medium-top">
@@ -147,4 +115,36 @@
 @section('js')
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 	<script src="{{ asset('front/js/stepper.min.js') }}"></script>
+
+    <script>
+        jQuery(function () {
+            $('.cart-good_delete').on('click', function (e) {
+                e.preventDefault();
+                let productId = $(this).data('product-id');
+                if (confirm('Вы уверены?')) {
+                    $.ajax({
+                        url: '{{ route('cart.remove') }}',
+                        method: 'post',
+                        data: {_token: '{{ csrf_token() }}', productId},
+                        success: function (response) {
+                            window.location.reload();
+                        }
+                    });
+                }
+            });
+            $('.cart-good__quantity__input').on('change', function (e) {
+                e.preventDefault();
+                let productId = $(this).data('productId');
+                let quantity = $(this).val();
+                $.ajax({
+                    url: '{{ route('cart.update') }}',
+                    method: 'post',
+                    data: {_token: '{{ csrf_token() }}', productId, quantity},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

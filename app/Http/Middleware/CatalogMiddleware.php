@@ -20,6 +20,16 @@ class CatalogMiddleware
     {
         View::share('contact', Contact::find(1));
         View::share('categories', Categories::all());
+        if (session()->has('cart')) {
+            $cartTotalSum = 0;
+            $cartTotalCount = 0;
+            foreach ((array) session('cart') as $id => $details) {
+                $cartTotalSum += $details['price'] * $details['quantity'];
+                $cartTotalCount += $details['quantity'];
+            }
+            View::share('cartTotalSum', $cartTotalSum);
+            View::share('cartTotalCount', $cartTotalCount);
+        }
         return $next($request);
     }
 }
