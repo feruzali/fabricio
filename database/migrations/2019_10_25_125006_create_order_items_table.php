@@ -18,7 +18,6 @@ class CreateOrderItemsTable extends Migration
             $table->string('title');
             $table->string('price');
             $table->string('quantity');
-            $table->string('description');
             $table->integer('product_id');
             $table->string('preview_image');
 

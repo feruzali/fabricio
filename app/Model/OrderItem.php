@@ -9,7 +9,6 @@ class OrderItem extends Model
 {
     protected $fillable = [
         'title',
-        'description',
         'price',
         'quantity',
         'product_id',
@@ -20,9 +19,8 @@ class OrderItem extends Model
     {
         if($image == null) { return; }
 
-        $this->removePreviewImage();
-        $filename = str_random(10) . '.' . $image->extension();
-        $image->storeAs('uploads/orders/', $filename);
+        $filename = basename($image);
+        Storage::copy($image, '/uploads/orders/'.$filename);
         $this->preview_image = $filename;
         $this->save();
     }
@@ -32,11 +30,6 @@ class OrderItem extends Model
         if(!$this->preview_image)
             return '/img/no-image.png';
         return '/uploads/orders/' . $this->preview_image;
-    }
-    public function removePreviewImage()
-    {
-        if ($this->preview_image)
-            Storage::delete('uploads/orders/' . $this->preview_image);
     }
 
 }
