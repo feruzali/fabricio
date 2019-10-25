@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('ru_title');
             $table->string('en_title')->nullable();
             $table->string('uz_title')->nullable();
-            $table->longText('ru_description');
+            $table->longText('ru_description')->nullable();
             $table->longText('en_description')->nullable();
             $table->longText('uz_description')->nullable();
             $table->string('image')->nullable();

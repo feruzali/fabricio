@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 Route::prefix('login')->group(function (){
     //Admin
     Route::get('/admin', 'AdminAuth\LoginController@showLoginForm')->name('admin.loginForm');
@@ -51,10 +53,19 @@ Route::middleware('admin.auth')->prefix('admin')->namespace('Admin')->group(func
     // Registration requests
     Route::resource('/requests', 'RequestController');
     Route::get('/requests/{id}/confirm', 'RequestController@confirmRequest')->name('requests.confirm');
+
+    // Orders
+    Route::resource('/orders', 'OrderController');
 });
 
 
-
+// Cart routes
+Route::namespace('Front')->group(function() {
+    Route::post('/cart/add', 'CartController@addToCart')->name('cart.add');
+    Route::post('/cart/update', 'CartController@update')->name('cart.update');
+    Route::post('/cart/remove', 'CartController@removeFromCart')->name('cart.remove');
+    Route::post('/cart', 'CartController@createOrder')->name('cart.order');
+});
 
 // FrontAuthentication Routes...
 Route::get('logout', 'FrontAuth\LoginController@logout')->name('logout');
@@ -66,6 +77,7 @@ Route::post('password/email', 'FrontAuth\ForgotPasswordController@sendResetLinkE
 Route::get('password/reset/{token}', 'FrontAuth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'FrontAuth\ResetPasswordController@reset');
 
+
 Route::middleware('catalog')->group(function() {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/login', 'FrontAuth\LoginController@showLoginForm')->name('login');
@@ -75,6 +87,7 @@ Route::middleware('catalog')->group(function() {
     Route::get('/cart', 'Front\CartController@index');
     Route::get('/request', 'Front\RequestController@index');
     Route::post('/request', 'Front\RequestController@storeRequest');
+    Route::get('/about', 'HomeController@about')->name('about');
     Route::get('/{params}', 'Front\CatalogController@index')->where('params', '.+')->name('catalog.index');
 
 });

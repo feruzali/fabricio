@@ -25,10 +25,19 @@
 
 <div class="nav-menu">
     <span id="close">&times;</span>
-    <ul class="nav-bar-list">
-        <li class="nav-bar-list__elem">Главная</li>
-        <li class="nav-bar-list__elem">Каталог&nbsp; <i class="fa fa-angle-down"></i></li>
-        <li class="nav-bar-list__elem">О компании</li>
+    <ul class="uk-nav-parent-icon nav-bar-list " uk-nav style="padding: 30px;">
+        <li class="nav-bar-list__elem"><a href="#">Главная</a></li>
+        <li class="nav-bar-list__elem uk-parent">
+            <a href="#">Каталог</a>
+            <ul class="uk-nav-sub">
+                <li class="nav-bar-list-dropdown__item"><a href="#">Мои талоны</a></li>
+                <li class="nav-bar-list-dropdown__item"><a href="#">Корзина услуг</a></li>
+                <li class="nav-bar-list-dropdown__item"><a href="#">Заявление на прикрепление</a></li>
+                <li class="nav-bar-list-dropdown__item"><a href="#">Запись на прием</a></li>
+                <li class="nav-bar-list-dropdown__item"><a href="#">Диспансеризация</a></li>
+            </ul>   
+        </li>
+        <li class="nav-bar-list__elem"><a href="#">О компании</a></li>
     </ul>
 </div>
 
@@ -40,20 +49,18 @@
                 <img src="{{asset('front/img/main-logo.png')}}" alt="Logo" class="header__logo">
                 <nav class="header__nav" uk-navbar="mode: click">
                     <ul class="uk-navbar-nav">
-                        <li class="header__nav__item"><a href="#">Главная</a></li>
+                        <li class="header__nav__item"><a href="{{ route('home') }}">Главная</a></li>
                         <li class="header__nav__item">
                             <a href="#">Каталог&nbsp; <i class="fa fa-angle-down"></i></a>
                             <div class="uk-navbar-dropdown" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0;">
                                 <ul class="uk-nav uk-navbar-dropdown-nav header__nav__dropdown">
-                                    <li class="header__nav__dropdown__item"><a href="#">Мои талоны</a></li>
-                                    <li class="header__nav__dropdown__item"><a href="#">Корзина услуг</a></li>
-                                    <li class="header__nav__dropdown__item"><a href="#">Заявление на прикрепление</a></li>
-                                    <li class="header__nav__dropdown__item"><a href="#">Запись на прием</a></li>
-                                    <li class="header__nav__dropdown__item"><a href="#">Диспансеризация</a></li>
+                                    @foreach($categories as $category)
+                                        <li class="header__nav__dropdown__item"><a href="{{ $category->getAncestorsSlugs() }}">{{ $category->ru_title }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </li>
-                        <li class="header__nav__item"><a href="#">О компании</a></li>
+                        <li class="header__nav__item"><a href="{{ route('about') }}">О компании</a></li>
                     </ul>
                 </nav>
             </div>
@@ -66,8 +73,8 @@
                     @endguest
                     @auth
                         <img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag">
-                        <span class="header__bag__quan">2</span>
-                        <span class="header__price">-&nbsp;10 000 сум</span>
+                        <span class="header__bag__quan" id="cartCount">@if(isset($cartTotalCount)) {{ $cartTotalCount }} @else 0 @endif</span>
+                        <span class="header__price"> &nbsp;@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif сум</span>
                     @endauth
                 </div>
             </div>

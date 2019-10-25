@@ -453,19 +453,21 @@
                     <div class="contacts">
                         <h4 class="contacts__title">Наши контакты</h4>
                         <div class="contacts__subtitle">Позвоните нам!</div>
-                        <div class="row flex_adap">
-                            <div class="col-2">
-                                <div class="contacts__time-img"></div>
-                                <div class="contacts__mail-img"></div>
-                                <div class="contacts__geo-img"></div>
-                                <div class="contacts__phone-img"></div>
-                            </div>
-                            <div class="col-10">
-                                <div class="contacts__time">{{$contact->time}}</div>
-                                <div class="contacts__mail"><a href="mailto:{{$contact->email}}">{{$contact->email}}</a></div>
-                                <div class="contacts__geo">{{$contact->address}}</div>
-                                <div class="contacts__phone">{{$contact->number}}</div>
-                            </div>
+                        <div class="contacts__block">
+                            <div class="contacts__time-img"></div>
+                            <div class="contacts__time">{{$contact->time}}</div>
+                        </div>
+                        <div class="contacts__block">
+                            <div class="contacts__mail-img"></div>
+                            <div class="contacts__mail"><a href="mailto:{{$contact->email}}">{{$contact->email}}</a></div>
+                        </div>
+                        <div class="contacts__block">
+                            <div class="contacts__geo-img"></div>
+                            <div class="contacts__geo">{{$contact->address}}</div>
+                        </div>
+                        <div class="contacts__block">
+                            <div class="contacts__phone-img"></div>
+                            <div class="contacts__phone">{{$contact->number}}</div>
                         </div>
                     </div>
                     <!-- /.contacts -->
