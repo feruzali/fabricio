@@ -60,7 +60,7 @@ Route::middleware('admin.auth')->prefix('admin')->namespace('Admin')->group(func
 Route::namespace('Front')->group(function() {
     Route::post('/cart/add', 'CartController@addToCart')->name('cart.add');
     Route::post('/cart/update', 'CartController@update')->name('cart.update');
-    Route::post('/cart/remove', 'CartController@remove')->name('cart.remove');
+    Route::post('/cart/remove', 'CartController@removeFromCart')->name('cart.remove');
     Route::post('/cart', 'CartController@createOrder')->name('cart.order');
 });
 
