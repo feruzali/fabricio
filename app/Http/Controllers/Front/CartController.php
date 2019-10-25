@@ -112,6 +112,15 @@ class CartController extends Controller
             ])->validate();
             $order = Order::create($request->all());
         }
+        foreach (session()->get('cart') as $productId => $details) {
+            $orderItem = $order->orderItems()->create([
+                'title' => $details['name'],
+                'price' => $details['price'],
+                'quantity' => $details['quantity'],
+                'product_id' => $productId
+            ]);
+            $orderItem->uploadImage($details['photo']);
+        }
         session()->forget('cart');
         return redirect()->route('home');
 
