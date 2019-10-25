@@ -139,4 +139,18 @@ class Product extends Model
         $slugs = $categoriesSlugs . "/$this->slug";
         return $slugs;
     }
+
+    /**
+     * Get all product images from colors
+     *
+     * @return array
+    */
+    public function getAllImages()
+    {
+        $images = [];
+        foreach ($this->colors as $color)
+            foreach ($color->images as $image)
+                array_push($images, $image);
+        return $images;
+    }
 }
