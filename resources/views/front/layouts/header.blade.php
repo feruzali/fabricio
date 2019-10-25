@@ -40,16 +40,14 @@
                 <img src="{{asset('front/img/main-logo.png')}}" alt="Logo" class="header__logo">
                 <nav class="header__nav" uk-navbar="mode: click">
                     <ul class="uk-navbar-nav">
-                        <li class="header__nav__item"><a href="#">Главная</a></li>
+                        <li class="header__nav__item"><a href="{{ route('home') }}">Главная</a></li>
                         <li class="header__nav__item">
                             <a href="#">Каталог&nbsp; <i class="fa fa-angle-down"></i></a>
                             <div class="uk-navbar-dropdown" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0;">
                                 <ul class="uk-nav uk-navbar-dropdown-nav header__nav__dropdown">
-                                    <li class="header__nav__dropdown__item"><a href="#">Мои талоны</a></li>
-                                    <li class="header__nav__dropdown__item"><a href="#">Корзина услуг</a></li>
-                                    <li class="header__nav__dropdown__item"><a href="#">Заявление на прикрепление</a></li>
-                                    <li class="header__nav__dropdown__item"><a href="#">Запись на прием</a></li>
-                                    <li class="header__nav__dropdown__item"><a href="#">Диспансеризация</a></li>
+                                    @foreach($categories as $category)
+                                        <li class="header__nav__dropdown__item"><a href="{{ $category->getAncestorsSlugs() }}">{{ $category->ru_title }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </li>
