@@ -53,7 +53,7 @@ class User extends Authenticatable
      *
      * @param string|array $roles
      *
-     * @return void
+     * @return boolean
      */
     public function authorizeRoles($roles)
     {
