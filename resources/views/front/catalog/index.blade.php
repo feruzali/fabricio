@@ -7,7 +7,7 @@
             <div class="catalog__filter_md">
 
                 <ul class=" uk-nav-parent-icon nav-bar-list catalog__sort_md" uk-nav="multiple: true">
-                    
+
                     <li class="catalog__sortItem_md uk-parent">
                         <a href="#">All types</a>
                         <ul class="uk-nav-sub catalog__sort_md-dropdown">
@@ -143,7 +143,7 @@
 
                 </div>
             </div>
-            
+
             <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider" index="1">
                 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                     <ul class="uk-slideshow-items">
@@ -177,8 +177,8 @@
                 </div>
             </div>
 
-        </div> 
-            
+        </div>
+
         <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider uk-margin-medium-bottom" index="1">
 
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
@@ -216,11 +216,11 @@
 
             </div>
 
-            
 
-        </div>    
 
-        <div class="container">    
+        </div>
+
+        <div class="container">
 
             <div class="row">
 
@@ -231,7 +231,7 @@
                                 <img src="{{ $product->getImage() }}" alt="">
                             </div>
                             <div class="catalog-card-choice">
-                                @foreach($product->img as $img)
+                                @foreach($product->getAllImages() as $img)
                                     <div class="catalog-card-choice__elem">
                                         <img src="{{ $img->getImage() }}" alt="">
                                     </div>
