@@ -9,4 +9,9 @@ class Order extends Model
     protected $fillable = [
         'company_name', 'bank', 'address', 'tin', 'ctea', 'mfi', 'user_id', 'name', 'email', 'comment', 'phone_number'
     ];
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'order_id', 'id');
+    }
 }
