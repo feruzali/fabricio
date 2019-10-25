@@ -51,7 +51,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="header__nav__item"><a href="#">О компании</a></li>
+                        <li class="header__nav__item"><a href="{{ route('about') }}">О компании</a></li>
                     </ul>
                 </nav>
             </div>

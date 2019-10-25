@@ -87,6 +87,7 @@ Route::middleware('catalog')->group(function() {
     Route::get('/cart', 'Front\CartController@index');
     Route::get('/request', 'Front\RequestController@index');
     Route::post('/request', 'Front\RequestController@storeRequest');
+    Route::get('/about', 'HomeController@about')->name('about');
     Route::get('/{params}', 'Front\CatalogController@index')->where('params', '.+')->name('catalog.index');
 
 });
