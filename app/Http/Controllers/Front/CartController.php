@@ -31,7 +31,7 @@ class CartController extends Controller
         if (!$cart) {
             $cart = [
                 $productId => [
-                    "name" => $product->name,
+                    "name" => $product->title,
                     "quantity" => $quantity,
                     "price" => $product->price,
                     "photo" => $product->getImage()
@@ -117,7 +117,8 @@ class CartController extends Controller
                 'title' => $details['name'],
                 'price' => $details['price'],
                 'quantity' => $details['quantity'],
-                'product_id' => $productId
+                'product_id' => $productId,
+                'preview_image' => ''
             ]);
             $orderItem->uploadImage($details['photo']);
         }
