@@ -143,13 +143,8 @@
 
                 </div>
             </div>
-<<<<<<< HEAD
-            
-            <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider uk-margin-medium-bottom md_hidden" index="1">
-=======
 
-            <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider" index="1">
->>>>>>> 38e23ca6066b096de16e6b72988054c903a85097
+            <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider uk-margin-medium-bottom md_hidden" index="1">
                 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                     <ul class="uk-slideshow-items">
                         <li>
@@ -181,17 +176,9 @@
                     </div>
                 </div>
             </div>
-
-<<<<<<< HEAD
         </div> 
             
         <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider uk-margin-medium-bottom md_visible" index="1">
-=======
-        </div>
-
-        <div uk-slideshow="animation: push; max-height: 262;" class="catalog-slider uk-margin-medium-bottom" index="1">
->>>>>>> 38e23ca6066b096de16e6b72988054c903a85097
-
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
                 <ul class="uk-slideshow-items">

@@ -25,10 +25,19 @@
 
 <div class="nav-menu">
     <span id="close">&times;</span>
-    <ul class="nav-bar-list">
-        <li class="nav-bar-list__elem">Главная</li>
-        <li class="nav-bar-list__elem">Каталог&nbsp; <i class="fa fa-angle-down"></i></li>
-        <li class="nav-bar-list__elem">О компании</li>
+    <ul class="uk-nav-parent-icon nav-bar-list " uk-nav style="padding: 30px;">
+        <li class="nav-bar-list__elem"><a href="#">Главная</a></li>
+        <li class="nav-bar-list__elem uk-parent">
+            <a href="#">Каталог</a>
+            <ul class="uk-nav-sub">
+                <li class="nav-bar-list-dropdown__item"><a href="#">Мои талоны</a></li>
+                <li class="nav-bar-list-dropdown__item"><a href="#">Корзина услуг</a></li>
+                <li class="nav-bar-list-dropdown__item"><a href="#">Заявление на прикрепление</a></li>
+                <li class="nav-bar-list-dropdown__item"><a href="#">Запись на прием</a></li>
+                <li class="nav-bar-list-dropdown__item"><a href="#">Диспансеризация</a></li>
+            </ul>   
+        </li>
+        <li class="nav-bar-list__elem"><a href="#">О компании</a></li>
     </ul>
 </div>
 
