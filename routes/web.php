@@ -53,6 +53,9 @@ Route::middleware('admin.auth')->prefix('admin')->namespace('Admin')->group(func
     // Registration requests
     Route::resource('/requests', 'RequestController');
     Route::get('/requests/{id}/confirm', 'RequestController@confirmRequest')->name('requests.confirm');
+
+    // Orders
+    Route::resource('/orders', 'OrderController');
 });
 
 
