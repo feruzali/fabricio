@@ -42,16 +42,15 @@ navBar();
 //Check Color on Card Page
 
 (function() {
+
     var slides = $('.card .card--slider');
-    var colorButtons = $('.card .circle');
+    var colorButtons = $('.card .circle-wrapper');
 
     $(colorButtons).click(function() {
 
         for (var i = 0; i < slides.length; i++) {
-
             if ($(this).attr('data-color') != slides[i].dataset.color) {
                 slides[i].style.display = "none";
-
             } else {
                 slides[i].style.display = "block";
             }
