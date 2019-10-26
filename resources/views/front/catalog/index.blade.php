@@ -22,21 +22,17 @@
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Категории</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown">
-              <li class="catalog__sort_md-dropdown__item"><a href="#">Мои талоны</a></li>
-              <li class="catalog__sort_md-dropdown__item"><a href="#">Корзина услуг</a></li>
-              <li class="catalog__sort_md-dropdown__item"><a href="#">Заявление на прикрепление</a></li>
-              <li class="catalog__sort_md-dropdown__item"><a href="#">Запись на прием</a></li>
-              <li class="catalog__sort_md-dropdown__item"><a href="#">Диспансеризация</a></li>
+              @foreach ($categories as $categoryObject)
+                  <li class="catalog__sort_md-dropdown__item" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
+              @endforeach"
             </ul>
           </li>
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Бренд</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown">
-              <li class="catalog__sort_md-dropdown__item"><a href="#">Мои талоны</a></li>
-              <li class="catalog__sort_md-dropdown__item"><a href="#">Корзина услуг</a></li>
-              <li class="catalog__sort_md-dropdown__item"><a href="#">Заявление на прикрепление</a></li>
-              <li class="catalog__sort_md-dropdown__item"><a href="#">Запись на прием</a></li>
-              <li class="catalog__sort_md-dropdown__item"><a href="#">Диспансеризация</a></li>
+                @foreach ($category->getAllBrands() as $brand)
+                    <li class="catalog__sort_md-dropdown__item" data-brand-id=" {{$brand->id }} ">{{ $brand->title }}</li>
+                @endforeach
             </ul>
           </li>
           <li class="catalog__sortItem_md uk-parent">
