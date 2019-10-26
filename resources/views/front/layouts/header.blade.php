@@ -69,13 +69,15 @@
                 <div class="header-wrapper">
                     @guest
                         <a class="header__auth" href="{{ route('login') }}">Войти</a>
-                        <button  class="header__auth_adap"><i class="fa fa-user"></i></button>
+                        <a class="header__auth_adap" href="{{ route('login') }}"><i class="fa fa-user"></i></a>
+                        <a class="header__auth" href="{{ route('register') }}">Регистрация</a>
+                        <a class="header__auth_adap" href="{{ route('register') }}"><i class="fa fa-address-card-o"></i></a>
                     @endguest
                     @auth
                         <img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag">
                         <span class="header__bag__quan" id="cartCount">@if(isset($cartTotalCount)) {{ $cartTotalCount }} @else 0 @endif</span>
                         <span class="header__price"> &nbsp;@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif сум</span>
-                        <a class="header__auth" href="{{ route('logout') }}">Войти</a>
+                        <a class="header__auth" href="{{ route('logout') }}">Выйти</a>
                     @endauth
                 </div>
             </div>
