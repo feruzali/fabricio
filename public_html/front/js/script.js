@@ -59,3 +59,22 @@ navBar();
     });
 
 }());
+
+
+// Active filters
+
+(function() {
+    var $dropdown = $('.catalog__sort__dropdown');
+
+    $dropdown.each( function() {
+        var $dropdownItem = $(this).find('.catalog__sort__dropdown__item');
+
+        $dropdownItem.on('click', function() {
+            $dropdownItem.each( function() {
+                $dropdownItem.removeClass('filter--active');
+            });
+            this.classList.add('filter--active');
+        });
+    });
+
+}());
