@@ -11,25 +11,25 @@
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
                             
-                            <div class="uk-overlay uk-position-bottom-right uk-position-small">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                            <div class="uk-overlay uk-position-bottom-right uk-position-small">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                            <div class="uk-overlay uk-position-bottom-right uk-position-small">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                            <div class="uk-overlay uk-position-bottom-right uk-position-small">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
@@ -56,15 +56,17 @@
                         </div>
                     </div>
 
-                    <div class="stepper stepper--style-3 js-spinner">
-                        <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input">
-                        <div class="stepper__controls">
-                            <button class="" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
-                            <button class="" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
+                    <div class="uk-position-bottom-left uk-position-small">
+                        <div class="stepper stepper--style-3 js-spinner card-stepper">
+                            <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input">
+                            <div class="stepper__controls">
+                                <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
+                                <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <button class="card-slideshow__btn"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button>
+                        <button class="card-slideshow__btn"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button>
+                    </div>
 
                 </div>
 
@@ -78,22 +80,29 @@
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
                             
-                            <div class="uk-overlay uk-position-bottom-right uk-position-small">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                            <div class="uk-overlay uk-position-bottom-right uk-position-small">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                            <div class="uk-overlay uk-position-bottom-right uk-position-small">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
+                        <li class="card-slideshowItem">
+                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
+                                <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
+                            </div>
+                        </li>
+                        
                     </ul>
 
                     <div class="uk-position-bottom-right uk-position-medium card-slideshow__nav">
@@ -105,26 +114,28 @@
                     </div>
 
                     <div class="uk-position-center-left uk-position-small">
-                        <div class="circle-wrapper" data-color="black">
+                        <div class="circle-wrapper"data-color="black">
                             <div class="circle" style="background-color: #4986ff;"><i class="fa fa-check"></i></div>
                         </div>
-                        <div class="circle-wrapper circle-wrapper--active" data-color="white">
-                            <div class="circle" style="background-color: #76d2e6;"><i class="fa fa-check"></i></div><span>Зелёный</span>
+                        <div class="circle-wrapper  circle-wrapper--active" data-color="white">
+                            <div class="circle" style="background-color: #76d2e6;"><i class="fa fa-check"></i></div><span>Зелёныйя</span>
                         </div>
                         <div class="circle-wrapper" data-color="red">
                             <div class="circle" style="background-color: #f593a7;"><i class="fa fa-check"></i></div>
                         </div>
                     </div>
 
-                    <div class="stepper stepper--style-3 js-spinner">
-                        <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input">
-                        <div class="stepper__controls">
-                            <button class="" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
-                            <button class="" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
+                    <div class="uk-position-bottom-left uk-position-small">
+                        <div class="stepper stepper--style-3 js-spinner card-stepper">
+                            <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input">
+                            <div class="stepper__controls">
+                                <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
+                                <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <button class="card-slideshow__btn"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button>
+                        <button class="card-slideshow__btn"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button>
+                    </div>
 
                 </div>
 
@@ -138,25 +149,25 @@
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
                             
-                            <div class="uk-overlay uk-position-bottom-right uk-position-small">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                            <div class="uk-overlay uk-position-bottom-right uk-position-small">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                            <div class="uk-overlay uk-position-bottom-right uk-position-small">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                            <div class="uk-overlay uk-position-bottom-right uk-position-small">
+                            <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
@@ -183,15 +194,17 @@
                         </div>
                     </div>
 
-                    <div class="stepper stepper--style-3 js-spinner">
-                        <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input">
-                        <div class="stepper__controls">
-                            <button class="" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
-                            <button class="" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
+                    <div class="uk-position-bottom-left uk-position-small">
+                        <div class="stepper stepper--style-3 js-spinner card-stepper">
+                            <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input">
+                            <div class="stepper__controls">
+                                <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
+                                <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <button class="card-slideshow__btn"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button>
+                        <button class="card-slideshow__btn"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button>
+                    </div>
 
                 </div>
 

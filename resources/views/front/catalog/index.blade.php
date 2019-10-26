@@ -216,7 +216,7 @@
       <div class="row">
 
         @foreach($products as $product)
-          <div class="col-xl-3 col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+          <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
             <div class="catalog-card">
               <div class="catalog-card__img">
                 <img src="{{ $product->getImage() }}" alt="">
@@ -230,6 +230,10 @@
               </div>
               <div class="catalog-card__title">
                 {{ $product->ru_title }}
+              </div>
+              <div class="catalog-card__buy">
+                <span class="catalog-card__price">$ 69.94</span>
+                <i class="fa fa-shopping-cart"></i>
               </div>
             </div>
           </div>
