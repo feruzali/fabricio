@@ -75,10 +75,7 @@
                         <img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag">
                         <span class="header__bag__quan" id="cartCount">@if(isset($cartTotalCount)) {{ $cartTotalCount }} @else 0 @endif</span>
                         <span class="header__price"> &nbsp;@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif сум</span>
-                        <form action="{{ route('logout')}}" method="post">
-                            @csrf
-                            <button type="submit" name="button" class="header__auth">Выйти</button>
-                        </form>
+                        <a class="header__auth" href="{{ route('logout') }}">Войти</a>
                     @endauth
                 </div>
             </div>
