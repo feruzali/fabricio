@@ -9,7 +9,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>OpticalPro</title>
+    <title>@yield('title') | Optical Pro</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('front/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -35,7 +35,7 @@
                 <li class="nav-bar-list-dropdown__item"><a href="#">Заявление на прикрепление</a></li>
                 <li class="nav-bar-list-dropdown__item"><a href="#">Запись на прием</a></li>
                 <li class="nav-bar-list-dropdown__item"><a href="#">Диспансеризация</a></li>
-            </ul>   
+            </ul>
         </li>
         <li class="nav-bar-list__elem"><a href="#">О компании</a></li>
     </ul>
@@ -75,6 +75,10 @@
                         <img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag">
                         <span class="header__bag__quan" id="cartCount">@if(isset($cartTotalCount)) {{ $cartTotalCount }} @else 0 @endif</span>
                         <span class="header__price"> &nbsp;@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif сум</span>
+                        <form action="{{ route('logout')}}" method="post">
+                            @csrf
+                            <button type="submit" name="button" class="header__auth">Выйти</button>
+                        </form>
                     @endauth
                 </div>
             </div>
