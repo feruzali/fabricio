@@ -21,7 +21,7 @@
           </li>
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Категории</a>
-            <ul class="uk-nav-sub catalog__sort_md-dropdown">
+            <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
               @foreach ($categories as $categoryObject)
                   <li class="catalog__sort_md-dropdown__item  catalogSortDropdownItem" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
               @endforeach"
@@ -29,7 +29,7 @@
           </li>
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Бренд</a>
-            <ul class="uk-nav-sub catalog__sort_md-dropdown">
+            <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
                 @foreach ($category->getAllBrands() as $brand)
                     <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem" data-brand-id=" {{$brand->id }} ">{{ $brand->title }}</li>
                 @endforeach
@@ -124,7 +124,7 @@
             <div class="catalog__sortCurrent" id="catalogPrice">
               <span class="lbl">Price&nbsp; <i class="fa fa-angle-down"></i></span>
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
-                <ul class="uk-nav catalog__sort__dropdown">
+                <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
                   <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Мои талоны</a></li>
                   <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Корзина услуг</a></li>
                   <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Заявление на прикрепление</a></li>
