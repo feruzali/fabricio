@@ -1,5 +1,7 @@
 @extends('front.layouts.app')
 
+@section('title', $product->title)
+
 @section('content')
     <section class="card" id="card">
         <div class="container">
@@ -10,7 +12,7 @@
                     <ul class="uk-slideshow-items card-slideshow__bg" style="min-height: 624.375px;">
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                            
+
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
@@ -33,7 +35,7 @@
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
-                        
+
                     </ul>
 
                     <div class="uk-position-bottom-right uk-position-medium card-slideshow__nav">
@@ -71,7 +73,7 @@
                 </div>
 
             </div>
-            
+
             <div uk-slideshow class="card--slider" data-color="white" style="display: none;">
 
                 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
@@ -79,7 +81,7 @@
                     <ul class="uk-slideshow-items card-slideshow__bg" style="min-height: 624.375px;">
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                            
+
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
@@ -102,7 +104,7 @@
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
-                        
+
                     </ul>
 
                     <div class="uk-position-bottom-right uk-position-medium card-slideshow__nav">
@@ -148,7 +150,7 @@
                     <ul class="uk-slideshow-items card-slideshow__bg" style="min-height: 624.375px;">
                         <li class="card-slideshowItem">
                             <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
-                            
+
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
@@ -171,7 +173,7 @@
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
-                        
+
                     </ul>
 
                     <div class="uk-position-bottom-right uk-position-medium card-slideshow__nav">
@@ -209,7 +211,7 @@
                 </div>
 
             </div>
-            
+
             <h2 class="card__title">{{ $product->title }}</h2>
         </div>
     </section>

@@ -1,5 +1,7 @@
 @extends('front.layouts.app')
 
+@section('title', 'Главная')
+
 @section('content')
 
     <section class="main" id="main">

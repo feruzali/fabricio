@@ -1,11 +1,14 @@
 @extends('front.layouts.app')
+
+@section('title', $category->ru_title)
+
 @section('content')
   <section class="catalog" id="catalog">
     <div class="container">
       <h2 class="page-title">{{ $category->ru_title }}</h2>
 
       <div class="catalog__filter_md md_visible">
-        <ul class=" uk-nav-parent-icon nav-bar-list catalog__sort_md" uk-nav="multiple: true">   
+        <ul class=" uk-nav-parent-icon nav-bar-list catalog__sort_md" uk-nav="multiple: true">
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">All types</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
@@ -18,22 +21,18 @@
           </li>
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Категории</a>
-            <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Мои талоны</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Корзина услуг</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Заявление на прикрепление</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Запись на прием</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Диспансеризация</a></li>
+            <ul class="uk-nav-sub catalog__sort_md-dropdown">
+              @foreach ($categories as $categoryObject)
+                  <li class="catalog__sort_md-dropdown__item  catalogSortDropdownItem" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
+              @endforeach"
             </ul>
           </li>
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Бренд</a>
-            <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Мои талоны</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Корзина услуг</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Заявление на прикрепление</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Запись на прием</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Диспансеризация</a></li>
+            <ul class="uk-nav-sub catalog__sort_md-dropdown">
+                @foreach ($category->getAllBrands() as $brand)
+                    <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem" data-brand-id=" {{$brand->id }} ">{{ $brand->title }}</li>
+                @endforeach
             </ul>
           </li>
           <li class="catalog__sortItem_md uk-parent">
@@ -176,8 +175,8 @@
         </div>
       </div>
 
-    </div> 
-            
+    </div>
+
     <div uk-slideshow="animation: push;" class="catalog-slider uk-margin-medium-bottom md_visible" index="1">
       <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
         <ul class="uk-slideshow-items">

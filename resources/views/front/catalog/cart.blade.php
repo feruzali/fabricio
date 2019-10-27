@@ -1,5 +1,7 @@
 @extends('front.layouts.app')
 
+@section('title', 'Ваша корзина')
+
 @section('content')
 	<section class="cart" id="cart">
 		<form action="{{ route('cart.order') }}" method="post" class="container">

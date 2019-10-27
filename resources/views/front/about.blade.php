@@ -1,5 +1,6 @@
 @extends('front.layouts.app')
 
+@section('title', 'О компании')
 
 @section('content')
     <section class="about" id="about" style="text-align: center">
