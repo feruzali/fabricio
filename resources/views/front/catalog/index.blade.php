@@ -95,9 +95,11 @@
               <span class="lbl">Бренд&nbsp; <i class="fa fa-angle-down"></i></span>
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
                 <ul class="uk-nav catalog__sort__dropdown">
-                    @foreach ($categories as $categoryObject)
-                        <li class="catalog__sort_md-dropdown__item" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
-                    @endforeach"
+                    @foreach ($category->getAllBrands() as $brand)
+                        @if ($brand)
+                            <li class="catalog__sort_md-dropdown__item" data-brand-id=" {{$brand->id }} ">{{ $brand->title }}</li>
+                        @endif
+                    @endforeach
                 </ul>
               </div>
             </div>
