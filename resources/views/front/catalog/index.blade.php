@@ -31,7 +31,9 @@
             <a href="#">Бренд</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown">
                 @foreach ($category->getAllBrands() as $brand)
-                    <li class="catalog__sort_md-dropdown__item" data-brand-id=" {{$brand->id }} ">{{ $brand->title }}</li>
+                    @if ($brand)
+                        <li class="catalog__sort_md-dropdown__item" data-brand-id=" {{$brand->id }} ">{{ $brand->title }}</li>
+                    @endif
                 @endforeach
             </ul>
           </li>
