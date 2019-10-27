@@ -9,7 +9,7 @@
 		<input class="form-login__input" type="email" name="email" placeholder="Companyname@gmail.com" required="">
 		<label class="form-login__label" for="login-password">Пароль</label>
 		<input class="form-login__input" type="password" name="password" placeholder="Как минимум 8 символов" required="">
-		<label class="form-login__label" for="login-password">Подвердите пароль</label>
+		<label class="form-login__label" for="login-password">Подтвердите пароль</label>
 		<input class="form-login__input" type="password" name="password_confirmation" placeholder="Пароли должны совпадать" required="">
 		<button class="form-login__btn">Создать аккаунт</button>
 	</form>
