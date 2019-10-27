@@ -20,7 +20,7 @@
                             <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
                         </div>
                         <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
-                            <button class="slideshow-items__btn">Смотреть каталог</button>
+                            <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
                         </div>
                     </li>
                     <li>
@@ -33,7 +33,7 @@
                             <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
                         </div>
                         <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
-                            <button class="slideshow-items__btn">Смотреть каталог</button>
+                            <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
                         </div>
                     </li>
                     <li>
@@ -46,7 +46,7 @@
                             <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
                         </div>
                         <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
-                            <button class="slideshow-items__btn">Смотреть каталог</button>
+                            <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
                         </div>
                     </li>
                 </ul>
@@ -72,7 +72,7 @@
                                         {{$slider->ru_title}}
                                     </h1>
                                     <p class="slideshow-items__subtitle">{!! $slider->ru_description !!}</p>
-                                    <button class="slideshow-items__btn">Смотреть каталог</button>
+                                    <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
                                 </div>
                                 <div class="uk-position-bottom-left scrolldown"><img src="{{asset('front/img/slider/mouse.png')}}" alt="" class="scrolldown__img"><span class="scrolldown__txt">Листай вниз</span></div>
                                 <div class="uk-position-center main-slider-play">
