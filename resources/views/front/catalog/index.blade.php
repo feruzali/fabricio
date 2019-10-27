@@ -10,7 +10,7 @@
       <div class="catalog__filter_md md_visible">
         <ul class=" uk-nav-parent-icon nav-bar-list catalog__sort_md" uk-nav="multiple: true">
           <li class="catalog__sortItem_md uk-parent">
-            <a href="#">All types</a>
+            <a href="#">Все виды</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
               <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Мои талоны</a></li>
               <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Корзина услуг</a></li>
@@ -46,7 +46,7 @@
             </ul>
           </li>
           <li class="catalog__sortItem_md uk-parent">
-            <a href="#">Price</a>
+            <a href="#">Цена</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
               <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Мои талоны</a></li>
               <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Корзина услуг</a></li>

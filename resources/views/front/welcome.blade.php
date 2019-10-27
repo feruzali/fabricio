@@ -100,7 +100,7 @@
             <div class="row">
                 <div class="col-md-4 offset-sm-0 col-sm-6 offset-1 col-10">
                     <div class="main-card first">
-                        <h4 class="main-card__title">Заголовок</h4>
+                        <h4 class="main-card__title">Солнцезащитные очки</h4>
                         <span>Мужские</span> <br>
                         <span>Женские</span>
                     </div>
@@ -109,7 +109,7 @@
                 <!-- /.col-4 -->
                 <div class="col-md-4 offset-sm-0 col-sm-6 offset-1 col-10">
                     <div class="main-card second">
-                        <h4 class="main-card__title">Заголовок</h4>
+                        <h4 class="main-card__title">Оправы</h4>
                         <span>Мужские</span> <br>
                         <span>Женские</span>
                     </div>
@@ -118,7 +118,7 @@
                 <!-- /.col-4 -->
                 <div class="offset-md-0 col-md-4 offset-sm-3 col-sm-6 offset-1 col-10">
                     <div class="main-card third">
-                        <h4 class="main-card__title">Заголовок</h4>
+                        <h4 class="main-card__title">Футляры</h4>
                         <span>Футляры</span> <br>
                         <span>Платочки</span>
                     </div>
@@ -134,7 +134,7 @@
 
     <section class="waranty" id="waranty">
         <div class="container">
-            <h2 class="section-title">Заголовок</h2>
+            <h2 class="section-title">О нас</h2>
             <div class="row">
                 <div class="offset-lg-0 col-lg-6 offset-md-1 col-md-10">
 
@@ -153,7 +153,7 @@
                 <div class="offset-lg-0 col-lg-3 offset-md-1 col-md-5 offset-sm-0 col-sm-6 offset-1 col-10">
                     <div class="waranty-card bg-wave">
                         <img src="{{asset('front/img/waranty/card2.png')}}" alt="" class="waranty-card__img">
-                        <h5 class="waranty-card__title">Заголовок</h5>
+                        <h5 class="waranty-card__title">Качество</h5>
                         <!-- /.waranty-card__title -->
                         <p class="waranty-card__descr">Мы нацелены на улуч- шения своего сервиса, расширения салонов и повышения узнавае-мости наших брендов.</p>
                         <!-- /.waranty-card__descr -->
@@ -165,7 +165,7 @@
                 <div class="col-lg-3 col-md-5 offset-sm-0 col-sm-6 offset-1 col-10">
                     <div class="waranty-card">
                         <img src="{{asset('front/img/waranty/card3.png')}}" alt="" class="waranty-card__img">
-                        <h5 class="waranty-card__title">Заголовок</h5>
+                        <h5 class="waranty-card__title">Дружный коллектив</h5>
                         <!-- /.waranty-card__title -->
                         <p class="waranty-card__descr">Компания Optical Pro -  дружный коллектив со своими принципами и традициями. Для нас на 1 месте это качество.</p>
                         <!-- /.waranty-card__descr -->
@@ -183,11 +183,11 @@
 
     <section class="map" id="map">
         <div class="container">
-            <h2 class="section-title">Заголовок</h2>
+            <h2 class="section-title">Карта</h2>
             <!-- /.section-title -->
             <div class="map-wrapper">
                 <div class="map-txt">
-                    <h4 class="map-txt__title">Заголовок</h4>
+                    <h4 class="map-txt__title">Доставка</h4>
                     <!-- /.map-txt__title -->
                     <p class="map-txt__descr">Мы гарантируем бесперебойность поставок с нашего производства - в ваш магазин.</p>
                     <!-- /.map-txt__descr -->
@@ -201,7 +201,7 @@
 
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Заголовок</h2>
+            <h2 class="section-title">Преимущества</h2>
             <!-- /.section-title -->
             <div class="features-wrapper">
 
@@ -274,7 +274,7 @@
 
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="">
 
-                <h2 class="section-title uk-position-relative" style="color: black;">Заголовок</h2>
+                <h2 class="section-title uk-position-relative" style="color: black;">Солнцезащитные очки</h2>
 
                 <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-3@m uk-child-width-1-4@l">
                     <li>
@@ -432,7 +432,7 @@
 
     <section class="feedback" id="feedback">
         <div class="container">
-            <h2 class="section-title">Заголовок</h2>
+            <h2 class="section-title">Оставить заявку</h2>
 
             <div class="row">
 
