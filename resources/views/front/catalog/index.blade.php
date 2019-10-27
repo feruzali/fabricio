@@ -238,10 +238,10 @@
           </div>
         @endforeach
       </div>
-      <div class="loadmore">
+      {{-- <div class="loadmore">
         <div class="spinner-border text-primary" style="width: 40px; height: 40px; margin-right: 10px;" role="status"></div>
         load more
-      </div>
+      </div> --}}
     </div>
   </section>
 @endsection
