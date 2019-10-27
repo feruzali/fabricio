@@ -7,7 +7,7 @@
     <section class="main" id="main">
 
         <div class="main-slider xs_visible">
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="max-height: 490" index="1">
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="max-height: 490" index="0">
 
                 <ul class="uk-slideshow-items">
                     <li>
@@ -61,7 +61,7 @@
         <div class="container">
 
             <div class="main-slider xs_hidden">
-                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="min-height: 0; max-height: 490" index="1">
+                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="min-height: 0; max-height: 490" index="0">
 
                     <ul class="uk-slideshow-items">
                         @foreach($sliders as $slider)
