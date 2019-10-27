@@ -24,7 +24,7 @@
             <ul class="uk-nav-sub catalog__sort_md-dropdown">
               @foreach ($categories as $categoryObject)
                   <li class="catalog__sort_md-dropdown__item" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
-              @endforeach"
+              @endforeach
             </ul>
           </li>
           <li class="catalog__sortItem_md uk-parent">
@@ -82,11 +82,9 @@
               <span class="lbl">Категории&nbsp; <i class="fa fa-angle-down"></i></span>
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
                 <ul class="uk-nav catalog__sort__dropdown">
-                  <li class="catalog__sort__dropdown__item"><a href="#">Мои талоны</a></li>
-                  <li class="catalog__sort__dropdown__item"><a href="#">Корзина услуг</a></li>
-                  <li class="catalog__sort__dropdown__item"><a href="#">Заявление на прикрепление</a></li>
-                  <li class="catalog__sort__dropdown__item"><a href="#">Запись на прием</a></li>
-                  <li class="catalog__sort__dropdown__item"><a href="#">Диспансеризация</a></li>
+                    @foreach ($categories as $categoryObject)
+                        <li class="catalog__sort_md-dropdown__item" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
+                    @endforeach
                 </ul>
               </div>
             </div>
@@ -97,11 +95,9 @@
               <span class="lbl">Бренд&nbsp; <i class="fa fa-angle-down"></i></span>
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
                 <ul class="uk-nav catalog__sort__dropdown">
-                  <li class="catalog__sort__dropdown__item"><a href="#">Мои талоны</a></li>
-                  <li class="catalog__sort__dropdown__item"><a href="#">Корзина услуг</a></li>
-                  <li class="catalog__sort__dropdown__item"><a href="#">Заявление на прикрепление</a></li>
-                  <li class="catalog__sort__dropdown__item"><a href="#">Запись на прием</a></li>
-                  <li class="catalog__sort__dropdown__item"><a href="#">Диспансеризация</a></li>
+                    @foreach ($categories as $categoryObject)
+                        <li class="catalog__sort_md-dropdown__item" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
+                    @endforeach"
                 </ul>
               </div>
             </div>
