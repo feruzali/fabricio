@@ -64,16 +64,68 @@ navBar();
 // Active filters
 
 (function() {
-    var $dropdown = $('.catalog__sort__dropdown');
+    var $dropdown = $('.catalogSortDropdown');
 
-    $dropdown.each( function() {
-        var $dropdownItem = $(this).find('.catalog__sort__dropdown__item');
+    $dropdown.each(function() {
+        var $dropdownItem = $(this).find('.catalogSortDropdownItem');
 
         $dropdownItem.on('click', function() {
-            $dropdownItem.each( function() {
+            $dropdownItem.each(function() {
                 $dropdownItem.removeClass('filter--active');
             });
             this.classList.add('filter--active');
+        });
+    });
+
+}());
+
+
+// Check color on catalog page
+
+// (function() {
+//     var slidesWrapper = $('.catalog-card');
+//     slidesWrapper.each( function() {
+
+//         var slides = $(this).find('.catalog-card__img img');
+//         var colorButtons = $(this).find('.catalog-card-choice');
+
+//         colorButtons.each(function () {
+//             var colorButton = $(this).find('.catalog-card-choice__elem img');
+//             console.log(colorButton);
+
+//             $(colorButton).click(function() {
+
+//                 slides[0].src = this.src;
+
+//             });
+
+//         });       
+
+//     });
+
+// }());
+
+(function() {
+
+    var card = $('.catalog-card');
+    card.each(function() {
+
+        var cardImg = $(this).find('.catalog-card__img img');
+        var colorImg = $(this).find('.catalog-card-choice__elem');
+
+        $(colorImg).click(function() {
+
+            for (var i = 0; i < cardImg.length; i++) {
+                if ($(this).attr('data-color') != cardImg[i].dataset.color) {
+                    cardImg[i].style.display = "none";
+                } else {
+                    cardImg[i].style.display = "block";
+                }
+            }
+            colorImg.each(function() {
+                colorImg.removeClass('catalog-card-choice__elem--active');
+            });
+            this.classList.add('catalog-card-choice__elem--active');
         });
     });
 
