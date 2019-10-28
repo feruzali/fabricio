@@ -26,7 +26,7 @@
 <div class="nav-menu">
     <span id="close">&times;</span>
     <ul class="uk-nav-parent-icon nav-bar-list " uk-nav style="padding: 30px;">
-        <li class="nav-bar-list__elem"><a href="#">Главная</a></li>
+        <li class="nav-bar-list__elem"><a href="{{ route('home') }}">Главная</a></li>
         <li class="nav-bar-list__elem uk-parent">
             <a href="#">Каталог</a>
             <ul class="uk-nav-sub">
@@ -37,7 +37,7 @@
                 <li class="nav-bar-list-dropdown__item"><a href="#">Диспансеризация</a></li>
             </ul>
         </li>
-        <li class="nav-bar-list__elem"><a href="#">О компании</a></li>
+        <li class="nav-bar-list__elem"><a href="{{ route('about') }}">О компании</a></li>
     </ul>
 </div>
 
@@ -46,7 +46,7 @@
         <div class="row align-items-center">
             <div class="col-xl-7 col-lg-8 col-md-9 col-sm-8 col-7">
                 <i id="open" class="fa fa-bars"></i>
-                <a href=""><img src="{{asset('front/img/main-logo.png')}}" alt="Logo" class="header__logo"></a>
+                <a href="{{ route('home') }}"><img src="{{asset('front/img/main-logo.png')}}" alt="Logo" class="header__logo"></a>
                 <nav class="header__nav" uk-navbar="mode: click">
                     <ul class="uk-navbar-nav">
                         <li class="header__nav__item"><a href="{{ route('home') }}">Главная</a></li>
