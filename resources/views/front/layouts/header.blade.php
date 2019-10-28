@@ -30,7 +30,7 @@
         <li class="nav-bar-list__elem uk-parent">
             <a href="#">Каталог</a>
             <ul class="uk-nav-sub">
-                @foreach ($categories as $category)
+                @foreach ($parentCategories as $category)
                     <li class="nav-bar-list-dropdown__item"><a href="{{ $category->getAncestorsSlugs() }}">{{ $category->ru_title }}</a></li>
                 @endforeach
             </ul>
