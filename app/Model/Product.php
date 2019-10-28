@@ -157,7 +157,7 @@ class Product extends Model
     {
         $images = collect();
         $images->push($this->getImage());
-        $images->merge($thi->getAllImages());
+        $images->merge($this->getAllImages());
         return $images;
     }
 }
