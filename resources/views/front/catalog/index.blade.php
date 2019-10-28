@@ -24,14 +24,16 @@
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
               @foreach ($categories as $categoryObject)
                   <li class="catalog__sort_md-dropdown__item  catalogSortDropdownItem" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
-              @endforeach"
+              @endforeach
             </ul>
           </li>
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Бренд</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
                 @foreach ($category->getAllBrands() as $brand)
-                    <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem" data-brand-id=" {{$brand->id }} ">{{ $brand->title }}</li>
+                    @if ($brand)
+                        <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem" data-brand-id=" {{$brand->id }} ">{{ $brand->title }}</li>
+                    @endif
                 @endforeach
             </ul>
           </li>
@@ -80,12 +82,9 @@
               <span class="lbl">Категории&nbsp; <i class="fa fa-angle-down"></i></span>
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
                 <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Мои талоны</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Корзина услуг</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Заявление на прикрепление</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Запись на прием</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Диспансеризация</a></li>
-                </ul>
+                    @foreach ($categories as $categoryObject)
+                        <li class="catalog__sort_md-dropdown__item" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
+                    @endforeach
               </div>
             </div>
           </div>
@@ -95,11 +94,11 @@
               <span class="lbl">Бренд&nbsp; <i class="fa fa-angle-down"></i></span>
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
                 <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Мои талоны</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Корзина услуг</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Заявление на прикрепление</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Запись на прием</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Диспансеризация</a></li>
+                    @foreach ($category->getAllBrands() as $brand)
+                        @if ($brand)
+                            <li class="catalog__sort_md-dropdown__item" data-brand-id=" {{$brand->id }} ">{{ $brand->title }}</li>
+                        @endif
+                    @endforeach
                 </ul>
               </div>
             </div>
@@ -242,7 +241,7 @@
           <div class="catalog-card">
             <div class="catalog-card__img">
               <img src="img/category/5.png" alt="" data-color="1">
-              <img src="img/category/6.png" alt="" data-color="2" style="display: none;">         
+              <img src="img/category/6.png" alt="" data-color="2" style="display: none;">
               <img src="img/category/7.png" alt="" data-color="3" style="display: none;">
               <img src="img/category/8.png" alt="" data-color="4" style="display: none;">
             </div>
@@ -271,10 +270,10 @@
         </div>
 
       </div>
-      <div class="loadmore">
+      {{-- <div class="loadmore">
         <div class="spinner-border text-primary" style="width: 40px; height: 40px; margin-right: 10px;" role="status"></div>
         load more
-      </div>
+      </div> --}}
     </div>
   </section>
 @endsection
