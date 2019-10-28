@@ -30,11 +30,9 @@
         <li class="nav-bar-list__elem uk-parent">
             <a href="#">Каталог</a>
             <ul class="uk-nav-sub">
-                <li class="nav-bar-list-dropdown__item"><a href="#">Мои талоны</a></li>
-                <li class="nav-bar-list-dropdown__item"><a href="#">Корзина услуг</a></li>
-                <li class="nav-bar-list-dropdown__item"><a href="#">Заявление на прикрепление</a></li>
-                <li class="nav-bar-list-dropdown__item"><a href="#">Запись на прием</a></li>
-                <li class="nav-bar-list-dropdown__item"><a href="#">Диспансеризация</a></li>
+                @foreach ($categories as $category)
+                    <li class="nav-bar-list-dropdown__item"><a href="{{ $category->getAncestorsSlugs() }}">{{ $category->ru_title }}</a></li>
+                @endforeach
             </ul>
         </li>
         <li class="nav-bar-list__elem"><a href="{{ route('about') }}">О компании</a></li>
