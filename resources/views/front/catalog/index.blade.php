@@ -235,7 +235,7 @@
                 </div>
                 <div class="catalog-card__buy">
                   <span class="catalog-card__price">{{ number_format($product->price, 0, ',', ' ') }} сум</span>
-                  <i class="fa fa-shopping-cart"></i>
+                  <i class="fa fa-shopping-cart add-to-cart-button" data-product-id="{{ $product->id }}"></i>
                 </div>
               </div>
             </div>
@@ -249,3 +249,24 @@
     </div>
   </section>
 @endsection
+@section('js')
+    <script>
+        jQuery(function() {
+            $('.add-to-cart-button').on('click', function(e) {
+                e.preventDefault();
+                let element = $(this);
+                let quantity = 1;
+                let productId = element.data('product-id');
+                $.ajax({
+                    url: '{{ route('cart.add') }}',
+                    'method': 'post',
+                    data: {_token: '{{ csrf_token() }}', productId, quantity: quantity},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            });
+        })
+    </script>
+@endsection
+
