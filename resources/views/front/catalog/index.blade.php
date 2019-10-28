@@ -239,12 +239,14 @@
 
         <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
           <div class="catalog-card">
-            <div class="catalog-card__img">
-              <img src="img/category/5.png" alt="" data-color="1">
-              <img src="img/category/6.png" alt="" data-color="2" style="display: none;">
-              <img src="img/category/7.png" alt="" data-color="3" style="display: none;">
-              <img src="img/category/8.png" alt="" data-color="4" style="display: none;">
-            </div>
+            <a href="">
+              <div class="catalog-card__img">
+                <img src="img/category/5.png" alt="" data-color="1">
+                <img src="img/category/6.png" alt="" data-color="2" style="display: none;">
+                <img src="img/category/7.png" alt="" data-color="3" style="display: none;">
+                <img src="img/category/8.png" alt="" data-color="4" style="display: none;">
+              </div>
+            </a>
             <div class="catalog-card-choice">
               <div class="catalog-card-choice__elem catalog-card-choice__elem--active" data-color="1">
                 <img src="img/category/5.png" alt="">
@@ -260,7 +262,7 @@
               </div>
             </div>
             <div class="catalog-card__title">
-              Asus ZenFone Go ZB452KG (black and white)
+              <a href="">Asus ZenFone Go ZB452KG (black and white)</a>
             </div>
             <div class="catalog-card__buy">
               <span class="catalog-card__price">$ 69.94</span>
