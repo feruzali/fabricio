@@ -1,5 +1,7 @@
 @extends('front.layouts.app')
 
+@section('title', 'Вход')
+
 @section('content')
 <section class="form" id="form">
 	<legend class="form__title">Авторизация</legend>
