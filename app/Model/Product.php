@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Model;
-
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Str;
@@ -46,6 +46,34 @@ class Product extends Model
 
     public function category(){
         return $this->hasOne('App\Model\Categories', 'id', 'category_id');
+    }
+
+    /**
+     * Get product params
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function params()
+    {
+        return $this->hasMany(ProductParam::class, 'product_id', 'id');
+    }
+
+    /**
+     * Create or update params
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function setParams(Request $request)
+    {
+        $this->params()->delete();
+        if ($request->has('params'))
+        {
+            $params = $request->get('params');
+            foreach ($params as $param) {
+                $this->params()->create($param);
+            }
+        }
     }
 
     public function uploadImage($image)
