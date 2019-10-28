@@ -77,8 +77,8 @@
                 <div class="col-md-4 offset-sm-0 col-sm-6 offset-1 col-10">
                     <div class="main-card first">
                         <h4 class="main-card__title">Солнцезащитные очки</h4>
-                        <span>Мужские</span> <br>
-                        <span>Женские</span>
+                        <span><a href="">Мужские</a></span> <br>
+                        <span><a href="">Женские</a></span>
                     </div>
                     <!-- /.main-card -->
                 </div>
@@ -86,17 +86,17 @@
                 <div class="col-md-4 offset-sm-0 col-sm-6 offset-1 col-10">
                     <div class="main-card second">
                         <h4 class="main-card__title">Оправы</h4>
-                        <span>Мужские</span> <br>
-                        <span>Женские</span>
+                        <span><a href="">Мужские</a></span> <br>
+                        <span><a href="">Женские</a></span>
                     </div>
                     <!-- /.main-card -->
                 </div>
                 <!-- /.col-4 -->
                 <div class="offset-md-0 col-md-4 offset-sm-3 col-sm-6 offset-1 col-10">
                     <div class="main-card third">
-                        <h4 class="main-card__title">Футляры</h4>
-                        <span>Футляры</span> <br>
-                        <span>Платочки</span>
+                        <h4 class="main-card__title">Аксессуары</h4>
+                        <span><a href="">Футляры</a></span> <br>
+                        <span><a href="">Платочки</a></span>
                     </div>
                     <!-- /.main-card -->
                 </div>
