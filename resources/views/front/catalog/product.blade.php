@@ -61,26 +61,26 @@
 
                     <ul class="uk-slideshow-items card-slideshow__bg" style="min-height: 624.375px;">
                         <li class="card-slideshowItem">
-                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <img class="uk-position-center uk-margin-large-left" src="{{ asset('front/img/card/1.png') }}" alt="">
 
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
-                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <img class="uk-position-center uk-margin-large-left" src="{{ asset('front/img/card/1.png') }}" alt="">
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
-                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <img class="uk-position-center uk-margin-large-left" src="{{ asset('front/img/card/1.png') }}" alt="">
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
-                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <img class="uk-position-center uk-margin-large-left" src="{{ asset('front/img/card/1.png') }}" alt="">
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
@@ -130,26 +130,26 @@
 
                     <ul class="uk-slideshow-items card-slideshow__bg" style="min-height: 624.375px;">
                         <li class="card-slideshowItem">
-                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <img class="uk-position-center uk-margin-large-left" src="{{ asset('front/img/card/1.png') }}" alt="">
 
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
-                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <img class="uk-position-center uk-margin-large-left" src="{{ asset('front/img/card/1.png') }}" alt="">
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
-                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <img class="uk-position-center uk-margin-large-left" src="{{ asset('front/img/card/1.png') }}" alt="">
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
-                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <img class="uk-position-center uk-margin-large-left" src="{{ asset('front/img/card/1.png') }}" alt="">
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
@@ -199,20 +199,20 @@
 
                     <ul class="uk-slideshow-items card-slideshow__bg" style="min-height: 624.375px;">
                         <li class="card-slideshowItem">
-                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <img class="uk-position-center uk-margin-large-left" src="{{ asset('front/img/card/1.png') }}" alt="">
 
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
-                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <img class="uk-position-center uk-margin-large-left" src="{{ asset('front/img/card/1.png') }}" alt="">
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
                         </li>
                         <li class="card-slideshowItem">
-                            <img class="uk-position-center uk-margin-large-left" src="img/card/1.png" alt="">
+                            <img class="uk-position-center uk-margin-large-left" src="{{ asset('front/img/card/1.png') }}" alt="">
                             <div class="uk-overlay uk-position-bottom-right uk-position-large">
                                 <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>
                             </div>
