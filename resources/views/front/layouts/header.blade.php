@@ -47,7 +47,7 @@
             <div class="col-xl-7 col-lg-8 col-md-9 col-sm-8 col-7">
                 <i id="open" class="fa fa-bars"></i>
                 <a href=""><img src="{{asset('front/img/main-logo.png')}}" alt="Logo" class="header__logo"></a>
-                <nav class="header__nav" uk-navbar="mode: click">
+                <nav class="header__nav" uk-navbar="mode: hover">
                     <ul class="uk-navbar-nav">
                         <li class="header__nav__item"><a href="{{ route('home') }}">Главная</a></li>
                         <li class="header__nav__item">
