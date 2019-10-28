@@ -272,7 +272,7 @@
 @section('js')
     <script>
         jQuery(function() {
-            $('#addToCartButton').on('click', function(e) {
+            $('.add-to-card-button').on('click', function(e) {
                 e.preventDefault();
                 let element = $(this);
                 let quantity = parseInt(element.prev().find('.card-stepper__input').val());
