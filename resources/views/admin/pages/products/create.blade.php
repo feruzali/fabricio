@@ -234,52 +234,7 @@
                         </div>
                     </div>
                     <div class="block-content" id="color-items">
-                        <div class="block block-themed color-item" id="color-item-1">
-                            <div class="block-header bg-primary-light">
-                                <h3 class="block-title">Цвет товара</h3>
-                                <div class="block-options">
-                                    <button class="btn-block-option delete-button" type="button" data-toggle="tooltip" title="Удалить цвет" data-block-id="color-item-1"><i class="fa fa-trash"></i></button>
-                                </div>
-                            </div>
-                            <div class="block-content">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <div class="form-material floating form-material-primary">
-                                                <input type="text" name="colors[1][name]" class="form-control" id="colorName1">
-                                                <label for="colorName1">Название</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <div class="form-material form-material-primary floating">
-                                                <input type="text" name="colors[1][hex]" id="colorHex1"
-                                                       class="js-colorpicker form-control">
-                                                <label for="colorHex1">Цвет</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="block">
-                                            <div class="block-header block-header-default">
-                                                <h3 class="block-title text-center">Изображения</h3>
-                                            </div>
-                                            <div class="block-content block-content-full text-center bg-info-lighter">
-                                                <div class="input_file">
-                                                    <div class="remove" style="display: none;">Удалить</div>
-                                                    <input id="gallery-photo-add" multiple accept="image/*" type="file" class="form-control input_file__input" name="color-images-1[]">
-                                                    <div class="input_file__text">
-                                                        <div class="input_file_text_first select">Выбрать</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div style="text-align:center;" class="gallery"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -305,11 +260,13 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="form-group">
-                            <div class="form-material form-material-primary floating">
-                                <input type="text" name="colors[{0}][hex]" id="colorHex{0}"
-                                       class="js-colorpicker form-control">
-                                <label for="colorHex{6}">Цвет</label>
+                        <div class="form-group row">
+                            <label class="col-12" for="colorHex{0}">Цвет</label>
+                            <div class="col-12">
+                                <div class="js-colorpicker input-group">
+                                    <input type="text" class="form-control" id="colors[{0}][hex]" name="colorHex{0}">
+                                    <span class="input-group-addon"><i></i></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -441,7 +398,7 @@
         }
 
         jQuery(function() {
-            let counter = 1;
+            let counter = 0;
             let templateString = $('#color-item-template').html();
             $('#addColorButton').on('click', function() {
                 counter++;
