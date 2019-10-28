@@ -53,7 +53,7 @@
 
                             <div class="uk-navbar-dropdown" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0;">
                                 <ul class="uk-nav uk-navbar-dropdown-nav header__nav__dropdown">
-                                    @foreach ($categories as $category)
+                                    @foreach ($parentCategories as $category)
                                         <li class="header__nav__dropdown__item">
                                             <a href="{{ $category->getAncestorsSlugs() }}">{{ $category->ru_title }}</a>
                                             <ul class="uk-nav-sub">
