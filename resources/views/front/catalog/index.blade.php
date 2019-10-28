@@ -219,7 +219,7 @@
                 <a href="{{ $product->getAncestorsSlugs() }}">
                   <div class="catalog-card__img">
                       @foreach($product->getAllImagesWithPreview() as $key => $image)
-                          <img src="@if (is_string($image)) {{ $image }} @else {{ $image->getImage() }} @endif" alt="" data-color="{{ $key }}" @if($key !== 1) style="display: none;" @endif>
+                          <img src="@if (is_string($image)) {{ $image }} @else {{ $image->getImage() }} @endif" alt="" data-color="{{ $key }}" @if(!is_string($image)) style="display: none;" @endif>
                       @endforeach
                   </div>
                 </a>
