@@ -78,16 +78,8 @@ class ProductController extends Controller
             'brand_id' => $data['brand_id'],
             'preview_image' => ''
         ]);
-        if($request->get('charTitle') != null){
-            $product->ru_characteristics_title  = serialize($request->get('charTitle'));
-            $product->save();
-        }
 
-        if($request->get('charValue') != null){
-            $product->ru_characteristics_value= serialize($request->get('charValue'));
-            $product->save();
-        }
-
+        $product->setParams($request);
 
         $product->uploadImage($request->file('preview_image'));
         $product->uploadSidesImages($request);
@@ -151,15 +143,8 @@ class ProductController extends Controller
             'brand_id' => $data['brand_id']
         ]);
 
-        if($request->get('charTitle') != null){
-            $product->ru_characteristics_title  = serialize($request->get('charTitle'));
-            $product->save();
-        }
 
-        if($request->get('charValue') != null){
-            $product->ru_characteristics_value= serialize($request->get('charValue'));
-            $product->save();
-        }
+        $product->setParams($request);
 
         $product->uploadImage($request->file('preview_image'));
         $product->uploadSidesImages($request);
@@ -215,6 +200,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->removePreviewImage();
         $product->colors()->delete();
+        $product->params()->delete();
         $product->delete();
         return redirect()->back();
     }

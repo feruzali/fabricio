@@ -136,6 +136,11 @@
                         <div class="form-group">
                             <label class="css-control css-control-primary css-checkbox"><input type="checkbox" class="css-control-input" name="is_auth" checked><span class="css-control-indicator"></span>Приватный товар</label>
                         </div>
+                        <h4 class="content-heading">Характеристики</h4>
+                        <button id="addParamsButton" type="button" class="btn btn-alt-primary"><i class="fa fa-plus"></i> Добавить</button>
+                        <div id="paramsItems">
+
+                        </div>
 
                         <!-- END Step 3 -->
                     </div>
@@ -282,6 +287,25 @@
             </div>
         </div>
     </template>
+    <template id="productParamTemplate">
+        <div class="row" id="param-item-{0}">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group">
+                    <label for="paramsName{0}">Наименование</label>
+                    <input type="text" name="params[{0}][name]" id="paramsName{0}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group">
+                    <label for="paramsValue{0}">Значение</label>
+                    <input type="text" name="params[{0}][value]" id="paramsValue{0}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-12">
+                <button class="btn btn-sm btn-alt-danger mt-30 param-delete-button" type="button" data-param-id="{0}"><i class="fa fa-trash"></i> Удалить</button>
+            </div>
+        </div>
+    </template>
 @endsection
 
 
@@ -403,6 +427,26 @@
                 Codebase.helper('colorpicker');
             });
             $('.delete-button').on('click', deleteColorItem);
+        })
+    </script>
+    <script>
+
+        function deleteParamsItem() {
+            let deleteButton = $(this);
+            let blockId = deleteButton.data('param-id');
+            $(`#param-item-${blockId}`).remove()
+        }
+
+        jQuery(function () {
+            let counter = 0;
+            let templateString = $('#productParamTemplate').html();
+            $('#addParamsButton').on('click', function() {
+                counter++;
+                let paramsItemString = templateString.format(counter);
+                let paramsItem = $(paramsItemString);
+                $('#paramsItems').append(paramsItem);
+                paramsItem.find('.param-delete-button').on('click', deleteParamsItem);
+            })
         })
     </script>
 @endsection
