@@ -84,7 +84,7 @@ Route::middleware('catalog')->group(function() {
     Route::post('/login', 'FrontAuth\LoginController@login');
     Route::get('/register', 'FrontAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'FrontAuth\RegisterController@register');
-    Route::get('/cart', 'Front\CartController@index');
+    Route::get('/cart', 'Front\CartController@index')->name('cart.index');
     Route::get('/request', 'Front\RequestController@index');
     Route::post('/request', 'Front\RequestController@storeRequest');
     Route::get('/about', 'HomeController@about')->name('about');
