@@ -10,45 +10,21 @@
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="max-height: 490" index="0">
 
                 <ul class="uk-slideshow-items">
-                    <li>
-                        <img src="img/slider/slide1.jpg" alt="" uk-cover>
-                        <div class="uk-position-top slideshow-items uk-margin-medium-left">
-                            <h1 class="slideshow-items__title">Модные очки</h1>
-                            <p class="slideshow-items__subtitle">По доступным ценам!</p>
-                        </div>
-                        <div class="uk-position-center main-slider-play">
-                            <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
-                        </div>
-                        <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
-                            <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="img/slider/slide1.jpg" alt="" uk-cover>
-                        <div class="uk-position-top slideshow-items uk-margin-medium-left">
-                            <h1 class="slideshow-items__title">Модные очки</h1>
-                            <p class="slideshow-items__subtitle">По доступным ценам!</p>
-                        </div>
-                        <div class="uk-position-center main-slider-play">
-                            <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
-                        </div>
-                        <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
-                            <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="img/slider/slide1.jpg" alt="" uk-cover>
-                        <div class="uk-position-top slideshow-items uk-margin-medium-left">
-                            <h1 class="slideshow-items__title">Модные очки</h1>
-                            <p class="slideshow-items__subtitle">По доступным ценам!</p>
-                        </div>
-                        <div class="uk-position-center main-slider-play">
-                            <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
-                        </div>
-                        <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
-                            <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
-                        </div>
-                    </li>
+                    @foreach($sliders as $slider)
+                        <li>
+                            <img src="{{ $slider->getImage() }}" alt="" uk-cover>
+                            <div class="uk-position-top slideshow-items uk-margin-medium-left">
+                                <h1 class="slideshow-items__title">{{ $slider->ru_title }}</h1>
+                                <p class="slideshow-items__subtitle">{{ $slider->ru_description }}</p>
+                            </div>
+                            <div class="uk-position-center main-slider-play">
+                                <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
+                            </div>
+                            <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
+                                <button class="slideshow-items__btn"><a href="{{ $slider->link_page }}">Смотреть каталог</a></button>
+                            </div>
+                        </li>
+                    @endforeach
                 </ul>
 
                 <a class="uk-position-center-left uk-position-small uk-hidden-hover slide-btn" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
@@ -72,7 +48,7 @@
                                         {{$slider->ru_title}}
                                     </h1>
                                     <p class="slideshow-items__subtitle">{!! $slider->ru_description !!}</p>
-                                    <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
+                                    <button class="slideshow-items__btn"><a href="{{ $slider->link_page }}">Смотреть каталог</a></button>
                                 </div>
                                 <div class="uk-position-bottom-left scrolldown"><img src="{{asset('front/img/slider/mouse.png')}}" alt="" class="scrolldown__img"><span class="scrolldown__txt">Листай вниз</span></div>
                                 <div class="uk-position-center main-slider-play">
