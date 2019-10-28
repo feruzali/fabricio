@@ -214,62 +214,32 @@
       <div class="row">
 
         @foreach($products as $product)
-          <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-            <div class="catalog-card">
-              <div class="catalog-card__img">
-                <img src="{{ $product->getImage() }}" alt="">
-              </div>
-              <div class="catalog-card-choice">
-                @foreach($product->getAllImages() as $img)
-                  <div class="catalog-card-choice__elem">
-                    <img src="{{ $img->getImage() }}" alt="">
+            <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+              <div class="catalog-card">
+                <a href="{{ $product->getAncestorsSlugs() }}">
+                  <div class="catalog-card__img">
+                      @foreach($product->getAllImagesWithPreview() as $key => $image)
+                          <img src="@if (is_string($image)) {{ $image }} @else {{ $image->getImage() }} @endif" alt="" data-color="{{ $key }}" @if(!is_string($image)) style="display: none;" @endif>
+                      @endforeach
                   </div>
-                @endforeach
-              </div>
-              <div class="catalog-card__title">
-                {{ $product->ru_title }}
-              </div>
-              <div class="catalog-card__buy">
-                <span class="catalog-card__price">$ 69.94</span>
-                <i class="fa fa-shopping-cart"></i>
+                </a>
+                <div class="catalog-card-choice">
+                    @foreach ($product->getAllImagesWithPreview() as $key => $image)
+                        <div class="catalog-card-choice__elem @if($key == 1) catalog-card-choice__elem--active @else catalog-card-choice__elem @endif" data-color="{{ $key }}">
+                          <img src="@if (is_string($image)) {{ $image }} @else {{ $image->getImage() }} @endif" alt="">
+                        </div>
+                    @endforeach
+                </div>
+                <div class="catalog-card__title">
+                  <a href="{{ $product->getAncestorsSlugs() }}">{{ $product->title }}</a>
+                </div>
+                <div class="catalog-card__buy">
+                  <span class="catalog-card__price">{{ number_format($product->price, 0, ',', ' ') }} сум</span>
+                  <i class="fa fa-shopping-cart add-to-cart-button" data-product-id="{{ $product->id }}"></i>
+                </div>
               </div>
             </div>
-          </div>
         @endforeach
-
-        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-          <div class="catalog-card">
-            <a href="">
-              <div class="catalog-card__img">
-                <img src="img/category/5.png" alt="" data-color="1">
-                <img src="img/category/6.png" alt="" data-color="2" style="display: none;">
-                <img src="img/category/7.png" alt="" data-color="3" style="display: none;">
-                <img src="img/category/8.png" alt="" data-color="4" style="display: none;">
-              </div>
-            </a>
-            <div class="catalog-card-choice">
-              <div class="catalog-card-choice__elem catalog-card-choice__elem--active" data-color="1">
-                <img src="img/category/5.png" alt="">
-              </div>
-              <div class="catalog-card-choice__elem" data-color="2">
-                <img src="img/category/6.png" alt="">
-              </div>
-              <div class="catalog-card-choice__elem" data-color="3">
-                <img src="img/category/7.png" alt="">
-              </div>
-              <div class="catalog-card-choice__elem" data-color="4">
-                <img src="img/category/8.png" alt="">
-              </div>
-            </div>
-            <div class="catalog-card__title">
-              <a href="">Asus ZenFone Go ZB452KG (black and white)</a>
-            </div>
-            <div class="catalog-card__buy">
-              <span class="catalog-card__price">$ 69.94</span>
-              <i class="fa fa-shopping-cart"></i>
-            </div>
-          </div>
-        </div>
 
       </div>
       {{-- <div class="loadmore">
@@ -279,3 +249,24 @@
     </div>
   </section>
 @endsection
+@section('js')
+    <script>
+        jQuery(function() {
+            $('.add-to-cart-button').on('click', function(e) {
+                e.preventDefault();
+                let element = $(this);
+                let quantity = 1;
+                let productId = element.data('product-id');
+                $.ajax({
+                    url: '{{ route('cart.add') }}',
+                    'method': 'post',
+                    data: {_token: '{{ csrf_token() }}', productId, quantity: quantity},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            });
+        })
+    </script>
+@endsection
+

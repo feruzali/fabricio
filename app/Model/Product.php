@@ -147,10 +147,17 @@ class Product extends Model
     */
     public function getAllImages()
     {
-        $images = [];
+        $images = collect();
         foreach ($this->colors as $color)
-            foreach ($color->images as $image)
-                array_push($images, $image);
+            $images->merge($color->images);
+        return $images;
+    }
+
+    public function getAllImagesWithPreview()
+    {
+        $images = collect();
+        $images->push($this->getImage());
+        $images->merge($this->getAllImages());
         return $images;
     }
 }

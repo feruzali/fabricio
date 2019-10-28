@@ -10,45 +10,21 @@
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="max-height: 490" index="0">
 
                 <ul class="uk-slideshow-items">
-                    <li>
-                        <img src="img/slider/slide1.jpg" alt="" uk-cover>
-                        <div class="uk-position-top slideshow-items uk-margin-medium-left">
-                            <h1 class="slideshow-items__title">Модные очки</h1>
-                            <p class="slideshow-items__subtitle">По доступным ценам!</p>
-                        </div>
-                        <div class="uk-position-center main-slider-play">
-                            <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
-                        </div>
-                        <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
-                            <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="img/slider/slide1.jpg" alt="" uk-cover>
-                        <div class="uk-position-top slideshow-items uk-margin-medium-left">
-                            <h1 class="slideshow-items__title">Модные очки</h1>
-                            <p class="slideshow-items__subtitle">По доступным ценам!</p>
-                        </div>
-                        <div class="uk-position-center main-slider-play">
-                            <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
-                        </div>
-                        <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
-                            <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="img/slider/slide1.jpg" alt="" uk-cover>
-                        <div class="uk-position-top slideshow-items uk-margin-medium-left">
-                            <h1 class="slideshow-items__title">Модные очки</h1>
-                            <p class="slideshow-items__subtitle">По доступным ценам!</p>
-                        </div>
-                        <div class="uk-position-center main-slider-play">
-                            <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
-                        </div>
-                        <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
-                            <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
-                        </div>
-                    </li>
+                    @foreach($sliders as $slider)
+                        <li>
+                            <img src="{{ $slider->getImage() }}" alt="" uk-cover>
+                            <div class="uk-position-top slideshow-items uk-margin-medium-left">
+                                <h1 class="slideshow-items__title">{{ $slider->ru_title }}</h1>
+                                <p class="slideshow-items__subtitle">{{ $slider->ru_description }}</p>
+                            </div>
+                            <div class="uk-position-center main-slider-play">
+                                <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
+                            </div>
+                            <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
+                                <button class="slideshow-items__btn"><a href="{{ $slider->link_page }}">Смотреть каталог</a></button>
+                            </div>
+                        </li>
+                    @endforeach
                 </ul>
 
                 <a class="uk-position-center-left uk-position-small uk-hidden-hover slide-btn" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
@@ -72,7 +48,7 @@
                                         {{$slider->ru_title}}
                                     </h1>
                                     <p class="slideshow-items__subtitle">{!! $slider->ru_description !!}</p>
-                                    <button class="slideshow-items__btn"><a href="">Смотреть каталог</a></button>
+                                    <button class="slideshow-items__btn"><a href="{{ $slider->link_page }}">Смотреть каталог</a></button>
                                 </div>
                                 <div class="uk-position-bottom-left scrolldown"><img src="{{asset('front/img/slider/mouse.png')}}" alt="" class="scrolldown__img"><span class="scrolldown__txt">Листай вниз</span></div>
                                 <div class="uk-position-center main-slider-play">
@@ -429,58 +405,5 @@
         <!-- /.container -->
     </section>
     <!-- /#goods.goods -->
-
-    <section class="feedback" id="feedback">
-        <div class="container">
-            <h2 class="section-title">Оставить заявку</h2>
-
-            <div class="row">
-
-                <div class="offset-xl-0 offset-lg-1 col-md-8 col-10">
-                    <div class="form-wrapper">
-                        <h4 class="form-wrapper__title">Остались вопросы?</h4>
-                        <div class="form-wrapper__subtitle">Отправьте их нам!</div>
-                        <form action="#">
-                            <input type="text" placeholder="Ваше имя">
-                            <input type="email" placeholder="Ваш e-mail">
-                            <input type="tel" placeholder="Ваш номер">
-                            <textarea name="" id="" cols="50" rows="4" placeholder="Ваш вопрос"></textarea>
-                            <button class="form__btn">Отправить</button>
-                        </form>
-                    </div>
-                </div>
-                <!-- /.col-8 -->
-
-                <div class="offset-xl-0 col-xl-4 col-lg-6 offset-md-3 col-md-7 offset-sm-1 col-sm-9 offset-1 col-10">
-                    <div class="contacts">
-                        <h4 class="contacts__title">Наши контакты</h4>
-                        <div class="contacts__subtitle">Позвоните нам!</div>
-                        <div class="contacts__block">
-                            <div class="contacts__time-img"></div>
-                            <div class="contacts__time">{{$contact->time}}</div>
-                        </div>
-                        <div class="contacts__block">
-                            <div class="contacts__mail-img"></div>
-                            <div class="contacts__mail"><a href="mailto:{{$contact->email}}">{{$contact->email}}</a></div>
-                        </div>
-                        <div class="contacts__block">
-                            <div class="contacts__geo-img"></div>
-                            <div class="contacts__geo">{{$contact->address}}</div>
-                        </div>
-                        <div class="contacts__block">
-                            <div class="contacts__phone-img"></div>
-                            <div class="contacts__phone">{{$contact->number}}</div>
-                        </div>
-                    </div>
-                    <!-- /.contacts -->
-                </div>
-                <!-- /.col-4 -->
-
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
-    <!-- /#feedback.feedback -->
 
 @endsection

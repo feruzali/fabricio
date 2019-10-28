@@ -5,6 +5,56 @@
 @section('content')
     <section class="card" id="card">
         <div class="container">
+{{--            @foreach($product->colors as $color)--}}
+{{--                <div uk-slideshow class="card--slider" data-color="{{ $color->id }}">--}}
+
+{{--                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">--}}
+
+{{--                        <ul class="uk-slideshow-items card-slideshow__bg" style="min-height: 624.375px;">--}}
+{{--                            @foreach ($color->images as $image)--}}
+{{--                                <li class="card-slideshowItem">--}}
+{{--                                    <img class="uk-position-center uk-margin-large-left" src="{{ $image->getImage() }}" alt="">--}}
+
+{{--                                    <div class="uk-overlay uk-position-bottom-right uk-position-large">--}}
+{{--                                        <p class="card-slideshow">Мужские солнцезащитные очки + ФУТЛЯР</p>--}}
+{{--                                    </div>--}}
+{{--                                </li>--}}
+{{--                            @endforeach--}}
+
+{{--                        </ul>--}}
+
+{{--                        <div class="uk-position-bottom-right uk-position-medium card-slideshow__nav">--}}
+{{--                            <i class="fa fa-long-arrow-left" uk-slideshow-item="previous"></i>--}}
+{{--                            <i class="fa fa-long-arrow-right" uk-slideshow-item="next"></i>--}}
+{{--                        </div>--}}
+{{--                        <div class="uk-position-center-right uk-position-large">--}}
+{{--                            <ul class="uk-slideshow-nav uk-dotnav uk-dotnav-vertical"></ul>--}}
+{{--                        </div>--}}
+
+{{--                        <div class="uk-position-center-left uk-position-small">--}}
+{{--                            @foreach($product->colors as $key => $prodColor)--}}
+{{--                                <div class="circle-wrapper @if($key === 1) circle-wrapper--active @endif" data-color="{{ $prodColor->id }}">--}}
+{{--                                    <div class="circle" style="background-color: {{ $prodColor->colorHEX }};"><i class="fa fa-check"></i></div>--}}
+{{--                                </div>--}}
+{{--                            @endforeach--}}
+{{--                        </div>--}}
+
+{{--                        <div class="uk-position-bottom-left uk-position-small">--}}
+{{--                            <div class="stepper stepper--style-3 js-spinner card-stepper">--}}
+{{--                                <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input quantity-field">--}}
+{{--                                <div class="stepper__controls">--}}
+{{--                                    <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>--}}
+{{--                                    <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+
+{{--                            <button class="card-slideshow__btn add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>--}}
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+
+{{--                </div>--}}
+{{--            @endforeach--}}
             <div uk-slideshow class="card--slider" data-color="black">
 
                 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
@@ -60,14 +110,14 @@
 
                     <div class="uk-position-bottom-left uk-position-small">
                         <div class="stepper stepper--style-3 js-spinner card-stepper">
-                            <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input">
+                            <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input quantity-field">
                             <div class="stepper__controls">
                                 <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                                 <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
                             </div>
                         </div>
 
-                        <button class="card-slideshow__btn"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button>
+                        <button class="card-slideshow__btn add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                     </div>
 
                 </div>
@@ -136,7 +186,7 @@
                             </div>
                         </div>
 
-                        <button class="card-slideshow__btn"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button>
+                        <button class="card-slideshow__btn add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                     </div>
 
                 </div>
@@ -205,7 +255,7 @@
                             </div>
                         </div>
 
-                        <button class="card-slideshow__btn"><i class="fa fa-shopping-cart"></i>&nbsp; Add to card</button>
+                        <button class="card-slideshow__btn add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                     </div>
 
                 </div>
@@ -245,11 +295,11 @@
         <div class="promoBlock">
             <div class="promoBlock__wrapper">
                 <div class="promoBlock__images">
-                    <div class="promoBlock__img" style="background-image: url('img/card/left.jpeg')"></div>
-                    <div class="promoBlock__img" style="background-image: url('img/card/left.jpeg')"></div>
-                    <div class="promoBlock__img promoBlock__img--active" style="background-image: url('img/card/center.jpeg')"></div>
-                    <div class="promoBlock__img" style="background-image: url('img/card/right.jpeg')"></div>
-                    <div class="promoBlock__img" style="background-image: url('img/card/right.jpeg')"></div>
+                    <div class="promoBlock__img" style="background-image: url('{{ $product->getLeftImage() }}')"></div>
+                    <div class="promoBlock__img" style="background-image: url('{{ $product->getLeftImage() }}')"></div>
+                    <div class="promoBlock__img promoBlock__img--active" style="background-image: url('{{ $product->getFrontImage() }}')"></div>
+                    <div class="promoBlock__img" style="background-image: url('{{ $product->getRightImage() }}')"></div>
+                    <div class="promoBlock__img" style="background-image: url('{{ $product->getRightImage() }}')"></div>
                 </div>
 
                 <div class="promoBlock__hoverFields">
@@ -272,10 +322,10 @@
 @section('js')
     <script>
         jQuery(function() {
-            $('#addToCartButton').on('click', function(e) {
+            $('.add-to-card-button').on('click', function(e) {
                 e.preventDefault();
                 let element = $(this);
-                let quantity = parseInt($('#quantityField').val());
+                let quantity = parseInt(element.prev().find('.card-stepper__input').val());
                 let productId = element.data('product-id');
                 $.ajax({
                     url: '{{ route('cart.add') }}',
