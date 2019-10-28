@@ -71,7 +71,7 @@
                         <a class="header__auth" href="{{ route('login') }}">Войти</a>
                         <a class="header__auth_adap" href="{{ route('login') }}"><i class="fa fa-user"></i></a>
                         <a class="header__auth" href="{{ route('register') }}">Регистрация</a>
-                        <a class="header__auth_adap" href="{{ route('register') }}"><i class="fa fa-address-card-o"></i></a>
+                        <a class="header__auth_adap" href="{{ route('register') }}"><i class="fa fa-address-card"></i></a>
                     @endguest
                     @auth
                         <img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag">
