@@ -260,11 +260,13 @@
                                             </div>
                                         </div>
                                         <div class="col-6">
-                                            <div class="form-group">
-                                                <div class="form-material form-material-primary floating">
-                                                    <input type="text" name="colors[{{ $key }}][hex]" id="colorHex{{ $key }}"
-                                                           class="js-colorpicker form-control" value="{{ $color->colorHEX }}">
-                                                    <label for="colorHex{{ $key }}">Цвет</label>
+                                            <div class="form-group row">
+                                                <label class="col-12" for="colorHex{{ $key }}">Цвет</label>
+                                                <div class="col-12">
+                                                    <div class="js-colorpicker input-group">
+                                                        <input type="text" value="{{ $color->colorHEX }}" class="form-control" id="colors[{{ $key }}][hex]" name="colorHex{{ $key }}">
+                                                        <span class="input-group-addon"><i></i></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -318,11 +320,13 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="form-group">
-                            <div class="form-material form-material-primary floating">
-                                <input type="text" name="colors[{0}][hex]" id="colorHex{0}"
-                                       class="js-colorpicker form-control">
-                                <label for="colorHex{6}">Цвет</label>
+                        <div class="form-group row">
+                            <label class="col-12" for="colorHex{0}">Цвет</label>
+                            <div class="col-12">
+                                <div class="js-colorpicker input-group">
+                                    <input type="text" class="form-control" id="colors[{0}][hex]" name="colorHex{0}">
+                                    <span class="input-group-addon"><i></i></span>
+                                </div>
                             </div>
                         </div>
                     </div>
