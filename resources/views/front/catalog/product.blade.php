@@ -245,11 +245,11 @@
         <div class="promoBlock">
             <div class="promoBlock__wrapper">
                 <div class="promoBlock__images">
-                    <div class="promoBlock__img" style="background-image: url('img/card/left.jpeg')"></div>
-                    <div class="promoBlock__img" style="background-image: url('img/card/left.jpeg')"></div>
-                    <div class="promoBlock__img promoBlock__img--active" style="background-image: url('img/card/center.jpeg')"></div>
-                    <div class="promoBlock__img" style="background-image: url('img/card/right.jpeg')"></div>
-                    <div class="promoBlock__img" style="background-image: url('img/card/right.jpeg')"></div>
+                    <div class="promoBlock__img" style="background-image: url('{{ $product->getLeftImage() }}')"></div>
+                    <div class="promoBlock__img" style="background-image: url('{{ $product->getLeftImage() }}')"></div>
+                    <div class="promoBlock__img promoBlock__img--active" style="background-image: url('{{ $product->getFrontImage() }}')"></div>
+                    <div class="promoBlock__img" style="background-image: url('{{ $product->getRightImage() }}')"></div>
+                    <div class="promoBlock__img" style="background-image: url('{{ $product->getRightImage() }}')"></div>
                 </div>
 
                 <div class="promoBlock__hoverFields">
