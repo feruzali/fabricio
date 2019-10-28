@@ -137,21 +137,6 @@
                         <div class="form-group">
                             <label class="css-control css-control-primary css-checkbox"><input type="checkbox" class="css-control-input" name="is_auth" @if ($product->is_auth) checked @endif><span class="css-control-indicator"></span>Приватный товар</label>
                         </div>
-                        <div class="tab-pane active" id="wizard-simple2-step1" role="tabpanel">
-                            <div class="form-group char-container" style="margin-bottom: 0;">
-                                @if(count($common) != 0)
-                                    @for($i = 0; $i < count($common[0]); $i++)
-                                        <div class='row char-elem100{{ $i }}' style='margin-bottom: 10px;margin-left: 0;margin-right: 0;'>
-                                            <div class='col-md-3'><input name='charTitle[]' value="{{ (isset($common[0][$i])) ? $common[0][$i] : '' }}" class='form-control char-title' type='text' placeholder='Введите название для характеристики...'></div>
-                                            <div class='col-md-3'><input name='charValue[]' value="{{ (isset($common[1][$i])) ? $common[1][$i] : '' }}" class='form-control char-value' type='text' placeholder='Введите значение для характеристики...'></div>
-                                            <div class='col-md-3'><span class=' form-control btn btn-primary char-btn' onclick='removeBlock(100{{ $i }})'> Удалить </span></div>
-                                        </div>
-                                    @endfor
-                                @endif
-                            </div>
-                        </div>
-
-
                         <!-- END Step 3 -->
                     </div>
 
