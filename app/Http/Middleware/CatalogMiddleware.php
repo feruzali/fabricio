@@ -19,7 +19,7 @@ class CatalogMiddleware
     public function handle($request, Closure $next)
     {
         View::share('contact', Contact::find(1));
-        View::share('categories', Categories::where('parent_id', '=', 0));
+        View::share('categories', Categories::where('parent_id', '=', null)->get());
         if (session()->has('cart')) {
             $cartTotalSum = 0;
             $cartTotalCount = 0;
