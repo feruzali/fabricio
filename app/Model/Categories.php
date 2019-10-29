@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Kalnoy\Nestedset\NodeTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -114,6 +115,9 @@ class Categories extends Model
     {
         $categories = $this->descendants()->pluck('id');
         $categories[] = $this->getKey();
-        return Product::whereIn('category_id', $categories)->get();
+        $productQuery = Product::whereIn('category_id', $categories);
+        if (!Auth::check())
+            $productQuery->where('is_auth', true);
+        return $productQuery->get();
     }
 }
