@@ -260,10 +260,12 @@
                                     <!-- /.goods-card__title -->
                                     <div class="goods-card__price">{{ number_format($product->price, 0, ',', ' ') }} сум</div>
                                     <!-- /.goods-card__price -->
-                                    <span class="color">Цвет:</span> <br>
-                                    @foreach ($product->colors as $color)
-                                        <div class="goods-card__color" style="background-color: {{ $color->colorHEX }}"></div>
-                                    @endforeach
+                                    @if ($product->colors()->count() > 0)
+                                        <span class="color">Цвет:</span> <br>
+                                        @foreach ($product->colors as $color)
+                                            <div class="goods-card__color" style="background-color: {{ $color->colorHEX }}"></div>
+                                        @endforeach
+                                    @endif
                                     <div class="goods-card__bag"></div>
                                 </div>
                                 <!-- /.goods-card -->
