@@ -76,27 +76,27 @@
             <div class="row">
                 <div class="col-md-4 offset-sm-0 col-sm-6 offset-1 col-10">
                     <div class="main-card first">
-                        <h4 class="main-card__title">Солнцезащитные очки</h4>
-                        <span><a href="">Мужские</a></span> <br>
-                        <span><a href="">Женские</a></span>
+                        <a href="http://fabricio.vid.uz/solncezashchitnye-ochki"><h4 class="main-card__title">Солнцезащитные очки</h4></a>
+                        <span><a href="http://fabricio.vid.uz/solncezashchitnye-ochki/muzhskie">Мужские</a></span> <br>
+                        <span><a href="http://fabricio.vid.uz/solncezashchitnye-ochki/zhenskie">Женские</a></span>
                     </div>
                     <!-- /.main-card -->
                 </div>
                 <!-- /.col-4 -->
                 <div class="col-md-4 offset-sm-0 col-sm-6 offset-1 col-10">
                     <div class="main-card second">
-                        <h4 class="main-card__title">Оправы</h4>
-                        <span><a href="">Мужские</a></span> <br>
-                        <span><a href="">Женские</a></span>
+                        <a href="http://fabricio.vid.uz/opravy"><h4 class="main-card__title">Оправы</h4></a>
+                        <span><a href="http://fabricio.vid.uz/opravy/muzhskie-1">Мужские</a></span> <br>
+                        <span><a href="http://fabricio.vid.uz/opravy/zhenskie-1">Женские</a></span>
                     </div>
                     <!-- /.main-card -->
                 </div>
                 <!-- /.col-4 -->
                 <div class="offset-md-0 col-md-4 offset-sm-3 col-sm-6 offset-1 col-10">
                     <div class="main-card third">
-                        <h4 class="main-card__title">Аксессуары</h4>
-                        <span><a href="">Футляры</a></span> <br>
-                        <span><a href="">Платочки</a></span>
+                        <a href="http://fabricio.vid.uz/akssesuary"><h4 class="main-card__title">Аксессуары</h4></a>
+                        <span><a href="http://fabricio.vid.uz/akssesuary/futlyary">Футляры</a></span> <br>
+                        <span><a href="http://fabricio.vid.uz/akssesuary/platochki">Платочки</a></span>
                     </div>
                     <!-- /.main-card -->
                 </div>

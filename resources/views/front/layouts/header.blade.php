@@ -30,7 +30,7 @@
         <li class="nav-bar-list__elem uk-parent">
             <a href="#">Каталог</a>
             <ul class="uk-nav-sub">
-                @foreach ($categories as $category)
+                @foreach ($parentCategories as $category)
                     <li class="nav-bar-list-dropdown__item"><a href="{{ $category->getAncestorsSlugs() }}">{{ $category->ru_title }}</a></li>
                 @endforeach
             </ul>
@@ -51,47 +51,20 @@
                         <li class="header__nav__item">
                             <a href="#">Каталог&nbsp; <i class="fa fa-angle-down"></i></a>
 
-
-                            <!-- Начиная отсюда измени -->
-
                             <div class="uk-navbar-dropdown" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0;">
                                 <ul class="uk-nav uk-navbar-dropdown-nav header__nav__dropdown">
-                                    @foreach($categories as $category)
-                                        <li class="header__nav__dropdown__item"><a href="{{ $category->getAncestorsSlugs() }}">{{ $category->ru_title }}</a></li>
+                                    @foreach ($parentCategories as $category)
+                                        <li class="header__nav__dropdown__item">
+                                            <a href="{{ $category->getAncestorsSlugs() }}">{{ $category->ru_title }}</a>
+                                            <ul class="uk-nav-sub">
+                                                @foreach ($category->children as $child)
+                                                    <li><a href="{{ $child->getAncestorsSlugs() }}">{{ $child->ru_title }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>
-                            
-                            <!-- Вот мой код. Измени его, поправь. Это я дропдауны сгруппировал -->
-
-                            <div class="uk-navbar-dropdown" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0;">
-                                <ul class="uk-nav uk-navbar-dropdown-nav header__nav__dropdown">
-                                    <li class="header__nav__dropdown__item">
-                                        <a href="#">Солнцезащитные очки</a>
-                                        <ul class="uk-nav-sub">
-                                            <li><a href="#">Мужские</a></li>
-                                            <li><a href="#">Женские</a></li>
-                                            <li><a href="#">Детские</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="header__nav__dropdown__item">
-                                        <a href="#">Оправы</a>
-                                        <ul class="uk-nav-sub">
-                                            <li><a href="#">Мужские</a></li>
-                                            <li><a href="#">Женские</a></li>
-                                            <li><a href="#">Детские</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="header__nav__dropdown__item">
-                                        <a href="#">Аксессуары</a>
-                                        <ul class="uk-nav-sub">
-                                            <li><a href="#">Футляры</a></li>
-                                            <li><a href="#">Платочки</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-
                             <!-- End -->
 
                         </li>

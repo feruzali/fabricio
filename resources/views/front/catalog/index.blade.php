@@ -143,21 +143,14 @@
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
           <ul class="uk-slideshow-items">
             <li>
-              <img src="img/category/slider/1.jpg" alt=""  class="uk-cover">
+              <img src="{{ asset('front/img/category/slider/1.jpg') }}" alt=""  class="uk-cover">
               <div class="uk-overlay uk-position-center uk-position-small">
                 <h3 class="catalog-slider__title">The Universe Through A Child S Eyes</h3>
                 <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
               </div>
             </li>
             <li>
-              <img src="img/category/slider/2.jpg" alt=""  class="uk-cover">
-              <div class="uk-overlay uk-position-center uk-position-small">
-                <h3 class="catalog-slider__title">The Universe Through A Child S Eyes</h3>
-                <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
-              </div>
-            </li>
-            <li>
-              <img src="img/category/slider/1.jpg" alt=""  class="uk-cover">
+              <img src="{{ asset('front/img/category/slider/2.jpg') }}" alt=""  class="uk-cover">
               <div class="uk-overlay uk-position-center uk-position-small">
                 <h3 class="catalog-slider__title">The Universe Through A Child S Eyes</h3>
                 <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
@@ -180,21 +173,14 @@
       <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
         <ul class="uk-slideshow-items">
           <li>
-            <img src="img/category/slider/1.jpg" alt=""  class="uk-cover">
+            <img src="{{ asset('front/img/category/slider/1.jpg') }}" alt=""  class="uk-cover">
             <div class="uk-overlay uk-position-center uk-position-small">
               <h3 class="catalog-slider__title catalog-slider__title_md">The Universe Through A Child S Eyes</h3>
               <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
             </div>
           </li>
           <li>
-            <img src="img/category/slider/2.jpg" alt=""  class="uk-cover">
-            <div class="uk-overlay uk-position-center uk-position-small">
-              <h3 class="catalog-slider__title catalog-slider__title_md">The Universe Through A Child S Eyes</h3>
-              <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
-            </div>
-          </li>
-          <li>
-            <img src="img/category/slider/1.jpg" alt=""  class="uk-cover">
+            <img src="{{ asset('front/img/category/slider/2.jpg') }}" alt=""  class="uk-cover">
             <div class="uk-overlay uk-position-center uk-position-small">
               <h3 class="catalog-slider__title catalog-slider__title_md">The Universe Through A Child S Eyes</h3>
               <p class="uk-margin-large-top catalog-slider__subtitle">Start sales</p>
@@ -269,4 +255,3 @@
         })
     </script>
 @endsection
-
