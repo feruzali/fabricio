@@ -81,10 +81,10 @@
                         <a class="header__auth" href="{{ route('register') }}">Регистрация</a>
                         <a class="header__auth_adap" href="{{ route('register') }}"><i uk-icon="sign-in"></i></a>
                     @endguest
-                    @auth
-                            <a href="{{ route('cart.index') }}"><img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag"></a>
+                        <a href="{{ route('cart.index') }}"><img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag"></a>
                         <span class="header__bag__quan" id="cartCount">@if(isset($cartTotalCount)) {{ $cartTotalCount }} @else 0 @endif</span>
                         <span class="header__price"> &nbsp;@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif сум</span>
+                    @auth
                         <a class="header__auth" href="{{ route('logout') }}">Выйти</a>
                     @endauth
                 </div>
