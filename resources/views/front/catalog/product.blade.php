@@ -127,7 +127,7 @@
                         </div>
                     </div>
 
-                    @auth <button class="card-slideshow__btn md_visible"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button> @endauth
+                    <button class="card-slideshow__btn md_visible"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
 
                 </div>
 
@@ -205,7 +205,7 @@
                         </div>
                     </div>
 
-                    @auth <button class="card-slideshow__btn md_visible"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button> @endauth
+                    <button class="card-slideshow__btn md_visible"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
 
                 </div>
 
@@ -283,7 +283,7 @@
                         </div>
                     </div>
 
-                    @auth <button class="card-slideshow__btn md_visible"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button> @endauth
+                    <button class="card-slideshow__btn md_visible"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
 
                 </div>
 
