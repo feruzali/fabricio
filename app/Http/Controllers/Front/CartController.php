@@ -33,22 +33,19 @@ class CartController extends Controller
                 ]
             ];
             session()->put('cart', $cart);
-            return redirect()->back();
         }
         if (isset($cart[$productId])) {
             $cart[$productId]['quantity'] += $quantity;
             session()->put('cart', $cart);
-            return redirect()->back();
         }
 
         $cart[$productId] = [
-            "name" => $product->name,
+            "name" => $product->title,
             "quantity" => $quantity,
             "price" => $product->price,
-            "photo" => $product->photo
+            "photo" => $product->getImage()
         ];
         session()->put('cart', $cart);
-        return redirect()->back();
     }
 
     public function removeFromCart(Request $request) {
