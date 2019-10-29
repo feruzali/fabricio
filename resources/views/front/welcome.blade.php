@@ -254,9 +254,9 @@
                             <li>
 
                                 <div class="goods-card">
-                                    <div class="goods-card__img"><img src="{{ $product->getImage() }}" alt="{{ $product->title }}"></div>
+                                    <a href="{{ $product->getAncestorsSlugs() }}" class="goods-card__img"><img src="{{ $product->getImage() }}" alt="{{ $product->title }}"></a>
                                     <!-- /.goods-card__img -->
-                                    <h5 class="goods-card__title">{{ $product->title }}</h5>
+                                    <a href="{{ $product->getAncestorsSlugs() }}"><h5 class="goods-card__title">{{ $product->title }}</h5></a>
                                     <!-- /.goods-card__title -->
                                     <div class="goods-card__price">{{ number_format($product->price, 0, ',', ' ') }} сум</div>
                                     <!-- /.goods-card__price -->
