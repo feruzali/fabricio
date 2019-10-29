@@ -153,6 +153,19 @@ class Product extends Model
             $this->front_image != null;
     }
 
+    /**
+     * Check if product has any color images
+     *
+     * @return boolean
+    */
+    public function hasAnyColorImages()
+    {
+        foreach ($this->colors as $color)
+            if ($color->images()->count() > 0)
+                return true;
+        return false;
+    }
+
 
     public function removePreviewImage()
     {

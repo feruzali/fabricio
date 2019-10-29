@@ -293,7 +293,7 @@
 
             <h2 class="card__title">{{ $product->title }}</h2>
 
-            @if ($product->colors()->count() < 1)
+            @if (!$product->hasAnyColorImages())
                     <div class="uk-position-bottom-left uk-position-small md_hidden">
                         <div class="stepper stepper--style-3 js-spinner card-stepper">
                             <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input quantity-field">
