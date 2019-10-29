@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Categories;
 use App\Model\Slider;
-use Illuminate\Http\Request;
-use App\Model\Contact;
+use Illuminate\Support\Facades\Auth;
 
 
 class HomeController extends Controller
@@ -19,7 +18,11 @@ class HomeController extends Controller
     public function index()
     {
         $sliders = Slider::all();
-        return view('front.welcome', compact('sliders'));
+        $lastProductsQuery = Categories::findOrFail(3)->getLastProducts(8);
+        if (!Auth::check())
+            $lastProductsQuery->where('is_auth', true);
+        $products = $lastProductsQuery->get();
+        return view('front.welcome', compact('sliders', 'products'));
     }
 
     public function about()

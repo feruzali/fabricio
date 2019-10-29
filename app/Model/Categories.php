@@ -117,7 +117,23 @@ class Categories extends Model
         $categories[] = $this->getKey();
         $productQuery = Product::whereIn('category_id', $categories);
         if (!Auth::check())
-            $productQuery->where('is_auth', true);
+            $productQuery->where('is_auth', false);
         return $productQuery->get();
+    }
+
+    /**
+     * Get N last products
+     *
+     * @param int $count
+     * @return \Illuminate\Support\Collection
+    */
+    public function getLastProducts(int $count)
+    {
+        $categories = $this->descendants()->pluck('id');
+        $categories[] = $this->getKey();
+        $productQuery = Product::whereIn('category_id', $categories);
+        if (!Auth::check())
+            $productQuery->where('is_auth', false);
+        return $productQuery->orderBy('created_at', 'desc')->take($count)->get();
     }
 }
