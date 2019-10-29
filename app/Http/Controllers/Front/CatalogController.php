@@ -34,16 +34,11 @@ class CatalogController extends Controller
 
     private function processCategory(Request $request, Categories $category)
     {
-        $productsQuery = $category->products();
-        $data = [];
-        if ($request->has('brand_id')) {
-            $data['brand_id'] = $request->get('brand_id');
-            $productsQuery = $productsQuery->where('brand_id', '=', $request->get('brand_id'));
-        }
-        $products = $productsQuery->get();
-        $data['products'] = $products;
-        $data['category'] = $category;
-        $data['categories'] = Categories::all();
+        $data = [
+            'products' => $category->getAllProducts(),
+            'category' => $category,
+            'categories' => Categories::all()
+        ];
         return view('front.catalog.index', $data);
     }
 
