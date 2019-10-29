@@ -111,7 +111,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ route('order.index') }}"><i class="si si-note"></i><span class="sidebar-mini-hide">Заказы</span></a>
+                        <a href="{{ route('orders.index') }}"><i class="si si-note"></i><span class="sidebar-mini-hide">Заказы</span></a>
                     </li>
                     <li>
                         <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-user"></i><span class="sidebar-mini-hide">Пользователи</span></a>
