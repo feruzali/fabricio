@@ -75,15 +75,15 @@
             <!-- /.col-6 -->
             <div class="col-xl-5 col-lg-4 col-md-3 col-sm-4 col-5">
                 <div class="header-wrapper">
-                    <a href="{{ route('cart.index') }}"><img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag"></a>
-                    <span class="header__bag__quan" id="cartCount">@if(isset($cartTotalCount)) {{ $cartTotalCount }} @else 0 @endif</span>
-                    <span class="header__price"> &nbsp;@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif сум</span>
                     @guest
                         <a class="header__auth" href="{{ route('login') }}">Войти</a>
                         <a class="header__auth_adap" href="{{ route('login') }}"><i class="fa fa-user"></i></a>
                         <a class="header__auth" href="{{ route('register') }}">Регистрация</a>
                         <a class="header__auth_adap" href="{{ route('register') }}"><i uk-icon="sign-in"></i></a>
                     @endguest
+                        <a href="{{ route('cart.index') }}"><img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag"></a>
+                        <span class="header__bag__quan" id="cartCount">@if(isset($cartTotalCount)) {{ $cartTotalCount }} @else 0 @endif</span>
+                        <span class="header__price"> &nbsp;@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif сум</span>
                     @auth
                         <a class="header__auth" href="{{ route('logout') }}">Выйти</a>
                     @endauth
