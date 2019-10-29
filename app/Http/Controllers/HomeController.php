@@ -18,10 +18,7 @@ class HomeController extends Controller
     public function index()
     {
         $sliders = Slider::all();
-        $lastProductsQuery = Categories::findOrFail(3)->getLastProducts(8);
-        if (!Auth::check())
-            $lastProductsQuery->where('is_auth', true);
-        $products = $lastProductsQuery->get();
+        $products = Categories::findOrFail(3)->getLastProducts(8);
         return view('front.welcome', compact('sliders', 'products'));
     }
 
