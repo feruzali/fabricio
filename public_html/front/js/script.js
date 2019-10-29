@@ -1,5 +1,6 @@
 'use strict';
 
+
 // Hamburger  menu
 
 function navBar() {
@@ -38,15 +39,20 @@ navBar();
 }());
 
 
-
 //Check Color on Card Page
 
 (function() {
 
     var slides = $('.card .card--slider');
     var colorButtons = $('.card .circle-wrapper');
+    var firstSlider = $('.card--slider .card-slideshow__bg')[0];
+    var sliders = $('.card--slider .card-slideshow__bg');
 
     $(colorButtons).click(function() {
+
+        for( var i = 0; i < sliders.length; i++) {
+            sliders[i].style.minHeight = firstSlider.style.minHeight;
+        }
 
         for (var i = 0; i < slides.length; i++) {
             if ($(this).attr('data-color') != slides[i].dataset.color) {
@@ -81,29 +87,6 @@ navBar();
 
 
 // Check color on catalog page
-
-// (function() {
-//     var slidesWrapper = $('.catalog-card');
-//     slidesWrapper.each( function() {
-
-//         var slides = $(this).find('.catalog-card__img img');
-//         var colorButtons = $(this).find('.catalog-card-choice');
-
-//         colorButtons.each(function () {
-//             var colorButton = $(this).find('.catalog-card-choice__elem img');
-//             console.log(colorButton);
-
-//             $(colorButton).click(function() {
-
-//                 slides[0].src = this.src;
-
-//             });
-
-//         });       
-
-//     });
-
-// }());
 
 (function() {
 

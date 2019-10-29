@@ -221,7 +221,7 @@
                 </div>
                 <div class="catalog-card__buy">
                   <span class="catalog-card__price">{{ number_format($product->price, 0, ',', ' ') }} сум</span>
-                  <i class="fa fa-shopping-cart add-to-cart-button" data-product-id="{{ $product->id }}"></i>
+                  @auth <i class="fa fa-shopping-cart add-to-cart-button" data-product-id="{{ $product->id }}"></i> @endauth
                 </div>
               </div>
             </div>

@@ -104,4 +104,16 @@ class Categories extends Model
             ]
         ];
     }
+
+    /**
+     * Get all products include from descendants
+     *
+     * @return \Illuminate\Support\Collection
+    */
+    public function getAllProducts()
+    {
+        $categories = $this->descendants()->pluck('id');
+        $categories[] = $this->getKey();
+        return Product::whereIn('category_id', $categories)->get();
+    }
 }
