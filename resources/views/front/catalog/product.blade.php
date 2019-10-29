@@ -31,7 +31,7 @@
                             <div class="uk-position-center-left uk-position-small card-colors">
                                 @foreach ($product->colors as $colorKey => $color)
                                     <div class="circle-wrapper circle-wrapper--active" data-color="{{ $colorKey }}">
-                                        <div class="circle" style="background-color: #4986ff;"><i class="fa fa-check"></i></div><span>@if($colorKey == $key) {{ $color->name }} @endif</span>
+                                        <div class="circle" style="background-color: {{ $color->colorHEX }};"><i class="fa fa-check"></i></div><span>@if($colorKey == $key) {{ $color->name }} @endif</span>
                                     </div>
                                 @endforeach
                             </div>
