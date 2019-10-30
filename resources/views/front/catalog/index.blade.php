@@ -34,22 +34,6 @@
                       @endif
                   </li>
               @endforeach
-                  <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem">
-                    <a href="#">Оправы</a>
-                    <ul class="uk-nav-sub">
-                      <li><a href="#">Мужские</a></li>
-                      <li><a href="#">Женские</a></li>
-                      <li><a href="#">Детские</a></li>
-                    </ul>
-                  </li>
-                  <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem">
-                    <a href="#">Аксессуары</a>
-                    <ul class="uk-nav-sub">
-                      <li><a href="#">Оправы</a></li>
-                      <li><a href="#">Футляры</a></li>
-                    </ul>
-                  </li>
-              @endforeach
             </ul>
           </li>
           <li class="catalog__sortItem_md uk-parent">
