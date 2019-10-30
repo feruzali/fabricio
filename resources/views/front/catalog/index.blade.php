@@ -24,11 +24,11 @@
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
               @foreach ($parentCategories as $categoryObject)
                   <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem">
-                    <a href="#">{{ $categoryObject->ru_title }}</a>
+                    <a href="{{ $categoryObject->getAncestorsSlugs() }}">{{ $categoryObject->ru_title }}</a>
                       @if ($categoryObject->children()->count() > 0)
                           <ul class="uk-nav-sub">
                               @foreach ($categoryObject->children as $child)
-                                  <li><a href="#">{{ $child->ru_title }}</a></li>
+                                  <li><a href="{{ $child->getAncestorsSlugs() }}">{{ $child->ru_title }}</a></li>
                               @endforeach
                           </ul>
                       @endif
@@ -90,11 +90,11 @@
                 <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
                   @foreach ($parentCategories as $categoryObject)
                     <li class="catalog__sort__dropdown__item catalogSortDropdownItem">
-                      <a href="#">{{ $categoryObject->ru_title }}</a>
+                      <a href="{{ $categoryObject->getAncestorsSlugs() }}">{{ $categoryObject->ru_title }}</a>
                       @if ($categoryObject->children()->count() > 0)
                             <ul class="uk-nav-sub">
                                 @foreach ($categoryObject->children as $child)
-                                    <li><a href="#">{{ $child->ru_title }}</a></li>
+                                    <li><a href="{{ $child->getAncestorsSlugs() }}">{{ $child->ru_title }}</a></li>
                                 @endforeach
                             </ul>
                       @endif
