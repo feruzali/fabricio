@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth']);
-    }
-
     public function index()
     {
         return view('front.catalog.cart');
@@ -38,22 +33,19 @@ class CartController extends Controller
                 ]
             ];
             session()->put('cart', $cart);
-            return redirect()->back();
         }
         if (isset($cart[$productId])) {
             $cart[$productId]['quantity'] += $quantity;
             session()->put('cart', $cart);
-            return redirect()->back();
         }
 
         $cart[$productId] = [
-            "name" => $product->name,
+            "name" => $product->title,
             "quantity" => $quantity,
             "price" => $product->price,
-            "photo" => $product->photo
+            "photo" => $product->getImage()
         ];
         session()->put('cart', $cart);
-        return redirect()->back();
     }
 
     public function removeFromCart(Request $request) {

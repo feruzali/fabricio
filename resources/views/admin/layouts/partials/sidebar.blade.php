@@ -95,19 +95,24 @@
                         <a href="/" target="_blank"><i class="si si-map"></i><span class="sidebar-mini-hide">На сайт</span></a>
                     </li>
                     <li>
-                        <a href="{{ route('categories.index') }}"><i class="si si-layers"></i><span class="sidebar-mini-hide">Категории</span></a>
-                    </li>
+                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">Каталог</span></a>
+                        <ul>
+                            <li>
+                                <a href="{{ route('categories.index') }}">Категории</a>
+                            </li>
 
+                            <li>
+                                <a href="{{ route('brands.index') }}">Бренды</a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('products.index') }}">Продукты</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
-                        <a href="{{ route('brands.index') }}"><i class="si si-layers"></i><span class="sidebar-mini-hide">Бренды</span></a>
+                        <a href="{{ route('orders.index') }}"><i class="si si-note"></i><span class="sidebar-mini-hide">Заказы</span></a>
                     </li>
-
-                    <li>
-                        <a href="{{ route('products.index') }}"><i class="si si-layers"></i><span class="sidebar-mini-hide">Продукты</span></a>
-                    </li>
-
-
-
                     <li>
                         <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-user"></i><span class="sidebar-mini-hide">Пользователи</span></a>
                         <ul>

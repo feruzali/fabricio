@@ -242,168 +242,46 @@
     </section>
     <!-- /#features.features -->
 
+    @if ($products->count() > 0)
+        <section class="goods" id="goods">
+            <div class="container">
+                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="">
 
-    <section class="goods" id="goods">
-        <div class="container">
+                    <h2 class="section-title uk-position-relative" style="color: black;">Солнцезащитные очки</h2>
 
+                    <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-3@m uk-child-width-1-4@l">
+                        @foreach($products as $product)
+                            <li>
 
+                                <div class="goods-card">
+                                    <div class="goods-card__img"><img src="{{ $product->getImage() }}" alt="{{ $product->title }}"></div>
+                                    <!-- /.goods-card__img -->
+                                    <h5 class="goods-card__title">{{ $product->title }}</h5>
+                                    <!-- /.goods-card__title -->
+                                    <div class="goods-card__price">{{ number_format($product->price, 0, ',', ' ') }} сум</div>
+                                    <!-- /.goods-card__price -->
+                                    <span class="color">Цвет:</span> <br>
+                                    @foreach ($product->colors as $color)
+                                        <div class="goods-card__color" style="background-color: {{ $color->colorHEX }}"></div>
+                                    @endforeach
+                                    <div class="goods-card__bag"></div>
+                                </div>
+                                <!-- /.goods-card -->
 
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="">
-
-                <h2 class="section-title uk-position-relative" style="color: black;">Солнцезащитные очки</h2>
-
-                <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-3@m uk-child-width-1-4@l">
-                    <li>
-
-                        <div class="goods-card">
-                            <div class="goods-card__img"><img src="{{asset('front/img/goods/1.png')}}" alt=""></div>
-                            <!-- /.goods-card__img -->
-                            <h5 class="goods-card__title">Название очков</h5>
-                            <!-- /.goods-card__title -->
-                            <div class="goods-card__price">70 000 сум</div>
-                            <!-- /.goods-card__price -->
-                            <span class="color">Цвет:</span> <br>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__bag"></div>
-                        </div>
-                        <!-- /.goods-card -->
-
-                    </li>
-                    <li>
-
-                        <div class="goods-card">
-                            <div class="goods-card__img"><img src="{{asset('front/img/goods/2.png')}}" alt=""></div>
-                            <!-- /.goods-card__img -->
-                            <h5 class="goods-card__title">Название очков</h5>
-                            <!-- /.goods-card__title -->
-                            <div class="goods-card__price">70 000 сум</div>
-                            <!-- /.goods-card__price -->
-                            <span class="color">Цвет:</span> <br>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__bag"></div>
-                        </div>
-                        <!-- /.goods-card -->
-
-                    </li>
-                    <li>
-
-                        <div class="goods-card">
-                            <div class="goods-card__img"><img src="{{asset('front/img/goods/3.png')}}" alt=""></div>
-                            <!-- /.goods-card__img -->
-                            <h5 class="goods-card__title">Название очков</h5>
-                            <!-- /.goods-card__title -->
-                            <div class="goods-card__price">70 000 сум</div>
-                            <!-- /.goods-card__price -->
-                            <span class="color">Цвет:</span> <br>
-                            <div class="goods-card__color" style="background-color: #fed0d2"></div>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__bag"></div>
-                        </div>
-                        <!-- /.goods-card -->
-
-                    </li>
-                    <li>
-
-                        <div class="goods-card">
-                            <div class="goods-card__img"><img src="{{asset('front/img/goods/4.png')}}" alt=""></div>
-                            <!-- /.goods-card__img -->
-                            <h5 class="goods-card__title">Название очков</h5>
-                            <!-- /.goods-card__title -->
-                            <div class="goods-card__price">70 000 сум</div>
-                            <!-- /.goods-card__price -->
-                            <span class="color">Цвет:</span> <br>
-                            <div class="goods-card__color" style="background-color: #fed0d2"></div>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__bag"></div>
-                        </div>
-                        <!-- /.goods-card -->
-
-                    </li>
-                    <li>
-
-                        <div class="goods-card">
-                            <div class="goods-card__img"><img src="{{asset('front/img/goods/1.png')}}" alt=""></div>
-                            <!-- /.goods-card__img -->
-                            <h5 class="goods-card__title">Название очков</h5>
-                            <!-- /.goods-card__title -->
-                            <div class="goods-card__price">70 000 сум</div>
-                            <!-- /.goods-card__price -->
-                            <span class="color">Цвет:</span> <br>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__bag"></div>
-                        </div>
-                        <!-- /.goods-card -->
-
-                    </li>
-                    <li>
-
-                        <div class="goods-card">
-                            <div class="goods-card__img"><img src="{{asset('front/img/goods/2.png')}}" alt=""></div>
-                            <!-- /.goods-card__img -->
-                            <h5 class="goods-card__title">Название очков</h5>
-                            <!-- /.goods-card__title -->
-                            <div class="goods-card__price">70 000 сум</div>
-                            <!-- /.goods-card__price -->
-                            <span class="color">Цвет:</span> <br>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__bag"></div>
-                        </div>
-                        <!-- /.goods-card -->
-
-                    </li>
-                    <li>
-
-                        <div class="goods-card">
-                            <div class="goods-card__img"><img src="{{asset('front/img/goods/3.png')}}" alt=""></div>
-                            <!-- /.goods-card__img -->
-                            <h5 class="goods-card__title">Название очков</h5>
-                            <!-- /.goods-card__title -->
-                            <div class="goods-card__price">70 000 сум</div>
-                            <!-- /.goods-card__price -->
-                            <span class="color">Цвет:</span> <br>
-                            <div class="goods-card__color" style="background-color: #fed0d2"></div>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__bag"></div>
-                        </div>
-                        <!-- /.goods-card -->
-
-                    </li>
-                    <li>
-
-                        <div class="goods-card">
-                            <div class="goods-card__img"><img src="{{asset('front/img/goods/4.png')}}" alt=""></div>
-                            <!-- /.goods-card__img -->
-                            <h5 class="goods-card__title">Название очков</h5>
-                            <!-- /.goods-card__title -->
-                            <div class="goods-card__price">70 000 сум</div>
-                            <!-- /.goods-card__price -->
-                            <span class="color">Цвет:</span> <br>
-                            <div class="goods-card__color" style="background-color: #fed0d2"></div>
-                            <div class="goods-card__color"></div>
-                            <div class="goods-card__bag"></div>
-                        </div>
-                        <!-- /.goods-card -->
-
-                    </li>
-
-                </ul>
+                            </li>
+                        @endforeach
+                    </ul>
 
 
-                <div class="slide-btns">
-                    <a class=" slide-btn slide-btns_prev" uk-slidenav-previous uk-slider-item="previous"></a>
-                    <a class=" slide-btn slide-btns_next" uk-slidenav-next uk-slider-item="next"></a>
+                    <div class="slide-btns">
+                        <a class=" slide-btn slide-btns_prev" uk-slidenav-previous uk-slider-item="previous"></a>
+                        <a class=" slide-btn slide-btns_next" uk-slidenav-next uk-slider-item="next"></a>
+                    </div>
                 </div>
-
-
             </div>
-
-        </div>
-        <!-- /.container -->
-    </section>
+            <!-- /.container -->
+        </section>
+    @endif
     <!-- /#goods.goods -->
 
 @endsection

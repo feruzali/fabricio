@@ -141,6 +141,31 @@ class Product extends Model
         return '/img/no-image.png';
     }
 
+    /**
+     * Check if product has three sides images
+     *
+     * @return boolean
+    */
+    public function hasSidesImages()
+    {
+        return $this->left_image != null &&
+            $this->right_image != null &&
+            $this->front_image != null;
+    }
+
+    /**
+     * Check if product has any color images
+     *
+     * @return boolean
+    */
+    public function hasAnyColorImages()
+    {
+        foreach ($this->colors as $color)
+            if ($color->images()->count() > 0)
+                return true;
+        return false;
+    }
+
 
     public function removePreviewImage()
     {
