@@ -102,7 +102,7 @@
               <span class="lbl">Категории&nbsp; <i class="fa fa-angle-down"></i></span>
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
                 <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
-                  @foreach ($categories as $categoryObject)
+                  @foreach ($parentCategories as $categoryObject)
                     <li class="catalog__sort__dropdown__item catalogSortDropdownItem">
                       <a href="#">{{ $categoryObject->ru_title }}</a>
                       @if ($categoryObject->children()->count() > 0)

@@ -36,8 +36,7 @@ class CatalogController extends Controller
     {
         $data = [
             'products' => $category->getAllProducts(),
-            'category' => $category,
-            'categories' => Categories::all()
+            'category' => $category
         ];
         return view('front.catalog.index', $data);
     }
