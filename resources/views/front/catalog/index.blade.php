@@ -99,8 +99,8 @@
                             </ul>
                       @endif
                     </li>
+                    @endforeach
                 </ul>
-                  @endforeach
               </div>
             </div>
           </div>
