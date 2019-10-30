@@ -91,7 +91,7 @@ class Categories extends Model
     public function getAllBrands()
     {
         $brands = [];
-        foreach ($this->products as $product)
+        foreach ($this->getAllProducts() as $product)
             if (!isset($brands[$product->brand_id]))
                 $brands[$product->brand_id] = $product->brand;
         return $brands;

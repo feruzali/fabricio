@@ -260,7 +260,7 @@
                             <label class="col-12" for="colorHex{0}">Цвет</label>
                             <div class="col-12">
                                 <div class="js-colorpicker input-group">
-                                    <input type="text" class="form-control" id="colors[{0}][hex]" name="colorHex{0}">
+                                    <input type="text" class="form-control" name="colors[{0}][hex]" id="colorHex{0}">
                                     <span class="input-group-addon"><i></i></span>
                                 </div>
                             </div>

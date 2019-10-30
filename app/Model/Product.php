@@ -48,6 +48,10 @@ class Product extends Model
         return $this->hasOne('App\Model\Categories', 'id', 'category_id');
     }
 
+    public function brand() {
+        return $this->hasOne(Brands::class, 'id', 'brand_id');
+    }
+
     /**
      * Get product params
      *

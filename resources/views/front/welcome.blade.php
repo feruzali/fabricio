@@ -254,17 +254,19 @@
                             <li>
 
                                 <div class="goods-card">
-                                    <div class="goods-card__img"><img src="{{ $product->getImage() }}" alt="{{ $product->title }}"></div>
+                                    <a href="{{ $product->getAncestorsSlugs() }}" class="goods-card__img"><img src="{{ $product->getImage() }}" alt="{{ $product->title }}"></a>
                                     <!-- /.goods-card__img -->
-                                    <h5 class="goods-card__title">{{ $product->title }}</h5>
+                                    <a href="{{ $product->getAncestorsSlugs() }}"><h5 class="goods-card__title">{{ $product->title }}</h5></a>
                                     <!-- /.goods-card__title -->
                                     <div class="goods-card__price">{{ number_format($product->price, 0, ',', ' ') }} сум</div>
                                     <!-- /.goods-card__price -->
-                                    <span class="color">Цвет:</span> <br>
-                                    @foreach ($product->colors as $color)
-                                        <div class="goods-card__color" style="background-color: {{ $color->colorHEX }}"></div>
-                                    @endforeach
-                                    <div class="goods-card__bag"></div>
+                                    @if ($product->colors()->count() > 0)
+                                        <span class="color">Цвет:</span> <br>
+                                        @foreach ($product->colors as $color)
+                                            <div class="goods-card__color" style="background-color: {{ $color->colorHEX }}"></div>
+                                        @endforeach
+                                    @endif
+                                    <div class="goods-card__bag" data-product-id="{{ $product->id }}"></div>
                                 </div>
                                 <!-- /.goods-card -->
 
@@ -284,4 +286,25 @@
     @endif
     <!-- /#goods.goods -->
 
+@endsection
+
+@section('js')
+    <script>
+        jQuery(function() {
+            $('.goods-card__bag').on('click', function(e) {
+                e.preventDefault();
+                let element = $(this);
+                let quantity = 1;
+                let productId = element.data('product-id');
+                $.ajax({
+                    url: '{{ route('cart.add') }}',
+                    'method': 'post',
+                    data: {_token: '{{ csrf_token() }}', productId, quantity: quantity},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            });
+        })
+    </script>
 @endsection
