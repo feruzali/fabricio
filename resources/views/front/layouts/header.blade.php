@@ -86,6 +86,7 @@
                         <span class="header__bag__quan" id="cartCount">@if(isset($cartTotalCount)) {{ $cartTotalCount }} @else 0 @endif</span>
                         <span class="header__price"> &nbsp;@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif сум</span>
                         <a class="header__auth" href="{{ route('logout') }}">Выйти</a>
+                        <a class="header__auth_adap" href="{{ route('logout') }}"><i uk-icon="icon: sign-out"></i></a>
                     @endauth
                 </div>
             </div>
