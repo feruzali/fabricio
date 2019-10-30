@@ -22,16 +22,18 @@
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Категории</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
-              @foreach ($categories as $categoryObject)
-                  <li class="catalog__sort_md-dropdown__item  catalogSortDropdownItem" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
+              @foreach ($parentCategories as $categoryObject)
                   <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem">
-                    <a href="#">Солнцезащитные очки</a>
-                    <ul class="uk-nav-sub">
-                      <li><a href="#">Мужские</a></li>
-                      <li><a href="#">Женские</a></li>
-                      <li><a href="#">Детские</a></li>
-                    </ul>
+                    <a href="#">{{ $categoryObject->ru_title }}</a>
+                      @if ($categoryObject->children()->count() > 0)
+                          <ul class="uk-nav-sub">
+                              @foreach ($categoryObject->children as $child)
+                                  <li><a href="#">{{ $child->ru_title }}</a></li>
+                              @endforeach
+                          </ul>
+                      @endif
                   </li>
+              @endforeach
                   <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem">
                     <a href="#">Оправы</a>
                     <ul class="uk-nav-sub">
@@ -113,6 +115,7 @@
                             </ul>
                       @endif
                     </li>
+                </ul>
                   @endforeach
               </div>
             </div>
