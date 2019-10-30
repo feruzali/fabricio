@@ -24,6 +24,29 @@
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
               @foreach ($categories as $categoryObject)
                   <li class="catalog__sort_md-dropdown__item  catalogSortDropdownItem" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
+                  <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem">
+                    <a href="#">Солнцезащитные очки</a>
+                    <ul class="uk-nav-sub">
+                      <li><a href="#">Мужские</a></li>
+                      <li><a href="#">Женские</a></li>
+                      <li><a href="#">Детские</a></li>
+                    </ul>
+                  </li>
+                  <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem">
+                    <a href="#">Оправы</a>
+                    <ul class="uk-nav-sub">
+                      <li><a href="#">Мужские</a></li>
+                      <li><a href="#">Женские</a></li>
+                      <li><a href="#">Детские</a></li>
+                    </ul>
+                  </li>
+                  <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem">
+                    <a href="#">Аксессуары</a>
+                    <ul class="uk-nav-sub">
+                      <li><a href="#">Оправы</a></li>
+                      <li><a href="#">Футляры</a></li>
+                    </ul>
+                  </li>
               @endforeach
             </ul>
           </li>
@@ -79,9 +102,32 @@
               <span class="lbl">Категории&nbsp; <i class="fa fa-angle-down"></i></span>
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
                 <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
-                    @foreach ($categories as $categoryObject)
-                        <li class="catalog__sort_md-dropdown__item" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
-                    @endforeach
+                  @foreach ($categories as $categoryObject)
+                    <li class="catalog__sort_md-dropdown__item" data-category-id="{{ $categoryObject->id }}">{{ $categoryObject->ru_title }}</li>
+                    <li class="catalog__sort__dropdown__item catalogSortDropdownItem">
+                      <a href="#">Солнцезащитные очки</a>
+                      <ul class="uk-nav-sub">
+                        <li><a href="#">Мужские</a></li>
+                        <li><a href="#">Женские</a></li>
+                        <li><a href="#">Детские</a></li>
+                      </ul>
+                    </li>
+                    <li class="catalog__sort__dropdown__item catalogSortDropdownItem">
+                      <a href="#">Оправы</a>
+                      <ul class="uk-nav-sub">
+                        <li><a href="#">Мужские</a></li>
+                        <li><a href="#">Женские</a></li>
+                        <li><a href="#">Детские</a></li>
+                      </ul>
+                    </li>
+                    <li class="catalog__sort__dropdown__item catalogSortDropdownItem">
+                      <a href="#">Аксессуары</a>
+                      <ul class="uk-nav-sub">
+                        <li><a href="#">Оправы</a></li>
+                        <li><a href="#">Футляры</a></li>
+                      </ul>
+                    </li>
+                  @endforeach
               </div>
             </div>
           </div>
