@@ -120,6 +120,7 @@
                                 <a href="{{ route('users.index') }}">Все пользователи</a>
                             </li>
                             <li><a href="{{ route('requests.index') }}">Заявки на регистрацию</a></li>
+                            <li><a href="{{ route('feedbacks.index') }}">Обратная связь</a></li>
                         </ul>
                     </li>
                     <li>
