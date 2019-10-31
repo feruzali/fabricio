@@ -5,7 +5,7 @@
 
     <div class="block">
         <div class="block-content block-content-full">
-            <div class="responsive-table">
+            <div class="table-responsive">
                 <table class="table table-striped table-vcenter">
                     <thead>
                         <tr>
@@ -22,7 +22,7 @@
                                 <td class="text-center">{{ $feedback->name }}</td>
                                 <td class="text-center"> @if($feedback->email) {{ $feedback->email }} @else - @endif</td>
                                 <td class="text-center">{{ $feedback->phone_number }}</td>
-                                <td class="text-center"> @if ($feedback->question) {{ $feedback->question }} @else - @endif </td>
+                                <td class="text-center" style="word-break: break-all; max-width: 350px;"> @if ($feedback->question) <p>{{ $feedback->question }}</p> @else - @endif </td>
                                 <td class="text-center">{{ $feedback->created_at }}</td>
                             </tr>
                         @endforeach
