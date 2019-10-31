@@ -8,12 +8,13 @@
                 <div class="form-wrapper">
                     <h4 class="form-wrapper__title">Остались вопросы?</h4>
                     <div class="form-wrapper__subtitle">Отправьте их нам!</div>
-                    <form action="#">
-                        <input type="text" placeholder="Ваше имя">
-                        <input type="email" placeholder="Ваш e-mail">
-                        <input type="tel" placeholder="Ваш номер">
-                        <textarea name="" id="" cols="50" rows="4" placeholder="Ваш вопрос"></textarea>
-                        <button class="form__btn">Отправить</button>
+                    <form action="{{ route('feedback.create') }}" method="post">
+                        @csrf
+                        <input type="text" name="name" required placeholder="Ваше имя">
+                        <input type="email" name="email" placeholder="Ваш e-mail">
+                        <input type="tel" name="phone_number" required placeholder="Ваш номер">
+                        <textarea name="question" id="" cols="50" rows="4" placeholder="Ваш вопрос"></textarea>
+                        <button class="form__btn" type="submit">Отправить</button>
                     </form>
                 </div>
             </div>

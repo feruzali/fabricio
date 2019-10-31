@@ -77,6 +77,8 @@ Route::post('password/email', 'FrontAuth\ForgotPasswordController@sendResetLinkE
 Route::get('password/reset/{token}', 'FrontAuth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'FrontAuth\ResetPasswordController@reset');
 
+Route::post('/feedback', 'HomeController@createFeedback')->name('feedback.create');
+
 
 Route::middleware('catalog')->group(function() {
     Route::get('/', 'HomeController@index')->name('home');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Categories;
 use App\Model\Slider;
+use App\Model\Feedback;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -25,5 +26,16 @@ class HomeController extends Controller
     public function about()
     {
         return view('front.about');
+    }
+
+    public function createFeedback(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'email',
+            'phone_number' => 'required'
+        ]);
+        Feedback::create($request->all());
+        return redirect()->back();
     }
 }
