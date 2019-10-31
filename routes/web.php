@@ -56,6 +56,9 @@ Route::middleware('admin.auth')->prefix('admin')->namespace('Admin')->group(func
 
     // Orders
     Route::resource('/orders', 'OrderController');
+
+    // Feedbacks
+    Route::resource('/feedbacks', 'FeedbackController');
 });
 
 
