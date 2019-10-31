@@ -6,6 +6,7 @@ use App\Model\Categories;
 use App\Model\Slider;
 use App\Model\Feedback;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 
 class HomeController extends Controller
@@ -32,7 +33,6 @@ class HomeController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'email',
             'phone_number' => 'required'
         ]);
         Feedback::create($request->all());
