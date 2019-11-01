@@ -42,7 +42,7 @@ class CatalogController extends Controller
             'products' => $category->getAllProducts($request->get('price_order')),
             'category' => $category,
             'brands' => Brands::all(),
-            'catalog_type' => 'category'
+            'catalogType' => 'category'
         ];
         return view('front.catalog.index', $data);
     }
