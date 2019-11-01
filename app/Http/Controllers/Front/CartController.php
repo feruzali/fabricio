@@ -92,7 +92,6 @@ class CartController extends Controller
             Validator::make($request->all(), [
                 'name' => ['required', 'string'],
                 'phone_number' => ['required', 'string'],
-                'comment' => ['string'],
                 'company_name' => ['required', 'string', 'unique:registration_requests'],
                 'bank' => ['required', 'string'],
                 'address' => ['required', 'string'],
