@@ -35,5 +35,9 @@ class Brands extends Model
             return asset('assets/img/avatars/avatar9.jpg');
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'brand_id', 'id');
+    }
 
 }
