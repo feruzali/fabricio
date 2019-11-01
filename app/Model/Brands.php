@@ -4,9 +4,11 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Brands extends Model
 {
+    use Sluggable;
     protected $table = 'brands';
     protected $fillable = ['title', 'description', 'logotype'];
 
@@ -40,4 +42,17 @@ class Brands extends Model
         return $this->hasMany(Product::class, 'brand_id', 'id');
     }
 
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }
