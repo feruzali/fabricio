@@ -19,7 +19,7 @@ class OrderItem extends Model
     {
         if($image == null) { return; }
 
-        $filename = basename($image);
+        $filename = str_random(10) . '.' . pathinfo($image, PATHINFO_EXTENSION);
         Storage::copy($image, '/uploads/orders/'.$filename);
         $this->preview_image = $filename;
         $this->save();
