@@ -7,7 +7,7 @@
         <div class="container">
             @foreach($product->colors as $key => $productColor)
                 @if ($productColor->images()->count() > 0)
-                    <div uk-slideshow class="card--slider" data-color="{{ $key }}">
+                    <div uk-slideshow class="card--slider" data-color="{{ $key }}" @if ($key != 0) style="display: none;" @endif>
                         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                             <ul class="uk-slideshow-items card-slideshow__bg">
                                 @foreach($productColor->images as $productImage)
@@ -54,7 +54,7 @@
                                     <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
                                 </div>
                             </div>
-                            <button class="card-slideshow__btn md_visible"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
+                            <button class="card-slideshow__btn md_visible add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                         </div>
                     </div>
                 @endif
