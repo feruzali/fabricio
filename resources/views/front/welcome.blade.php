@@ -17,9 +17,11 @@
                                 <h1 class="slideshow-items__title">{{ $slider->ru_title }}</h1>
                                 <p class="slideshow-items__subtitle">{{ $slider->ru_description }}</p>
                             </div>
-                            <div class="uk-position-center main-slider-play">
-                                <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
-                            </div>
+                            @if ($slider->link_video)
+                                <div class="uk-position-center main-slider-play">
+                                    <button class="main-slider-play__btn"><i class="fa fa-play"></i></button>
+                                </div>
+                            @endif
                             <div class="uk-position-bottom-left uk-position-small uk-margin-medium-left">
                                 <button class="slideshow-items__btn"><a href="{{ $slider->link_page }}">Смотреть каталог</a></button>
                             </div>
@@ -51,10 +53,12 @@
                                     <button class="slideshow-items__btn"><a href="{{ $slider->link_page }}">Смотреть каталог</a></button>
                                 </div>
                                 <div class="uk-position-bottom-left scrolldown"><img src="{{asset('front/img/slider/mouse.png')}}" alt="" class="scrolldown__img"><span class="scrolldown__txt">Листай вниз</span></div>
-                                <div class="uk-position-center main-slider-play">
-                                    <button class="main-slider-play__btn"><i class="fa fa-play"></i></button><br class="adap_hidden"> <br>
-                                    <p class="main-slider-play__txt">Посмотреть <br>  видео 1 мин.</p>
-                                </div>
+                                @if ($slider->link_video)
+                                    <div class="uk-position-center main-slider-play">
+                                        <button class="main-slider-play__btn"><i class="fa fa-play"></i></button><br class="adap_hidden"> <br>
+                                        <p class="main-slider-play__txt">Посмотреть <br>  видео 1 мин.</p>
+                                    </div>
+                                @endif
                             </li>
                         @endforeach
                     </ul>
