@@ -56,6 +56,9 @@ Route::middleware('admin.auth')->prefix('admin')->namespace('Admin')->group(func
 
     // Orders
     Route::resource('/orders', 'OrderController');
+
+    // Feedbacks
+    Route::resource('/feedbacks', 'FeedbackController');
 });
 
 
@@ -76,6 +79,8 @@ Route::get('password/reset', 'FrontAuth\ForgotPasswordController@showLinkRequest
 Route::post('password/email', 'FrontAuth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'FrontAuth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'FrontAuth\ResetPasswordController@reset');
+
+Route::post('/feedback', 'HomeController@createFeedback')->name('feedback.create');
 
 
 Route::middleware('catalog')->group(function() {

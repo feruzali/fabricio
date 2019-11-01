@@ -249,10 +249,8 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <div class="form-material floating form-material-primary">
-                                <input type="text" name="colors[{0}][name]" class="form-control" id="colorName{0}">
-                                <label for="colorName{0}">Название</label>
-                            </div>
+                            <label for="colorName{0}">Название</label>
+                            <input type="text" name="colors[{0}][name]" class="form-control" id="colorName{0}">
                         </div>
                     </div>
                     <div class="col-6">
