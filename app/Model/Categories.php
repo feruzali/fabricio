@@ -83,20 +83,6 @@ class Categories extends Model
         return implode("/", $slugs->toArray());
     }
 
-    /**
-     * Get all brands from category's products
-     *
-     * @return array
-    */
-    public function getAllBrands()
-    {
-        $brands = [];
-        foreach ($this->getAllProducts() as $product)
-            if (!isset($brands[$product->brand_id]))
-                $brands[$product->brand_id] = $product->brand;
-        return $brands;
-    }
-
     public function sluggable()
     {
         return [
@@ -111,13 +97,15 @@ class Categories extends Model
      *
      * @return \Illuminate\Support\Collection
     */
-    public function getAllProducts()
+    public function getAllProducts($orderByPrice = null)
     {
         $categories = $this->descendants()->pluck('id');
         $categories[] = $this->getKey();
         $productQuery = Product::whereIn('category_id', $categories);
         if (!Auth::check())
-            $productQuery->where('is_auth', false);
+            $productQuery = $productQuery->where('is_auth', false);
+        if ($orderByPrice)
+            $productQuery = $productQuery->orderBy('price', $orderByPrice);
         return $productQuery->get();
     }
 
