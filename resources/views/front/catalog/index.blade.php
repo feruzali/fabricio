@@ -1,11 +1,17 @@
 @extends('front.layouts.app')
 
-@section('title', $category->ru_title)
+@section('title')
+    @if($catalogType == 'category')
+        {{ $category->ru_title }}
+    @else if ($catalogType == 'brand')
+        {{ $brand->title }}
+    @endif
+@endsection
 
 @section('content')
   <section class="catalog" id="catalog">
     <div class="container">
-      <h2 class="page-title">@isset($category) {{ $category->ru_title }} @endisset @isset($brand) {{ $brand->title }} @endisset</h2>
+      <h2 class="page-title">@if($catalogType == 'category') {{ $category->ru_title }} @else {{ $brand->title }} @endif</h2>
 
       <div class="catalog__filter_md md_visible">
         <ul class=" uk-nav-parent-icon nav-bar-list catalog__sort_md" uk-nav="multiple: true">
@@ -37,8 +43,8 @@
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Цена</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="@isset($brand) {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'asc']) }} @endisset @isset($category) {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'asc']) }} @endisset">По возрастанию</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="@isset($brand) {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'desc']) }} @endisset @isset($category) {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'desc']) }} @endisset">По убыванию</a></li>
+              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'asc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'asc']) }} @endif">По возрастанию</a></li>
+              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'desc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'desc']) }} @endif">По убыванию</a></li>
             </ul>
           </li>
         </ul>
@@ -86,8 +92,8 @@
               <span class="lbl">Цена&nbsp; <i class="fa fa-angle-down"></i></span>
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
                 <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="@isset($brand) {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'asc']) }} @endisset @isset($category) {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'asc']) }} @endisset">По возрастанию</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="@isset($brand) {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'desc']) }} @endisset @isset($category) {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'desc']) }} @endisset">По убыванию</a></li>
+                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'asc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'asc']) }} @endif">По возрастанию</a></li>
+                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'desc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'desc']) }} @endif">По убыванию</a></li>
                 </ul>
               </div>
             </div>

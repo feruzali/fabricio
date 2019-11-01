@@ -41,7 +41,8 @@ class CatalogController extends Controller
         $data = [
             'products' => $category->getAllProducts($request->get('price_order')),
             'category' => $category,
-            'brands' => Brands::all()
+            'brands' => Brands::all(),
+            'catalog_type' => 'category'
         ];
         return view('front.catalog.index', $data);
     }
@@ -61,7 +62,8 @@ class CatalogController extends Controller
         $data = [
             'products' => $query->get(),
             'brand' => $brand,
-            'brands' => Brands::all()
+            'brands' => Brands::all(),
+            'catalogType'=> 'brand'
         ];
         return view('front.catalog.index', $data);
     }
