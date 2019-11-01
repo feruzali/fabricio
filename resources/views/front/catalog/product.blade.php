@@ -366,6 +366,7 @@
         @endif
 
     </section>
+    @include('front.layouts.feedback')
 @endsection
 
 @section('js')

@@ -285,6 +285,7 @@
         </section>
     @endif
     <!-- /#goods.goods -->
+    @include('front.layouts.feedback')
 
 @endsection
 

@@ -199,6 +199,7 @@
       </div> --}}
     </div>
   </section>
+  @include('front.layouts.feedback')
 @endsection
 @section('js')
     <script>
