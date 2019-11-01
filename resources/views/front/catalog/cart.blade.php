@@ -21,7 +21,7 @@
                                     <span class="cart-good__title">{{ $details['name'] }}</span>
                                     <input type="checkbox" class="cart-good__checkbox uk-checkbox"></input>
                                     <div class="stepper stepper--style-3 js-spinner card-good__quantity-wrapper">
-                                        <input autofocus type="number" min="1" max="10" step="1" value="{{ $details['quantity'] }}" data-product-id="{{ $id }}" class="stepper__input cart-good__quantity__input">
+                                        <input autofocus type="number" min="1" step="1" value="{{ $details['quantity'] }}" data-product-id="{{ $id }}" class="stepper__input cart-good__quantity__input">
                                         <div class="stepper__controls">
                                             <button class="cart-good__quantity__btn" type="button" spinner-button="up"><i class="fa fa-caret-right"></i></button>
                                             <button class="cart-good__quantity__btn" type="button" spinner-button="down"><i class="fa fa-caret-left"></i></button>
@@ -33,37 +33,39 @@
                             @endforeach
                         @endif
                     </div>
-                    <div class="choose-req uk-form-horizontal uk-margin-medium-top">
-                        <div class="uk-form-label choose-req__title">Способ заказа</div>
-                        <div class="uk-form-controls uk-form-controls-text">
-                            <label><input class="uk-radio uk-margin-small-right" type="radio" name="requisites" value="useRegistration" required="" checked="">Использовать реквизиты введенные при регистрации</label><br>
-                            <label><input class="uk-radio uk-margin-small-right" type="radio" name="requisites" value="new">Указать другие реквизиты для выставления вам счета</label>
+                    @auth
+                        <div class="choose-req uk-form-horizontal uk-margin-medium-top">
+                            <div class="uk-form-label choose-req__title">Способ заказа</div>
+                            <div class="uk-form-controls uk-form-controls-text">
+                                @if (auth()->user()->registrationRequest))<label><input class="uk-radio uk-margin-small-right" type="radio" name="requisites" value="useRegistration" required="" checked="">Использовать реквизиты введенные при регистрации</label><br>@endif
+                                <label><input class="uk-radio uk-margin-small-right" type="radio" name="requisites" value="new">Указать другие реквизиты для выставления вам счета</label>
+                            </div>
                         </div>
-                    </div>
+                    @endauth
                     <div class="new-req-form">
                         <div class="new-req-form__textarea">
                             <label class="new-req-form__label" for="new-req-form-client">Заказчик:</label>
-                            <textarea class="new-req-form__txtarea" name="company_name" id="" cols="45" rows="6" placeholder="Полное название компании">{{ old('company_name') }}</textarea>
+                            <textarea class="new-req-form__txtarea" @guest required @endguest name="company_name" id="" cols="45" rows="6" placeholder="Полное название компании">{{ old('company_name') }}</textarea>
                         </div>
                         <div class="new-req-form__textarea">
                             <label class="new-req-form__label" for="new-req-form-bank">Банк:</label>
-                            <textarea class="new-req-form__txtarea" name="bank" id="" cols="45" rows="6" placeholder="Полный адрес">{{ old('bank') }}</textarea>
+                            <textarea class="new-req-form__txtarea" @guest required @endguest name="bank" id="" cols="45" rows="6" placeholder="Полный адрес">{{ old('bank') }}</textarea>
                         </div>
                         <div class="new-req-form__textarea">
                             <label class="new-req-form__label" for="new-req-form-address">Адрес:</label>
-                            <textarea class="new-req-form__txtarea" name="address" id="" cols="45" rows="6" placeholder="Полный адрес">{{ old('address') }}</textarea>
+                            <textarea class="new-req-form__txtarea" @guest required @endguest name="address" id="" cols="45" rows="6" placeholder="Полный адрес">{{ old('address') }}</textarea>
                         </div>
                         <div class="new-req-form__inputs">
                             <label class="new-req-form__label" for="new-req-form-inn">ИНН:</label>
-                            <input class="new-req-form__input" type="text" name="tin" value="{{ old('tin') }}">
+                            <input class="new-req-form__input" @guest required @endguest type="text" name="tin" value="{{ old('tin') }}">
                         </div>
                         <div class="new-req-form__inputs">
                             <label class="new-req-form__label" for="new-req-form-oked">ОКЕД:</label>
-                            <input class="new-req-form__input" type="text" name="ctea" value="{{ old('ctea') }}">
+                            <input class="new-req-form__input" @guest required @endguest type="text" name="ctea" value="{{ old('ctea') }}">
                         </div>
                         <div class="new-req-form__inputs">
                             <label class="new-req-form__label" for="new-req-form-mfo">МФО:</label>
-                            <input class="new-req-form__input" type="text" name="mfi" value="{{ old('mfi') }}">
+                            <input class="new-req-form__input" @guest required @endguest type="text" name="mfi" value="{{ old('mfi') }}">
                         </div>
                     </div>
                 </div>
@@ -71,9 +73,9 @@
                     <p class="cart-aside__txt">*Не весь товар бывает в наличии на складе, оставьте контактный телефон, либо вы можете связаться с офисом для уточнения наличия товара</p>
                     <div class="cart-aside-form">
                         <label for="cart-name" class="cart-aside-form__label">Имя</label>
-                        <input name="name" type="text" class="cart-aside-form__input" value="{{ old('name') }}">
+                        <input name="name" type="text" required class="cart-aside-form__input" value="{{ old('name') }}">
                         <label for="cart-tel" class="cart-aside-form__label">Телефон</label>
-                        <input name="phone_number" type="tel" class="cart-aside-form__input" value="{{ old('phone_number') }}">
+                        <input name="phone_number" required type="tel" class="cart-aside-form__input" value="{{ old('phone_number') }}">
                         <label for="cart-email" class="cart-aside-form__label">Почта</label>
                         <input name="email" type="email" class="cart-aside-form__input" value="{{ old('email') }}">
                         <label for="cart-comment" class="cart-aside-form__label">Комментарий</label>
@@ -82,7 +84,7 @@
                     <button type="submit" class="cart-aside-form__btn btn-submit"><i class="fa fa-envelope"></i>Отправить</button>
                 </div>
 			</div>
-
+            @auth <input type="hidden" name="user_id" value="{{ auth()->user()->id }}"> @endauth
 		</form>
 	</section>
 @endsection

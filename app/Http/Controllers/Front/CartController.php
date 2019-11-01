@@ -72,8 +72,7 @@ class CartController extends Controller
         if ($request->get('requisites') == 'useRegistration') {
             Validator::make($request->all(), [
                 'name' => ['required', 'string'],
-                'phone_number' => ['required', 'string'],
-                'email' => ['required', 'email']
+                'phone_number' => ['required', 'string']
             ])->validate();
             $registrationRequest = auth()->user()->registrationRequest;
             $order = Order::create([
@@ -93,8 +92,6 @@ class CartController extends Controller
             Validator::make($request->all(), [
                 'name' => ['required', 'string'],
                 'phone_number' => ['required', 'string'],
-                'email' => ['required', 'email'],
-                'comment' => ['string'],
                 'company_name' => ['required', 'string', 'unique:registration_requests'],
                 'bank' => ['required', 'string'],
                 'address' => ['required', 'string'],

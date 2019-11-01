@@ -16,6 +16,7 @@
                     </a>
                 </div>
                 <div class="block-content">
+                    <div class="table-responsive">
                     <table id="dataTable" class="table table-striped table-vcenter">
                         <thead>
                         <tr>
@@ -74,6 +75,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

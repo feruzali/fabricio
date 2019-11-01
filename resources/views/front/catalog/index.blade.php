@@ -1,24 +1,20 @@
 @extends('front.layouts.app')
 
-@section('title', $category->ru_title)
+@section('title')
+    @if($catalogType == 'category')
+        {{ $category->ru_title }}
+    @elseif ($catalogType == 'brand')
+        {{ $brand->title }}
+    @endif
+@endsection
 
 @section('content')
   <section class="catalog" id="catalog">
     <div class="container">
-      <h2 class="page-title">{{ $category->ru_title }}</h2>
+      <h2 class="page-title">@if($catalogType == 'category') {{ $category->ru_title }} @else {{ $brand->title }} @endif</h2>
 
       <div class="catalog__filter_md md_visible">
         <ul class=" uk-nav-parent-icon nav-bar-list catalog__sort_md" uk-nav="multiple: true">
-          <li class="catalog__sortItem_md uk-parent">
-            <a href="#">Все виды</a>
-            <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Мои талоны</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Корзина услуг</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Заявление на прикрепление</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Запись на прием</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Диспансеризация</a></li>
-            </ul>
-          </li>
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Категории</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
@@ -39,28 +35,16 @@
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Бренд</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
-              @foreach ($category->getAllBrands() as $brand)
-                @if ($brand)
-                  <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem" data-brand-id=" {{$brand->id }} ">{{ $brand->title }}</li>
-                @endif
+              @foreach ($brands as $brand)
+                    <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="{{ route('catalog.index', $brand->slug) }}">{{ $brand->title }}</a></li>
               @endforeach
-            </ul>
-          </li>
-          <li class="catalog__sortItem_md uk-parent">
-            <a href="#">Сортировать</a>
-            <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Мои талоны</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Корзина услуг</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Заявление на прикрепление</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Запись на прием</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">Диспансеризация</a></li>
             </ul>
           </li>
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Цена</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">По возрастанию</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="#">По убыванию</a></li>
+              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'asc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'asc']) }} @endif">По возрастанию</a></li>
+              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'desc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'desc']) }} @endif">По убыванию</a></li>
             </ul>
           </li>
         </ul>
@@ -68,21 +52,6 @@
 
       <div class="catalog__filter md_hidden">
         <div class="catalog__sort">
-          <div class="catalog__sortItem">
-            <div class="catalog__sortCurrent" id="catalogType">
-              <span class="lbl">Все виды&nbsp; <i class="fa fa-angle-down"></i></span>
-              <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
-                <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Мои талоны</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Корзина услуг</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Заявление на прикрепление</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Запись на прием</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Диспансеризация</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
           <div class="catalog__sortItem">
             <div class="catalog__sortCurrent" id="catalogPeople">
               <span class="lbl">Категории&nbsp; <i class="fa fa-angle-down"></i></span>
@@ -110,26 +79,9 @@
               <span class="lbl">Бренд&nbsp; <i class="fa fa-angle-down"></i></span>
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
                 <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
-                  @foreach ($category->getAllBrands() as $key => $brand)
-                    @if ($brand)
-                      <li class="catalog__sort_md-dropdown__item" data-brand-id=" {{$brand->id }} ">{{ $brand->title }}</li>
-                    @endif
+                  @foreach ($brands as $brand)
+                        <li class="catalog__sort_md-dropdown__item"><a href="{{ route('catalog.index', $brand->slug) }}">{{ $brand->title }}</a></li>
                   @endforeach
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="catalog__sortItem">
-            <div class="catalog__sortCurrent" id="popularity">
-              <span class="lbl">Сортировать&nbsp; <i class="fa fa-angle-down"></i></span>
-              <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
-                <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Мои талоны</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Корзина услуг</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Заявление на прикрепление</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Запись на прием</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">Диспансеризация</a></li>
                 </ul>
               </div>
             </div>
@@ -140,8 +92,8 @@
               <span class="lbl">Цена&nbsp; <i class="fa fa-angle-down"></i></span>
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
                 <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">По возрастанию</a></li>
-                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="#">По убыванию</a></li>
+                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'asc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'asc']) }} @endif">По возрастанию</a></li>
+                  <li class="catalog__sort__dropdown__item catalogSortDropdownItem"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'desc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'desc']) }} @endif">По убыванию</a></li>
                 </ul>
               </div>
             </div>
@@ -247,6 +199,7 @@
       </div> --}}
     </div>
   </section>
+  @include('front.layouts.feedback')
 @endsection
 @section('js')
     <script>
