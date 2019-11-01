@@ -3,7 +3,7 @@
 @section('title')
     @if($catalogType == 'category')
         {{ $category->ru_title }}
-    @else if ($catalogType == 'brand')
+    @elseif ($catalogType == 'brand')
         {{ $brand->title }}
     @endif
 @endsection
