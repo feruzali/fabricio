@@ -39,7 +39,7 @@
                             </div>
                             <div class="uk-position-bottom-left uk-position-small md_hidden">
                                 <div class="stepper stepper--style-3 js-spinner card-stepper">
-                                    <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input quantity-field">
+                                    <input autofocus type="number" min="1" max="99" step="1" value="1" class="stepper__input card-stepper__input quantity-field">
                                     <div class="stepper__controls">
                                         <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                                         <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
@@ -48,7 +48,7 @@
                                 <button class="card-slideshow__btn add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                             </div>
                             <div class="stepper stepper--style-3 js-spinner card-stepper md_visible">
-                                <input autofocus type="number" min="1" step="1" value="1" class="stepper__input card-stepper__input">
+                                <input autofocus type="number" min="1" max="99" step="1" value="1" class="stepper__input card-stepper__input">
                                 <div class="stepper__controls">
                                     <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                                     <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
@@ -114,7 +114,7 @@
 
                     <div class="uk-position-bottom-left uk-position-small md_hidden">
                         <div class="stepper stepper--style-3 js-spinner card-stepper">
-                            <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input quantity-field">
+                            <input autofocus type="number" min="1" max="99" step="1" value="1" class="stepper__input card-stepper__input quantity-field">
                             <div class="stepper__controls">
                                 <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                                 <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
@@ -124,7 +124,7 @@
                         <button class="card-slideshow__btn add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                     </div>
                     <div class="stepper stepper--style-3 js-spinner card-stepper md_visible">
-                        <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input">
+                        <input autofocus type="number" min="1" max="99" step="1" value="1" class="stepper__input card-stepper__input">
                         <div class="stepper__controls">
                             <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                             <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
@@ -192,7 +192,7 @@
 
                     <div class="uk-position-bottom-left uk-position-small md_hidden">
                         <div class="stepper stepper--style-3 js-spinner card-stepper">
-                            <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input">
+                            <input autofocus type="number" min="1" max="99" step="1" value="1" class="stepper__input card-stepper__input">
                             <div class="stepper__controls">
                                 <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                                 <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
@@ -202,7 +202,7 @@
                         <button class="card-slideshow__btn add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                     </div>
                     <div class="stepper stepper--style-3 js-spinner card-stepper md_visible">
-                        <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input">
+                        <input autofocus type="number" min="1" max="99" step="1" value="1" class="stepper__input card-stepper__input">
                         <div class="stepper__controls">
                             <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                             <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
@@ -270,7 +270,7 @@
 
                     <div class="uk-position-bottom-left uk-position-small md_hidden">
                         <div class="stepper stepper--style-3 js-spinner card-stepper">
-                            <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input">
+                            <input autofocus type="number" min="1" max="99" step="1" value="1" class="stepper__input card-stepper__input">
                             <div class="stepper__controls">
                                 <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                                 <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
@@ -280,7 +280,7 @@
                         <button class="card-slideshow__btn add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                     </div>
                     <div class="stepper stepper--style-3 js-spinner card-stepper md_visible">
-                        <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input">
+                        <input autofocus type="number" min="1" max="99" step="1" value="1" class="stepper__input card-stepper__input">
                         <div class="stepper__controls">
                             <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                             <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
@@ -298,7 +298,7 @@
             @if ($product->colors()->count() < 1 || !$product->hasAnyColorImages())
                     <div class="uk-position-bottom-left uk-position-small md_hidden">
                         <div class="stepper stepper--style-3 js-spinner card-stepper">
-                            <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input quantity-field">
+                            <input autofocus type="number" min="1" max="99" step="1" value="1" class="stepper__input card-stepper__input quantity-field">
                             <div class="stepper__controls">
                                 <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                                 <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
@@ -307,7 +307,7 @@
                         <button class="card-slideshow__btn add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                     </div>
                     <div class="stepper stepper--style-3 js-spinner card-stepper md_visible">
-                        <input autofocus type="number" min="1" max="10" step="1" value="1" class="stepper__input card-stepper__input">
+                        <input autofocus type="number" min="1" max="99" step="1" value="1" class="stepper__input card-stepper__input">
                         <div class="stepper__controls">
                             <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                             <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>

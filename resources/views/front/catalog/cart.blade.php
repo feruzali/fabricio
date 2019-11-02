@@ -21,7 +21,7 @@
                                     <span class="cart-good__title">{{ $details['name'] }}</span>
                                     <input type="checkbox" class="cart-good__checkbox uk-checkbox"></input>
                                     <div class="stepper stepper--style-3 js-spinner card-good__quantity-wrapper">
-                                        <input autofocus type="number" min="1" step="1" value="{{ $details['quantity'] }}" data-product-id="{{ $id }}" class="stepper__input cart-good__quantity__input">
+                                        <input autofocus type="number" min="1" max="99" step="1" value="{{ $details['quantity'] }}" data-product-id="{{ $id }}" class="stepper__input cart-good__quantity__input">
                                         <div class="stepper__controls">
                                             <button class="cart-good__quantity__btn" type="button" spinner-button="up"><i class="fa fa-caret-right"></i></button>
                                             <button class="cart-good__quantity__btn" type="button" spinner-button="down"><i class="fa fa-caret-left"></i></button>
