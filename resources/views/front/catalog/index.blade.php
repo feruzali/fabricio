@@ -22,9 +22,9 @@
                   <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem">
                     <a href="{{ $categoryObject->getAncestorsSlugs() }}">{{ $categoryObject->ru_title }}</a>
                       @if ($categoryObject->children()->count() > 0)
-                          <ul class="uk-nav-sub">
+                          <ul class="uk-nav-sub catalog__sort__subdropdown">
                               @foreach ($categoryObject->children as $child)
-                                  <li><a href="{{ $child->getAncestorsSlugs() }}">{{ $child->ru_title }}</a></li>
+                                <li><a href="{{ $child->getAncestorsSlugs() }}">{{ $child->ru_title }}</a></li>
                               @endforeach
                           </ul>
                       @endif
@@ -63,7 +63,7 @@
                       @if ($categoryObject->children()->count() > 0)
                             <ul class="uk-nav-sub">
                                 @foreach ($categoryObject->children as $child)
-                                    <li><a href="{{ $child->getAncestorsSlugs() }}">{{ $child->ru_title }}</a></li>
+                                  <li><a href="{{ $child->getAncestorsSlugs() }}">{{ $child->ru_title }}</a></li>
                                 @endforeach
                             </ul>
                       @endif
@@ -80,7 +80,7 @@
               <div class="" style="width: auto; padding: 0; white-space: nowrap; margin-top: 0; box-shadow: 0 0 62px rgba(20, 47, 106, 0.47); border-radius: 8px 10px 10px; background-color: #ffffff;" uk-dropdown="mode: hover; offset: 30">
                 <ul class="uk-nav catalog__sort__dropdown catalogSortDropdown">
                   @foreach ($brands as $brand)
-                        <li class="catalog__sort_md-dropdown__item"><a href="{{ route('catalog.index', $brand->slug) }}">{{ $brand->title }}</a></li>
+                      <li class="catalog__sort_md-dropdown__item"><a href="{{ route('catalog.index', $brand->slug) }}">{{ $brand->title }}</a></li>
                   @endforeach
                 </ul>
               </div>
