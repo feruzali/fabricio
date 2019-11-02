@@ -113,3 +113,29 @@ navBar();
     });
 
 }());
+
+
+// Check color on main page
+
+(function() {
+
+    var card = $('.goods-card');
+    card.each(function() {
+
+        var cardImg = $(this).find('.goods-card__img img');
+        var colorBtn = $(this).find('.goods-card__color');
+
+        $(colorBtn).click(function() {
+
+            for (var i = 0; i < cardImg.length; i++) {
+                if ($(this).attr('data-color') != cardImg[i].dataset.color) {
+                    cardImg[i].style.display = "none";
+                } else {
+                    cardImg[i].style.display = "block";
+                }
+            }
+
+        });
+    });
+
+}());
