@@ -22,6 +22,15 @@ class ProductImage extends Model
         $this->save();
     }
 
+    public function getImage()
+    {
+        if($this->img == null)
+        {
+            return '/img/no-image.png';
+        }
+        return '/uploads/product/' . $this->img;
+    }
+
     public function getCatalogImage()
     {
         if ($this->img_catalog)
