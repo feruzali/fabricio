@@ -13,21 +13,20 @@ class ProductImage extends Model
     {
 
         if($image == null) { return; }
-
         $this->removeImage();
         $filename = str_random(10) . '.' . $image->extension();
-        $image->storeAs('uploads/product', $filename);
+        \Image::make($image)->widen(1200)->save(public_path() . '/uploads/product/' . $filename);
+        \Image::make($image)->widen(300)->save(public_path() . '/uploads/product/catalog/' . $filename);
         $this->img = $filename;
+        $this->img_catalog = $filename;
         $this->save();
     }
 
-    public function getImage()
+    public function getCatalogImage()
     {
-        if($this->img == null)
-        {
-            return '/img/no-image.png';
-        }
-        return '/uploads/product/' . $this->img;
+        if ($this->img_catalog)
+            return '/uploads/product/catalog/' . $this->img_catalog;
+        return '/img/no-image.png';
     }
 
     public function removeImage()
