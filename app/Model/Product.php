@@ -86,8 +86,10 @@ class Product extends Model
 
         $this->removePreviewImage();
         $filename = str_random(10) . '.' . $image->extension();
-        $image->storeAs('uploads/product/', $filename);
+        \Image::make($image)->widen(1200)->save(public_path() . '/uploads/product/' . $filename);
+        \Image::make($image)->widen(300)->save(public_path() . '/uploads/product/catalog/' . $filename);
         $this->preview_image = $filename;
+        $this->preview_image_catalog = $filename;
         $this->save();
     }
 
@@ -118,10 +120,15 @@ class Product extends Model
     public function getImage()
     {
         if($this->preview_image == null)
-        {
             return '/img/no-image.png';
-        }
         return '/uploads/product/' . $this->preview_image;
+    }
+
+    public function getCatalogImage()
+    {
+        if ($this->preview_image_catalog)
+            return '/uploads/product/catalog/' . $this->preview_image_catalog;
+        return '/img/no-image.png';
     }
 
     public function getLeftImage()
@@ -206,15 +213,17 @@ class Product extends Model
     {
         $images = collect();
         foreach ($this->colors as $color)
-            $images->merge($color->images);
+            foreach ($color->images as $image)
+                $images->push($image);
         return $images;
     }
 
     public function getAllImagesWithPreview()
     {
         $images = collect();
-        $images->push($this->getImage());
-        $images->merge($this->getAllImages());
+        $images->push($this->getCatalogImage());
+        foreach ($this->getAllImages() as $image)
+            $images->push($image);
         return $images;
     }
 }

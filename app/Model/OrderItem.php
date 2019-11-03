@@ -12,7 +12,9 @@ class OrderItem extends Model
         'price',
         'quantity',
         'product_id',
-        'preview_image'
+        'preview_image',
+        'color_name',
+        'color_hex'
     ];
 
     public function uploadImage($image)
