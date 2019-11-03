@@ -41,7 +41,7 @@
 
 <header id="header" class="header">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center margin_xs">
             <div class="col-xl-7 col-lg-8 col-md-9 col-sm-8 col-7">
                 <i id="open" class="fa fa-bars"></i>
                 <a href="{{ route('home') }}"><img src="{{asset('front/img/main-logo.png')}}" alt="Logo" class="header__logo"></a>
