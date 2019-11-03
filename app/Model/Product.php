@@ -221,7 +221,7 @@ class Product extends Model
     public function getAllImagesWithPreview()
     {
         $images = collect();
-        $images->push($this->getImage());
+        $images->push($this->getCatalogImage());
         foreach ($this->getAllImages() as $image)
             $images->push($image);
         return $images;
