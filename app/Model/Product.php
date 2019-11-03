@@ -206,7 +206,8 @@ class Product extends Model
     {
         $images = collect();
         foreach ($this->colors as $color)
-            $images->merge($color->images);
+            foreach ($color->images as $image)
+                $images->push($image);
         return $images;
     }
 
