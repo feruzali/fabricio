@@ -48,8 +48,8 @@ class ResizeImages extends Command
             $this->line("Prociess $product->title preview image...");
             $previewImagePath = $publicPath . $product->getImage();
             $previeImageFilename = $product->preview_image;
-            \Image::make($previewImagePath)->resize(1200)->save($previewImagePath);
-            \Image::make($previewImagePath)->resize(300)->save($resizedImagesPath . "/$previeImageFilename");
+            \Image::make($previewImagePath)->widen(1200)->save($previewImagePath);
+            \Image::make($previewImagePath)->widen(300)->save($resizedImagesPath . "/$previeImageFilename");
             $product->preview_image_catalog = $previeImageFilename;
             $product->save();
             $this->info('Done!');
@@ -58,8 +58,8 @@ class ResizeImages extends Command
                 foreach ($color->images as $image) {
                     $imagePath = $publicPath . $image->getImage();
                     $imageFilename = $image->img;
-                    \Image::make($imagePath)->resize(1200)->save($imagePath);
-                    \Image::make($imagePath)->resize(300)->save($resizedImagesPath . "/$imageFilename");
+                    \Image::make($imagePath)->widen(1200)->save($imagePath);
+                    \Image::make($imagePath)->widen(300)->save($resizedImagesPath . "/$imageFilename");
                     $image->img_catalog = $imageFilename;
                     $image->save();
                 }
