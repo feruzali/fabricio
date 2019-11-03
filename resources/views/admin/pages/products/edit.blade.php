@@ -229,7 +229,7 @@
                         <h3 class="block-title text-center">Картинка-превью</h3>
                     </div>
                     <div class="block-content block-content-full text-center bg-info-lighter">
-                        <img src="{{ $product->getImage() }}" alt="{{ $product->title }}" style="width: 200px;">
+                        <img src="{{ $product->getCatalogImage() }}" alt="{{ $product->title }}" style="width: 200px;">
                         <div class="input_file">
                             <div class="remove">Удалить</div>
                             <input id="imgInp" accept="image/*" type="file" class="form-control input_file__input" name="preview_image">
@@ -293,7 +293,7 @@
                                                 </div>
                                                 <div style="text-align:center;" class="gallery">
                                                     @foreach ($color->images as $image)
-                                                        <img src="{{ $image->getImage() }}" alt="" style="width: 200px;">
+                                                        <img src="{{ $image->getCatalogImage() }}" alt="" style="width: 200px;">
                                                     @endforeach
                                                 </div>
                                             </div>
