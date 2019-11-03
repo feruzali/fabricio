@@ -259,8 +259,8 @@
 
                                 <div class="goods-card">
                                     <a href="{{ $product->getAncestorsSlugs() }}" class="goods-card__img">
-                                        <img src="{{ $product->getImage() }}" alt="{{ $product->title }}" data-color="1">
-                                        <img src="{{ $product->getImage() }}" alt="{{ $product->title }}" data-color="2" style="display: none;">
+                                        <img src="{{ $product->getCatalogImage() }}" alt="{{ $product->title }}" data-color="1">
+                                        <img src="{{ $product->getCatalogImage() }}" alt="{{ $product->title }}" data-color="2" style="display: none;">
                                     </a>
                                     <!-- /.goods-card__img -->
                                     <a href="{{ $product->getAncestorsSlugs() }}"><h5 class="goods-card__title">{{ $product->title }}</h5></a>
