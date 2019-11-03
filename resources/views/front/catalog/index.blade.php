@@ -22,7 +22,7 @@
                   <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem">
                     <a href="{{ $categoryObject->getAncestorsSlugs() }}">{{ $categoryObject->ru_title }}</a>
                       @if ($categoryObject->children()->count() > 0)
-                          <ul class="uk-nav-sub catalog__sort__subdropdown">
+                          <ul class="uk-nav-sub">
                               @foreach ($categoryObject->children as $child)
                                 <li><a href="{{ $child->getAncestorsSlugs() }}">{{ $child->ru_title }}</a></li>
                               @endforeach
@@ -61,7 +61,7 @@
                     <li class="catalog__sort__dropdown__item catalogSortDropdownItem">
                       <a href="{{ $categoryObject->getAncestorsSlugs() }}">{{ $categoryObject->ru_title }}</a>
                       @if ($categoryObject->children()->count() > 0)
-                            <ul class="uk-nav-sub">
+                            <ul class="uk-nav-sub catalog__sort__subdropdown">
                                 @foreach ($categoryObject->children as $child)
                                   <li><a href="{{ $child->getAncestorsSlugs() }}">{{ $child->ru_title }}</a></li>
                                 @endforeach
