@@ -167,7 +167,7 @@
         @foreach($products as $product)
             <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
               <div class="catalog-card">
-                <a href="{{ $product->getAncestorsSlugs() }}">
+                <a href="{{ route('catalog.index', $product->getAncestorsSlugs()) }}">
                   <div class="catalog-card__img">
                       @foreach($product->getAllImagesWithPreview() as $key => $image)
                           <img src="@if (is_string($image)) {{ $image }} @else {{ $image->getImage() }} @endif" alt="" data-color="{{ $key }}" @if(!is_string($image)) style="display: none;" @endif>
