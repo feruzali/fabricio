@@ -215,7 +215,8 @@ class Product extends Model
     {
         $images = collect();
         $images->push($this->getImage());
-        $images->merge($this->getAllImages());
+        foreach ($this->getAllImages() as $image)
+            $images->push($image);
         return $images;
     }
 }
