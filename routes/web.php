@@ -82,6 +82,18 @@ Route::post('password/reset', 'FrontAuth\ResetPasswordController@reset');
 
 Route::post('/feedback', 'HomeController@createFeedback')->name('feedback.create');
 
+Route::get('/admin/setWebhook', function(Request $request) {
+    dd(request()->getHttpHost().'/'.\Telegram::getAccessToken().'/webhook');
+    $response = \Telegram::setWebhook(['url' => request()->getHttpHost().'/'.\Telegram::getAccessToken().'/webhook']);
+    return $response->getBody();
+});
+
+Route::post('/'.\Telegram::getAccessToken().'/webhook', function () {
+    \Telegram::commandsHandler(true);
+
+    return 'ok';
+});
+
 
 Route::middleware('catalog')->group(function() {
     Route::get('/', 'HomeController@index')->name('home');
