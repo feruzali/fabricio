@@ -169,15 +169,15 @@
               <div class="catalog-card">
                 <a href="{{ route('catalog.index', $product->getAncestorsSlugs()) }}">
                   <div class="catalog-card__img">
-                      @foreach($product->getAllImagesWithPreview() as $key => $image)
-                          <img src="@if (is_string($image)) {{ $image }} @else {{ $image->getCatalogImage() }} @endif" alt="" data-color="{{ $key }}" @if(!is_string($image)) style="display: none;" @endif>
+                      @foreach($product->getAllImages() as $key => $image)
+                          <img src="{{ $image->getCatalogImage() }}" alt="" data-color="{{ $key }}" @if($key !== 0) style="display: none;" @endif>
                       @endforeach
                   </div>
                 </a>
                 <div class="catalog-card-choice">
-                    @foreach ($product->getAllImagesWithPreview() as $key => $image)
-                        <div class="catalog-card-choice__elem @if($key == 1) catalog-card-choice__elem--active @else catalog-card-choice__elem @endif" data-color="{{ $key }}">
-                          <img src="@if (is_string($image)) {{ $image }} @else {{ $image->getCatalogImage() }} @endif" alt="">
+                    @foreach ($product->getAllImages() as $key => $image)
+                        <div class="@if($key == 0) catalog-card-choice__elem--active @else catalog-card-choice__elem @endif" data-color="{{ $key }}">
+                          <img src="{{ $image->getCatalogImage() }}" alt="{{ $product->title }}">
                         </div>
                     @endforeach
                 </div>
