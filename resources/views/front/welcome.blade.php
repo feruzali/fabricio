@@ -259,8 +259,8 @@
 
                                 <div class="goods-card">
                                     <a href="{{ $product->getAncestorsSlugs() }}" class="goods-card__img">
-                                        @foreach ($product->getAllImages() as $key => $image)
-                                            <img src="{{ $image->getCatalogImage() }}" alt="{{ $product->title }}" data-color="{{ $image->product_color_id }}" @if($key != 0) style="display:none;" @endif>
+                                        @foreach ($product->colors as $key => $color)
+                                            <img src="{{ $color->images()->first()->getCatalogImage() }}" alt="{{ $product->title }}" data-color="{{ $color->id }}" @if($key != 0) style="display:none;" @endif>
                                         @endforeach
                                     </a>
                                     <!-- /.goods-card__img -->
