@@ -34,7 +34,7 @@
                         @foreach($products as $product)
                             <tr>
                                 <td width="50" class="text-center d-none d-md-none d-lg-table-cell">
-                                    <img class="img-avatar img-avatar48" src="{{ $product->getImage() }}" alt="">
+                                    <img class="img-avatar img-avatar48" src="{{ $product->getCatalogImage() }}" alt="">
                                 </td>
                                 <td class="font-w600">{{ $product->title}}</td>
                                 <td class="font-w600">@if($product->category) {{ $product->category->ru_title }} @else - @endif</td>
