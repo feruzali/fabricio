@@ -259,8 +259,9 @@
 
                                 <div class="goods-card">
                                     <a href="{{ $product->getAncestorsSlugs() }}" class="goods-card__img">
-                                        <img src="{{ $product->getCatalogImage() }}" alt="{{ $product->title }}" data-color="1">
-                                        <img src="{{ $product->getCatalogImage() }}" alt="{{ $product->title }}" data-color="2" style="display: none;">
+                                        @foreach ($product->getAllImages() as $key => $image)
+                                            <img src="{{ $image->getCatalogImage() }}" alt="{{ $product->title }}" data-color="{{ $image->color_id }}" @if($key != 0) style="display:none;" @endif>
+                                        @endforeach
                                     </a>
                                     <!-- /.goods-card__img -->
                                     <a href="{{ $product->getAncestorsSlugs() }}"><h5 class="goods-card__title">{{ $product->title }}</h5></a>
@@ -270,8 +271,7 @@
                                     @if ($product->colors()->count() > 0)
                                         <span class="color">Цвет:</span> <br>
                                         @foreach ($product->colors as $color)
-                                            <div class="goods-card__color" style="background-color: {{ $color->colorHEX }}" data-color="1"></div>
-                                            <div class="goods-card__color" style="background-color: {{ $color->colorHEX }}" data-color="2"></div>
+                                            <div class="goods-card__color" style="background-color: {{ $color->colorHEX }}" data-color="{{ $color->id }}"></div>
                                         @endforeach
                                     @endif
                                     <div class="goods-card__bag" data-product-id="{{ $product->id }}"></div>
