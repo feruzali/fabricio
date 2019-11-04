@@ -260,7 +260,7 @@
                                 <div class="goods-card">
                                     <a href="{{ $product->getAncestorsSlugs() }}" class="goods-card__img">
                                         @foreach ($product->getAllImages() as $key => $image)
-                                            <img src="{{ $image->getCatalogImage() }}" alt="{{ $product->title }}" data-color="{{ $image->color_id }}" @if($key != 0) style="display:none;" @endif>
+                                            <img src="{{ $image->getCatalogImage() }}" alt="{{ $product->title }}" data-color="{{ $image->product_color_id }}" @if($key != 0) style="display:none;" @endif>
                                         @endforeach
                                     </a>
                                     <!-- /.goods-card__img -->
