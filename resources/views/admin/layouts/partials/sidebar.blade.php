@@ -134,9 +134,6 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#"><i class="si si-settings"></i><span class="sidebar-mini-hide">Настройки</span></a>
-                    </li>
                 </ul>
             </div>
             <!-- END Side Navigation -->
