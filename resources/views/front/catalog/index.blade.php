@@ -176,7 +176,7 @@
                 </a>
                 <div class="catalog-card-choice">
                     @foreach ($product->getAllImages() as $key => $image)
-                        <div class="@if($key == 0) catalog-card-choice__elem--active @else catalog-card-choice__elem @endif" data-color="{{ $key }}">
+                        <div class="catalog-card-choice__elem" data-color="{{ $key }}">
                           <img src="{{ $image->getCatalogImage() }}" alt="{{ $product->title }}">
                         </div>
                     @endforeach
