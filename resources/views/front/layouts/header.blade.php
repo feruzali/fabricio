@@ -39,6 +39,14 @@
     </ul>
 </div>
 
+<a href="" class="popup" id="popup">
+    <i class="fa fa-check"></i>
+    <p>
+        Выбранный вами товар успешно добавлен в корзину! <br>
+        (кол-во товаров: 3)
+    </p>
+</a>
+
 <header id="header" class="header">
     <div class="container">
         <div class="row align-items-center margin_xs">
