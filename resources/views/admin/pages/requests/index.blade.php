@@ -15,8 +15,9 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">№</th>
-                                    <th class="text-center">Компания</th>
+                                    <th class="text-center">Имя</th>
                                     <th class="text-center">Email</th>
+                                    <th class="text-center">Город</th>
                                     <th class="text-center">Подтверждён</th>
                                     <th class="text-center">Дата</th>
                                     <th class="text-center">Действия</th>
@@ -28,10 +29,13 @@
                                         <td class="text-center">{{ $request->id }}</td>
                                         <td class="text-center">{{ $request->company_name }}</td>
                                         <td class="text-center">{{ $request->user->email }}</td>
+                                        <td class="text-center">{{ $request->city }}</td>
                                         <td class="text-center">@if($request->confirmed()) <i class="fa fa-check text-success"></i> @else <i class="fa fa-close text-danger"></i>  @endif</td>
                                         <td class="text-center">{{ $request->created_at }}</td>
                                         <td class="d-flex justify-content-center">
-                                            <a href="{{ route('requests.show', $request->id) }}" data-toggle="tooltip" title="Показать" class="btn btn-sm btn-alt-primary"><i class="fa fa-eye"></i></a>
+                                            @if (!$request->confirmed())
+                                                <a href="{{ route('requests.confirm', $request->id) }}" class="btn btn-alt-primary btn-sm" data-toggle="tooltip" title=""><i class="fa fa-check"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

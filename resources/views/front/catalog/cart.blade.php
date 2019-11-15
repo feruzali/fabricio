@@ -37,8 +37,8 @@
                         <div class="choose-req uk-form-horizontal uk-margin-medium-top">
                             <div class="uk-form-label choose-req__title">Способ заказа</div>
                             <div class="uk-form-controls uk-form-controls-text">
-                                @if (auth()->user()->registrationRequest))<label><input class="uk-radio uk-margin-small-right" type="radio" name="requisites" value="useRegistration" required="" checked="">Использовать реквизиты введенные при регистрации</label><br>@endif
-                                <label><input class="uk-radio uk-margin-small-right" type="radio" name="requisites" value="new">Указать другие реквизиты для выставления вам счета</label>
+                                @if (auth()->user()->registrationRequest))<label><input class="uk-radio uk-margin-small-right" type="radio" name="requisites" value="doNotMakeCotntract" checked="">Не составлять договор (поля ниже заполнять необязательно)</label><br>@endif
+                                <label><input class="uk-radio uk-margin-small-right" type="radio" name="requisites" value="makeContract">Составить договор (обязательно заполнить поля ниже) </label>
                             </div>
                         </div>
                     @endauth
@@ -77,7 +77,7 @@
                         <label for="cart-tel" class="cart-aside-form__label">Телефон</label>
                         <input name="phone_number" required type="tel" class="cart-aside-form__input" value="{{ old('phone_number') }}">
                         <label for="cart-email" class="cart-aside-form__label">Почта</label>
-                        <input name="email" type="email" class="cart-aside-form__input" value="{{ old('email') }}">
+                        <input name="email" type="email" class="cart-aside-form__input" value="{{ old('email') ?? auth()->user()->email }}">
                         <label for="cart-comment" class="cart-aside-form__label">Комментарий</label>
                         <textarea name="comment" id="" cols="30" rows="10" class="cart-aside-form__txtarea">{{ old('comment') }}</textarea>
                     </div>

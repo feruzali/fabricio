@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontAuth;
 
 use App\User;
 use App\Role;
+use App\Model\RegistrationRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/request';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -51,7 +52,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed']
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'company_name' => ['required', 'string'],
+            'city' => ['required', 'stirng']
         ]);
     }
 
@@ -71,6 +74,8 @@ class RegisterController extends Controller
         $user
             ->roles()
             ->attach(Role::where('name', 'simple_user')->first());
+        $data['user_id'] = $user->id;
+        RegistrationRequest::create($data);
             
         return $user;
     }

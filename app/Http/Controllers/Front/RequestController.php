@@ -36,12 +36,9 @@ class RequestController extends Controller
     public function storeRequest(Request $request) {
         $data = $request->all();
         Validator::make($data, [
-            'company_name' => ['required', 'string', 'unique:registration_requests'],
-            'bank' => ['required', 'string'],
-            'address' => ['required', 'string'],
-            'tin' => ['required', 'string', 'min:9', 'max:9'],
-            'ctea' => ['required', 'string', 'min:5', 'max:5'],
-            'mfi' => ['required', 'string', 'min:5', 'max:5']
+            'company_name' => ['required', 'string'],
+            'email' => ['required', 'email'],
+            'city' => ['required', 'string']
         ])->validate();
         RegistrationRequest::create($data);
 

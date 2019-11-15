@@ -69,19 +69,13 @@ class CartController extends Controller
     }
 
     public function createOrder(Request $request) {
-        if ($request->get('requisites') == 'useRegistration') {
+        if ($request->get('requisites') == 'doNotMakeCotntract') {
             Validator::make($request->all(), [
                 'name' => ['required', 'string'],
                 'phone_number' => ['required', 'string']
             ])->validate();
             $registrationRequest = auth()->user()->registrationRequest;
             $order = Order::create([
-                'company_name' => $registrationRequest->company_name,
-                'bank' => $registrationRequest->bank,
-                'address' => $registrationRequest->address,
-                'tin' => $registrationRequest->tin,
-                'ctea' => $registrationRequest->ctea,
-                'mfi' => $registrationRequest->mfi,
                 'name' => $request->get('name'),
                 'phone_number' => $request->get('phone_number'),
                 'email' => $request->get('email'),
