@@ -37,7 +37,7 @@
                         <div class="choose-req uk-form-horizontal uk-margin-medium-top">
                             <div class="uk-form-label choose-req__title">Способ заказа</div>
                             <div class="uk-form-controls uk-form-controls-text">
-                                @if (auth()->user()->registrationRequest))<label><input class="uk-radio uk-margin-small-right" type="radio" name="requisites" value="doNotMakeCotntract" checked="">Не составлять договор (поля ниже заполнять необязательно)</label><br>@endif
+                                @if (auth()->user()->registrationRequest)<label><input class="uk-radio uk-margin-small-right" type="radio" name="requisites" value="doNotMakeCotntract" checked="">Не составлять договор (поля ниже заполнять необязательно)</label><br>@endif
                                 <label><input class="uk-radio uk-margin-small-right" type="radio" name="requisites" value="makeContract">Составить договор (обязательно заполнить поля ниже) </label>
                             </div>
                         </div>
