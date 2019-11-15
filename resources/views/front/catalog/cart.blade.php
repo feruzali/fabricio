@@ -77,7 +77,7 @@
                         <label for="cart-tel" class="cart-aside-form__label">Телефон</label>
                         <input name="phone_number" required type="tel" class="cart-aside-form__input" value="{{ old('phone_number') }}">
                         <label for="cart-email" class="cart-aside-form__label">Почта</label>
-                        <input name="email" type="email" class="cart-aside-form__input" value="{{ old('email') ?? auth()->user()->email }}">
+                        <input name="email" type="email" class="cart-aside-form__input" value="@if (auth()->user()) {{ old('email') ?? auth()->user()->email }} @else {{ old('email') }} @endif))">
                         <label for="cart-comment" class="cart-aside-form__label">Комментарий</label>
                         <textarea name="comment" id="" cols="30" rows="10" class="cart-aside-form__txtarea">{{ old('comment') }}</textarea>
                     </div>
