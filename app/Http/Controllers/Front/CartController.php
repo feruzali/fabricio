@@ -74,7 +74,6 @@ class CartController extends Controller
                 'name' => ['required', 'string'],
                 'phone_number' => ['required', 'string']
             ])->validate();
-            $registrationRequest = auth()->user()->registrationRequest;
             $order = Order::create([
                 'name' => $request->get('name'),
                 'phone_number' => $request->get('phone_number'),
