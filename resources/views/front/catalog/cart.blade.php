@@ -45,27 +45,27 @@
                     <div class="new-req-form">
                         <div class="new-req-form__textarea">
                             <label class="new-req-form__label" for="new-req-form-client">Заказчик:</label>
-                            <textarea class="new-req-form__txtarea" @guest required @endguest name="company_name" id="" cols="45" rows="6" placeholder="Полное название компании">{{ old('company_name') }}</textarea>
+                            <textarea class="new-req-form__txtarea" name="company_name" id="" cols="45" rows="6" placeholder="Полное название компании">{{ old('company_name') }}</textarea>
                         </div>
                         <div class="new-req-form__textarea">
                             <label class="new-req-form__label" for="new-req-form-bank">Банк:</label>
-                            <textarea class="new-req-form__txtarea" @guest required @endguest name="bank" id="" cols="45" rows="6" placeholder="Полный адрес">{{ old('bank') }}</textarea>
+                            <textarea class="new-req-form__txtarea" name="bank" id="" cols="45" rows="6" placeholder="Полный адрес">{{ old('bank') }}</textarea>
                         </div>
                         <div class="new-req-form__textarea">
                             <label class="new-req-form__label" for="new-req-form-address">Адрес:</label>
-                            <textarea class="new-req-form__txtarea" @guest required @endguest name="address" id="" cols="45" rows="6" placeholder="Полный адрес">{{ old('address') }}</textarea>
+                            <textarea class="new-req-form__txtarea" name="address" id="" cols="45" rows="6" placeholder="Полный адрес">{{ old('address') }}</textarea>
                         </div>
                         <div class="new-req-form__inputs">
                             <label class="new-req-form__label" for="new-req-form-inn">ИНН:</label>
-                            <input class="new-req-form__input" @guest required @endguest type="text" name="tin" value="{{ old('tin') }}">
+                            <input class="new-req-form__input" type="text" name="tin" value="{{ old('tin') }}">
                         </div>
                         <div class="new-req-form__inputs">
                             <label class="new-req-form__label" for="new-req-form-oked">ОКЕД:</label>
-                            <input class="new-req-form__input" @guest required @endguest type="text" name="ctea" value="{{ old('ctea') }}">
+                            <input class="new-req-form__input" type="text" name="ctea" value="{{ old('ctea') }}">
                         </div>
                         <div class="new-req-form__inputs">
                             <label class="new-req-form__label" for="new-req-form-mfo">МФО:</label>
-                            <input class="new-req-form__input" @guest required @endguest type="text" name="mfi" value="{{ old('mfi') }}">
+                            <input class="new-req-form__input" type="text" name="mfi" value="{{ old('mfi') }}">
                         </div>
                     </div>
                 </div>
