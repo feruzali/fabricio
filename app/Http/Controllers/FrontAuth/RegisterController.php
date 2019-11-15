@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'company_name' => ['required', 'string'],
-            'city' => ['required', 'stirng']
+            'city' => ['required', 'string']
         ]);
     }
 
@@ -76,7 +76,7 @@ class RegisterController extends Controller
             ->attach(Role::where('name', 'simple_user')->first());
         $data['user_id'] = $user->id;
         RegistrationRequest::create($data);
-            
+
         return $user;
     }
 }
