@@ -79,7 +79,7 @@ class CartController extends Controller
                 'phone_number' => $request->get('phone_number'),
                 'email' => $request->get('email'),
                 'comment' => $request->get('comment'),
-                'user_id' => auth()->user()->id
+                'user_id' => \Auth::check() ? auth()->user()->id : null
             ]);
         } else {
             Validator::make($request->all(), [
