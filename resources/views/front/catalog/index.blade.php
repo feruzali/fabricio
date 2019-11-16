@@ -19,7 +19,7 @@
             <a href="#">Категории</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
               @foreach ($parentCategories as $categoryObject)
-                  <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem">
+                  <li class="catalog__sort_md-dropdown__item">
                     <a href="{{ $categoryObject->getAncestorsSlugs() }}">{{ $categoryObject->ru_title }}</a>
                       @if ($categoryObject->children()->count() > 0)
                           <ul class="uk-nav-sub">
@@ -36,15 +36,15 @@
             <a href="#">Бренд</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
               @foreach ($brands as $brand)
-                    <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="{{ route('catalog.index', $brand->slug) }}">{{ $brand->title }}</a></li>
+                    <li class="catalog__sort_md-dropdown__item"><a href="{{ route('catalog.index', $brand->slug) }}">{{ $brand->title }}</a></li>
               @endforeach
             </ul>
           </li>
           <li class="catalog__sortItem_md uk-parent">
             <a href="#">Цена</a>
             <ul class="uk-nav-sub catalog__sort_md-dropdown catalogSortDropdown">
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'asc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'asc']) }} @endif">По возрастанию</a></li>
-              <li class="catalog__sort_md-dropdown__item catalogSortDropdownItem"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'desc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'desc']) }} @endif">По убыванию</a></li>
+              <li class="catalog__sort_md-dropdown__item"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'asc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'asc']) }} @endif">По возрастанию</a></li>
+              <li class="catalog__sort_md-dropdown__item"><a href="@if($catalogType == 'brand') {{ route('catalog.index', ['params' => $brand->slug, 'price_order' => 'desc']) }} @else {{ route('catalog.index', ['params' => $category->getAncestorsSlugs() , 'price_order' => 'desc']) }} @endif">По убыванию</a></li>
             </ul>
           </li>
         </ul>
