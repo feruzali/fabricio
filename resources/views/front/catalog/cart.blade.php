@@ -83,11 +83,11 @@
                         </div>
                         <div class="new-req-form__inputs">
                             <label class="new-req-form__label" for="new-req-form-inn">Почта:</label>
-                            <input class="new-req-form__input" @guest required @endguest type="text" name="tin" value="{{ old('tin') }}">
+                            <input class="new-req-form__input" @guest required @endguest type="email" name="tin" value="{{ old('tin') }}">
                         </div>
                         <div class="new-req-form__inputs">
                             <label class="new-req-form__label" for="new-req-form-oked">Телефон:</label>
-                            <input class="new-req-form__input" @guest required @endguest type="text" name="ctea" value="{{ old('ctea') }}">
+                            <input class="new-req-form__input" @guest required @endguest type="num" name="ctea" value="{{ old('ctea') }}">
                         </div>
                     </div>
                 </div>
