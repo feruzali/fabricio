@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Product;
 use App\Model\Order;
+use App\Mail\OrderConfirmed;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
@@ -105,6 +107,7 @@ class CartController extends Controller
             $orderItem->uploadImage($details['photo']);
         }
         session()->forget('cart');
+        Mail::send(new OrderConfirmed($order));
         return view('front.catalog.confirm', compact('order'));
     }
 }
