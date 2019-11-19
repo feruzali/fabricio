@@ -1,6 +1,8 @@
-<?php include 'header.php'; ?>
+@extends('front.layouts.app')
 
+@section('title', 'Спасибо за заказ')
 
+@section('content')
 <section id="confirm" class="confirm">
 	
 	<div class="container">
@@ -9,19 +11,15 @@
 		<div class="confirm-order">
 			<div class="confirm-order__title">Спасибо за покупку!</div>
 			<div class="confirm-order__num">
-				Номер заказа: 001998976
+				Номер заказа: {{ order.id }}
 			</div>
 			<div class="confirm-order__descr">
 			Вы получите письмо на ваш адрес электронной почты (email) с подробной информацией о заказе.
 			</div>
-			<a href="catalog_page.php" class="confirm-order__btn">Вернуться к выбору товаров</a>
+			<a href="{{ route('home') }}" class="confirm-order__btn">Вернуться к выбору товаров</a>
 		</div>
 
 	</div>
 
 </section>
-
-
-<?php include 'feedback.php'; ?>
-
-<?php include 'footer.php'; ?>
+@endsection

@@ -105,7 +105,6 @@ class CartController extends Controller
             $orderItem->uploadImage($details['photo']);
         }
         session()->forget('cart');
-        return redirect()->route('home');
-
+        return view('front.catalog.confirm', compact('order'));
     }
 }
