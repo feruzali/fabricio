@@ -36,7 +36,7 @@
                     <div class="choose-req uk-form-horizontal uk-margin-medium-top">
                         <div class="uk-form-label choose-req__title">Способ заказа</div>
                         <div class="uk-form-controls uk-form-controls-text">
-                            <label><input class="uk-checkbox uk-margin-small-right" id="makeContractCheckbox" type="checkbox" name="makeContract">Выставить договор</label><br>
+                            <label><input class="uk-checkbox uk-margin-small-right" id="makeContractCheckbox" type="checkbox" name="makeContract">Выставить договор</label>
                         </div>
                     </div>
                     <div class="new-req-form" id="requisitesForm" style="display: none">
@@ -123,9 +123,9 @@
         jQuery(function() {
             jQuery('#makeContractCheckbox').on('change', function(event) {
                 if (this.checked) {
-                    jQuery('#requisitesForm').css('display: block');
+                    jQuery('#requisitesForm').css('display', 'block');
                 } else {
-                    jQuery('#requisitesForm').css('display: none');
+                    jQuery('#requisitesForm').css('display', 'none');
                 }
             })
         });
