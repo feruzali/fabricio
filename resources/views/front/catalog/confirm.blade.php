@@ -11,7 +11,7 @@
 		<div class="confirm-order">
 			<div class="confirm-order__title">Спасибо за покупку!</div>
 			<div class="confirm-order__num">
-				Номер заказа: {{ order->id }}
+				Номер заказа: {{ $order->id }}
 			</div>
 			<div class="confirm-order__descr">
 			Вы получите письмо на ваш адрес электронной почты (email) с подробной информацией о заказе.
