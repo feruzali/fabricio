@@ -10,17 +10,17 @@
             <!-- /.col -->
 
             <div class="col-md-4 col-6">
-                <div class="vid">
-                    Сайт создан в <a href="https://vid.uz"> Vid.uz</a>
-                </div>
-            </div>
-            <!-- /.col -->
-
-            <div class="offset-md-0 col-md-4 offset-3 col-4">
                 <div class="socials">
                     <i class="fa fa-facebook"></i>
                     <i class="fa fa-youtube-play"></i>
                     <i class="fa fa-paper-plane"></i>
+                </div>
+            </div>
+            <!-- /.col -->
+
+            <div class="offset-md-0 col-md-4 col-12">
+                <div class="vid">
+                    Сайт создан в <a href="https://vid.uz"> Vid.uz</a>
                 </div>
             </div>
             <!-- /.col -->

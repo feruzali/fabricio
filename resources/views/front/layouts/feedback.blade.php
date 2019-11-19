@@ -10,7 +10,7 @@
                     <div class="form-wrapper__subtitle">Отправьте их нам!</div>
                     <form action="{{ route('feedback.create') }}" method="post">
                         @csrf
-                        <input type="text" name="name" required placeholder="Ваше имя">
+                        <input type="text" name="name" required placeholder="Ваше имя" style="margin-left: 0;">
                         <input type="email" name="email" placeholder="Ваш e-mail">
                         <input type="tel" name="phone_number" required placeholder="Ваш номер">
                         <textarea name="question" id="" cols="50" rows="4" placeholder="Ваш вопрос"></textarea>

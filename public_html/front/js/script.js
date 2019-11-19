@@ -139,3 +139,23 @@ navBar();
     });
 
 }());
+
+
+// Displaying popup 'Added to cart'
+
+function showPopup() {
+    const cartBtns = document.querySelectorAll('.catalog-card__buy .fa-shopping-cart'),
+        popup = document.getElementById('popup');
+
+    cartBtns.forEach(cartBtn => {
+        cartBtn.addEventListener('click', () => {
+            popup.style.opacity = '1'
+            setTimeout( () => {
+                popup.style.opacity = "0";
+            }, 3000);
+        });
+    });
+
+}
+
+showPopup();
