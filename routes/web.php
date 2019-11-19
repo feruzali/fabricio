@@ -67,7 +67,6 @@ Route::namespace('Front')->group(function() {
     Route::post('/cart/add', 'CartController@addToCart')->name('cart.add');
     Route::post('/cart/update', 'CartController@update')->name('cart.update');
     Route::post('/cart/remove', 'CartController@removeFromCart')->name('cart.remove');
-    Route::post('/cart', 'CartController@createOrder')->name('cart.order');
 });
 
 // FrontAuthentication Routes...
@@ -102,6 +101,7 @@ Route::middleware('catalog')->group(function() {
     Route::get('/register', 'FrontAuth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'FrontAuth\RegisterController@register');
     Route::get('/cart', 'Front\CartController@index')->name('cart.index');
+    Route::post('/cart', 'Front\CartController@createOrder')->name('cart.order');
     Route::get('/request', 'Front\RequestController@index');
     Route::post('/request', 'Front\RequestController@storeRequest');
     Route::get('/about', 'HomeController@about')->name('about');

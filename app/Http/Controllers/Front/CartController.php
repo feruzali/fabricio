@@ -69,26 +69,7 @@ class CartController extends Controller
     }
 
     public function createOrder(Request $request) {
-        if ($request->get('requisites') == 'useRegistration') {
-            Validator::make($request->all(), [
-                'name' => ['required', 'string'],
-                'phone_number' => ['required', 'string']
-            ])->validate();
-            $registrationRequest = auth()->user()->registrationRequest;
-            $order = Order::create([
-                'company_name' => $registrationRequest->company_name,
-                'bank' => $registrationRequest->bank,
-                'address' => $registrationRequest->address,
-                'tin' => $registrationRequest->tin,
-                'ctea' => $registrationRequest->ctea,
-                'mfi' => $registrationRequest->mfi,
-                'name' => $request->get('name'),
-                'phone_number' => $request->get('phone_number'),
-                'email' => $request->get('email'),
-                'comment' => $request->get('comment'),
-                'user_id' => auth()->user()->id
-            ]);
-        } else {
+        if ($request->has('makeContract')) {
             Validator::make($request->all(), [
                 'name' => ['required', 'string'],
                 'phone_number' => ['required', 'string'],
@@ -100,6 +81,18 @@ class CartController extends Controller
                 'mfi' => ['required', 'string', 'min:5', 'max:5'],
             ])->validate();
             $order = Order::create($request->all());
+        } else {
+            Validator::make($request->all(), [
+                'name' => ['required', 'string'],
+                'phone_number' => ['required', 'string']
+            ])->validate();
+            $order = Order::create([
+                'name' => $request->get('name'),
+                'phone_number' => $request->get('phone_number'),
+                'email' => $request->get('email'),
+                'comment' => $request->get('comment'),
+                'user_id' => \Auth::check() ? auth()->user()->id : null
+            ]);
         }
         foreach (session()->get('cart') as $productId => $details) {
             $orderItem = $order->orderItems()->create([
@@ -112,7 +105,6 @@ class CartController extends Controller
             $orderItem->uploadImage($details['photo']);
         }
         session()->forget('cart');
-        return redirect()->route('home');
-
+        return view('front.catalog.confirm', compact('order'));
     }
 }
