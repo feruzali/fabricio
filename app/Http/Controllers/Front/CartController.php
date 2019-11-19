@@ -69,19 +69,7 @@ class CartController extends Controller
     }
 
     public function createOrder(Request $request) {
-        if ($request->get('requisites') == 'doNotMakeCotntract') {
-            Validator::make($request->all(), [
-                'name' => ['required', 'string'],
-                'phone_number' => ['required', 'string']
-            ])->validate();
-            $order = Order::create([
-                'name' => $request->get('name'),
-                'phone_number' => $request->get('phone_number'),
-                'email' => $request->get('email'),
-                'comment' => $request->get('comment'),
-                'user_id' => \Auth::check() ? auth()->user()->id : null
-            ]);
-        } else {
+        if ($request->has('makeContract')) {
             Validator::make($request->all(), [
                 'name' => ['required', 'string'],
                 'phone_number' => ['required', 'string'],
@@ -93,6 +81,18 @@ class CartController extends Controller
                 'mfi' => ['required', 'string', 'min:5', 'max:5'],
             ])->validate();
             $order = Order::create($request->all());
+        } else {
+            Validator::make($request->all(), [
+                'name' => ['required', 'string'],
+                'phone_number' => ['required', 'string']
+            ])->validate();
+            $order = Order::create([
+                'name' => $request->get('name'),
+                'phone_number' => $request->get('phone_number'),
+                'email' => $request->get('email'),
+                'comment' => $request->get('comment'),
+                'user_id' => \Auth::check() ? auth()->user()->id : null
+            ]);
         }
         foreach (session()->get('cart') as $productId => $details) {
             $orderItem = $order->orderItems()->create([
