@@ -4,13 +4,13 @@
 
         <div class="row">
 
-            <div class="offset-xl-0 offset-lg-1 col-md-8 col-10">
+            <div class="offset-xl-0 offset-lg-1 col-lg-8 col-12">
                 <div class="form-wrapper">
                     <h4 class="form-wrapper__title">Остались вопросы?</h4>
                     <div class="form-wrapper__subtitle">Отправьте их нам!</div>
                     <form action="{{ route('feedback.create') }}" method="post">
                         @csrf
-                        <input type="text" name="name" required placeholder="Ваше имя" style="margin-left: 0;">
+                        <input type="text" name="name" required placeholder="Ваше имя">
                         <input type="email" name="email" placeholder="Ваш e-mail">
                         <input type="tel" name="phone_number" required placeholder="Ваш номер">
                         <textarea name="question" id="" cols="50" rows="4" placeholder="Ваш вопрос"></textarea>
