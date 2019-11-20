@@ -70,7 +70,7 @@
                             <i class="fa fa-arrow-right text-primary"></i> В процессе
                         @elseif ($order->status == 'done')
                             <i class="fa fa-check text-primary"></i> Готов
-                        @endif</h4>
+                        @endif</h5>
                     <div class="d-flex justify-content-around align-items-center">
                         @if ($order->status != 'new')<a href="{{ route('orders.status', [$order->id, 'status' => 'new']) }}" class="btn btn-alt-info"><i class="fa fa-eye"></i> Новый заказ</a> @endif
                         @if ($order->status != 'process')<a href="{{ route('orders.status', [$order->id, 'status' => 'process']) }}" class="btn btn-alt-primary"><i class="fa fa-arrow-right"></i> В процессе</a> @endif
