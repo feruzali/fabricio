@@ -107,7 +107,7 @@ class CartController extends Controller
             $orderItem->uploadImage($details['photo']);
         }
         session()->forget('cart');
-        Mail::send(new OrderConfirmed($order));
+        // Mail::send(new OrderConfirmed($order));
         return view('front.catalog.confirm', compact('order'));
     }
 }
