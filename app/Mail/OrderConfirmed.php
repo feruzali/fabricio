@@ -37,7 +37,7 @@ class OrderConfirmed extends Mailable
      */
     public function build()
     {
-        return $this->from('fabricio@official.com')
+        return $this->from('skaydi@fabricio.vid.uz ')
                     ->text('emails.orders.confirmed')
                     ->to($this->order->email);
     }
