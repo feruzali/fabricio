@@ -13,6 +13,7 @@
                             <th class="text-center font-w600">Номер телефона</th>
                             <th class="text-center font-w600">Email</th>
                             <th class="text-center font-w600">Общая сумма</th>
+                            <th class="text-center font-w600">Статус</th>
                             <th class="text-center font-w600">Дата</th>
                             <th class="text-center font-w600">Действия</th>
                         </tr>
@@ -25,6 +26,15 @@
                                 <td class="text-center">{{ $order->phone_number }}</td>
                                 <td class="text-center">{{ $order->email }}</td>
                                 <td class="text-center">{{ number_format($order->getTotalAmount(), 0, ',', ' ') }} сум</td>
+                                <td class="text-center">
+                                    @if ($order->status == 'new')
+                                        <i class="fa fa-eye text-info" data-toogle="tooltip" title="Новый заказ"></i>
+                                    @elseif ($order->status == 'process')
+                                        <i class="fa fa-arrow-right text-primary" data-toogle="tooltip" title="В процессе"></i>
+                                    @elseif ($order->status == 'done')
+                                        <i class="fa fa-check text-primary" data-toogle="tooltip" title="Готов"></i>
+                                    @endif
+                                </td>
                                 <td class="text-center">{{ $order->created_at }}</td>
                                 <td class="d-flex justify-content-center align-items-center">
                                     <a href="{{ route('orders.show', $order->id) }}" class="btn btn-sm btn-alt-primary"><i class="fa fa-eye"></i></a>

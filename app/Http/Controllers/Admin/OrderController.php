@@ -44,4 +44,19 @@ class OrderController extends Controller
         Order::destroy($id);
         return redirect()->route('orders.index');
     }
+
+    /**
+     * Change status of the order
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function changeStatus(Request $request, int $id) {
+        if (!$request->has('status'))
+            abort(400);
+        $order = Order::findOrFail($id);
+        $order->status = $request->get('status');
+        $order->save();
+        return redirect()->back();
+    }
 }

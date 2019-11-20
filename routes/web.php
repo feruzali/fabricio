@@ -56,6 +56,7 @@ Route::middleware('admin.auth')->prefix('admin')->namespace('Admin')->group(func
 
     // Orders
     Route::resource('/orders', 'OrderController');
+    Route::get('/orders/{id}/status', 'OrderController@changeStatus')->name('orders.status');
 
     // Feedbacks
     Route::resource('/feedbacks', 'FeedbackController');
