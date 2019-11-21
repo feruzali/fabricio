@@ -322,7 +322,7 @@
     <section class="card-descr" id="card-descr">
 
         <div class="container">
-            <h2 class="section-title">{{ number_format($product->price, 0, ',', ' ') }} сум</h2>
+            <h2 class="section-title">{{ number_format($product->price, 0, ',', ' ') }} RMB</h2>
 
             <div class="row">
                 <div class="col-lg-4">

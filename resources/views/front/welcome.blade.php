@@ -266,7 +266,7 @@
                                     <!-- /.goods-card__img -->
                                     <a href="{{ $product->getAncestorsSlugs() }}"><h5 class="goods-card__title">{{ $product->title }}</h5></a>
                                     <!-- /.goods-card__title -->
-                                    <div class="goods-card__price">{{ number_format($product->price, 0, ',', ' ') }} сум</div>
+                                    <div class="goods-card__price">{{ number_format($product->price, 0, ',', ' ') }} RMB</div>
                                     <!-- /.goods-card__price -->
                                     @if ($product->colors()->count() > 0)
                                         <span class="color">Цвет:</span> <br>

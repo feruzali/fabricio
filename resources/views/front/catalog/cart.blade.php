@@ -33,7 +33,7 @@
                             @endforeach
                         @endif
                         <div class="total">
-                            Общая сумма: <span>840 000 сум</span>
+                            Общая сумма: <span>{{ number_format($order->getTotalAmount(), 0, ',', ' ') }} RMB</span>
                         </div>
                     </div>
                     <div class="choose-req uk-form-horizontal uk-margin-medium-top">

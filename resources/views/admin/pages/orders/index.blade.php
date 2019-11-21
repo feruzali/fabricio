@@ -25,7 +25,7 @@
                                 <td class="text-center">{{ $order->company_name }} | {{ $order->name }}</td>
                                 <td class="text-center">{{ $order->phone_number }}</td>
                                 <td class="text-center">{{ $order->email }}</td>
-                                <td class="text-center">{{ number_format($order->getTotalAmount(), 0, ',', ' ') }} сум</td>
+                                <td class="text-center">{{ number_format($order->getTotalAmount(), 0, ',', ' ') }} RMB</td>
                                 <td class="text-center">
                                     @if ($order->status == 'new')
                                         <i class="fa fa-bell" data-toggle="tooltip" title="Новый заказ"></i>

@@ -185,7 +185,7 @@
                   <a href="{{ $product->getAncestorsSlugs() }}">{{ $product->title }}</a>
                 </div>
                 <div class="catalog-card__buy">
-                  <span class="catalog-card__price">{{ number_format($product->price, 0, ',', ' ') }} сум</span>
+                  <span class="catalog-card__price">{{ number_format($product->price, 0, ',', ' ') }} RMB</span>
                   <i class="fa fa-shopping-cart add-to-cart-button" data-product-id="{{ $product->id }}"></i>
                 </div>
               </div>
