@@ -30,6 +30,11 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::findOrFail($id);
+        if ($order->status == 'new')
+        {
+            $order->status == 'viewed';
+            $order->save();
+        }
         return view('admin.pages.orders.show', compact('order'));
     }
 

@@ -28,7 +28,9 @@
                                 <td class="text-center">{{ number_format($order->getTotalAmount(), 0, ',', ' ') }} сум</td>
                                 <td class="text-center">
                                     @if ($order->status == 'new')
-                                        <i class="fa fa-eye text-info" data-toogle="tooltip" title="Новый заказ"></i>
+                                        <i class="fa fa-bell" data-toogle="tooltip" title="Новый заказ"></i>
+                                    @elseif ($order->status == 'viewed')
+                                        <i class="fa fa-eye text-info" data-toogle="tooltip" title="Просмотрено"></i>
                                     @elseif ($order->status == 'process')
                                         <i class="fa fa-arrow-right text-primary" data-toogle="tooltip" title="В процессе"></i>
                                     @elseif ($order->status == 'done')
