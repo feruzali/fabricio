@@ -45,6 +45,8 @@
                                         <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
                                     </div>
                                 </div>
+                                <span class="md_hidden" style="color: black;font-size: 16px;display: inline-block;margin-bottom: 8px;">*Минимальное количество заказа: 3шт.</span>
+                                <br class="md_hidden">
                                 <button class="card-slideshow__btn add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                             </div>
                             <div class="stepper stepper--style-3 js-spinner card-stepper md_visible">
@@ -54,6 +56,7 @@
                                     <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
                                 </div>
                             </div>
+                            <span class="md_visible" style="color: black;font-size: 14px;margin-bottom: 4px;">*Минимальное количество заказа: 3шт.</span>
                             <button class="card-slideshow__btn md_visible add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                         </div>
                     </div>

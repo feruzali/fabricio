@@ -35,6 +35,9 @@
                         <div class="total">
                             Общая сумма: <span>@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif RMB</span>
                         </div>
+                        <div class="min_quan">
+                            *Минимальное количество заказа: 3шт.
+                        </div>
                     </div>
                     <div class="choose-req uk-form-horizontal uk-margin-medium-top">
                         <div class="uk-form-label choose-req__title">Способ заказа</div>
