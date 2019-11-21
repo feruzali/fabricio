@@ -81,7 +81,7 @@
                 </nav>
             </div>
             <!-- /.col-6 -->
-            <div class="col-xl-5 col-lg-4 col-md-3 col-sm-4 col-5">
+            <div>
                 <div class="header-wrapper">
                         <a href="{{ route('cart.index') }}">
                             <img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag">
