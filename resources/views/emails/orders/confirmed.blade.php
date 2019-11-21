@@ -10,6 +10,7 @@
     Название товара: {{ $orderItem->title }}
     Количество: {{ $orderItem->quantity }}
     Цена: {{ number_format($orderItem->price, 0, ',', ' ') }} сум
+    
 @endforeach
 
 Итого: {{ number_format($order->getTotalAmount(), 0, ',', ' ') }} сум

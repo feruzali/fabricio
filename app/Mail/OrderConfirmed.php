@@ -21,13 +21,21 @@ class OrderConfirmed extends Mailable
     public $order;
 
     /**
+     * Admin e-mail address
+     * 
+     * @var string
+     */
+    public $adminEmail;
+
+    /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Order $order)
+    public function __construct(Order $order, string $adminEmail)
     {
         $this->order = $order;
+        $this->adminEmail = $adminEmail;
     }
 
     /**
@@ -37,7 +45,7 @@ class OrderConfirmed extends Mailable
      */
     public function build()
     {
-        return $this->from('skaydi@fabricio.vid.uz ')
+        return $this->from($adminEmail)
                     ->text('emails.orders.confirmed')
                     ->to($this->order->email);
     }
