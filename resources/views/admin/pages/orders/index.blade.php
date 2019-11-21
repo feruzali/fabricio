@@ -28,7 +28,7 @@
                                 <td class="text-center">{{ number_format($order->getTotalAmount(), 0, ',', ' ') }} RMB</td>
                                 <td class="text-center">
                                     @if ($order->status == 'new')
-                                        <i class="fa fa-bell" data-toggle="tooltip" title="Новый заказ"></i>
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABmJLR0QA/wD/AP+gvaeTAAAA90lEQVQokZXRPUsDURCF4SfuKn40aQRRhIAQEFvByt4ijY3/Igg2tiIIphQbU/hDLGJrGyxDLC1cUAsJiBhjkRGWdZF1YIo7c965d85N/I4N3GABO7jELV5LtKCFY/QxKWQ/eq0y8KEEKOawCO1hXAEchxa0KwDFbKcYxIAjnOIqjLnHbvTW8YIZrGKQxgS4w1nssYQVNHGCBp6R4AKTFJ0A1/CFJ9MvOY96DZ+YxRuW0UmQYR+P8dwhtnAdYBPbUWtgM3wBvX8Y0xPLip2qxmL+UMcBRn/cNApNvWxaN4zIckAWtW5eWCuA80jxYWo7HGIu4Pcf4TeSWmIP0DljewAAAABJRU5ErkJggg==">
                                     @elseif ($order->status == 'viewed')
                                         <i class="fa fa-eye text-info" data-toggle="tooltip" title="Просмотрено"></i>
                                     @elseif ($order->status == 'process')
