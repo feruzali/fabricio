@@ -176,7 +176,7 @@
                 </a>
                 <div class="catalog-card-choice">
                     @foreach ($product->getAllImages() as $key => $image)
-                        <div class="catalog-card-choice__elem" data-color="{{ $key }}">
+                <div class="catalog-card-choice__elem @if ($key == 0) catalog-card-choice__elem--active @endif" data-color-hex="{{ $image->color->colorHEX }}" data-color-name="{{ $image->color->name }}" data-color="{{ $key }}">
                           <img src="{{ $image->getCatalogImage() }}" alt="{{ $product->title }}">
                         </div>
                     @endforeach
@@ -207,12 +207,17 @@
             $('.add-to-cart-button').on('click', function(e) {
                 e.preventDefault();
                 let element = $(this);
-                let quantity = 1;
+                let catalogCardElement = element.parent().parent();
+                let activeImage = catalogCardElement.find('.catalog-card-choice__elem--active');
+                let colorHex = activeImage.data('color-hex');
+                let colorName = activeImage.data('color-name');
+                let quantity = 3;
                 let productId = element.data('product-id');
+
                 $.ajax({
                     url: '{{ route('cart.add') }}',
                     'method': 'post',
-                    data: {_token: '{{ csrf_token() }}', productId, quantity: quantity},
+                    data: {_token: '{{ csrf_token() }}', productId, quantity: quantity, colorHex, colorName},
                     success: function (response) {
                         window.location.reload();
                     }
