@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Product;
 use App\Model\Order;
+use App\Model\Contact;
 use App\Mail\OrderConfirmed;
+use App\Mail\NewOrderNotification;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -115,7 +117,9 @@ class CartController extends Controller
             $orderItem->uploadImage($details['photo']);
         }
         session()->forget('cart');
-        // Mail::send(new OrderConfirmed($order));
+        $adminEmail = Contact::find(1)->email;
+        Mail::send(new OrderConfirmed($order, $adminEmail));
+        Mail::send(new NewOrderNotification($order, $adminEmail));
         return view('front.catalog.confirm', compact('order'));
     }
 }
