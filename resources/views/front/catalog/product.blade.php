@@ -39,7 +39,7 @@
                             </div>
                             <div class="uk-position-bottom-left uk-position-small md_hidden">
                                 <div class="stepper stepper--style-3 js-spinner card-stepper">
-                                    <input autofocus type="number" min="3" max="99" step="1" value="1" class="stepper__input card-stepper__input quantity-field">
+                                    <input autofocus type="number" min="3" max="99" step="1" value="3" class="stepper__input card-stepper__input quantity-field">
                                     <div class="stepper__controls">
                                         <button style="background-color: transparent; right: 18px;" type="button" spinner-button="up"><i class="fa fa-chevron-right"></i></button>
                                         <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
