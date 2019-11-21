@@ -1,13 +1,33 @@
 @extends('admin.layouts.app')
 
-@section('content')
+@section('css')
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #section-to-print, #section-to-print * {
+                visibility: visible;
+            }
+            #section-to-print {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
+@endsection
 
+@section('content')
     <h2 class="content-heading">Заказ № {{ $order->id }}</h2>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12" id="section-to-print">
             <div class="block">
                 <div class="block-header block-header-default">
                     <h3 class="block-title">Информация о заказчике</h3>
+                    <div class="block-options">
+                        <button class="btn-block-option" type="button" onclick="window.print()"><i class="si si-printer"></i></button>
+                    </div>
                 </div>
                 <div class="block-content">
                     <div class="row">
@@ -59,6 +79,8 @@
                     Итого: {{ number_format($order->getTotalAmount(), 0, ',', ' ')}}
                 </div>
             </div>
+        </div>
+        <div class="col-12">
             <div class="block">
                 <div class="block-header block-header-default">
                     <h3 class="block-title">Статус заказа</h3>
