@@ -39,7 +39,7 @@
                                 </td>
                                 <td class="text-center">{{ $order->created_at }}</td>
                                 <td class="d-flex justify-content-center align-items-center">
-                                    <a href="{{ route('orders.show', $order->id) }}" class="btn btn-sm btn-alt-primary"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{ route('orders.show', $order->id) }}" class="btn btn-sm btn-alt-primary"><i class="si si-pencil"></i></a>
                                 </td>
                             </tr>
                         @endforeach
