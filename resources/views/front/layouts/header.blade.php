@@ -87,7 +87,7 @@
                             <img class="header__bag" src="{{asset('front/img/header-bag.png')}}" alt="Bag">
                         </a>
                         <span class="header__bag__quan" id="cartCount">@if(isset($cartTotalCount)) {{ $cartTotalCount }} @else 0 @endif</span>
-                        <span class="header__price"> &nbsp;@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif сум</span>
+                        <span class="header__price"> &nbsp;@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif RMB</span>
                     @guest
                         <a class="header__auth" href="{{ route('login') }}">Войти</a>
                         <a class="header__auth_adap" href="{{ route('login') }}"><i class="fa fa-user"></i></a>

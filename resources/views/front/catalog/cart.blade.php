@@ -33,7 +33,7 @@
                             @endforeach
                         @endif
                         <div class="total">
-                            Общая сумма: <span>{{ number_format($cartTotalSum, 0, ',', ' ') }} RMB</span>
+                            Общая сумма: <span>@if (isset($cartTotalSum)) {{ number_format($cartTotalSum, 0, ',', ' ') }} @else 0 @endif RMB</span>
                         </div>
                     </div>
                     <div class="choose-req uk-form-horizontal uk-margin-medium-top">
