@@ -9,6 +9,15 @@ class ProductImage extends Model
 {
     protected $fillable = ['product_id'];
 
+    /**
+     * Reference for product color
+     * 
+     */
+    public function color()
+    {
+        return $this->hasOne(ProductColor::class, 'id', 'product_color_id');
+    }
+
     public function uploadImage($image)
     {
 
