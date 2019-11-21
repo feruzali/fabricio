@@ -35,6 +35,9 @@
                         <div class="total">
                             Общая сумма: <span>840 000 сум</span>
                         </div>
+                        <div class="min_quan">
+                            *Минимальное количество заказа: 3шт.
+                        </div>
                     </div>
                     <div class="choose-req uk-form-horizontal uk-margin-medium-top">
                         <div class="uk-form-label choose-req__title">Способ заказа</div>
