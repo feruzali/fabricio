@@ -87,7 +87,9 @@
                 </div>
                 <div class="block-content pb-30">
                     <h5>Текущий статус: @if ($order->status == 'new')
-                            <i class="fa fa-eye text-info"></i> Новый заказ
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABmJLR0QA/wD/AP+gvaeTAAAA90lEQVQokZXRPUsDURCF4SfuKn40aQRRhIAQEFvByt4ijY3/Igg2tiIIphQbU/hDLGJrGyxDLC1cUAsJiBhjkRGWdZF1YIo7c965d85N/I4N3GABO7jELV5LtKCFY/QxKWQ/eq0y8KEEKOawCO1hXAEchxa0KwDFbKcYxIAjnOIqjLnHbvTW8YIZrGKQxgS4w1nssYQVNHGCBp6R4AKTFJ0A1/CFJ9MvOY96DZ+YxRuW0UmQYR+P8dwhtnAdYBPbUWtgM3wBvX8Y0xPLip2qxmL+UMcBRn/cNApNvWxaN4zIckAWtW5eWCuA80jxYWo7HGIu4Pcf4TeSWmIP0DljewAAAABJRU5ErkJggg=="> Новый заказ
+                        @elseif ($order->status == 'viewed')
+                        <i class="fa fa-eye text-info"></i> Просмотрено
                         @elseif ($order->status == 'process')
                             <i class="fa fa-arrow-right text-primary"></i> В процессе
                         @elseif ($order->status == 'done')
