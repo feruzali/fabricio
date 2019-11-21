@@ -20,6 +20,8 @@ class CartController extends Controller
     public function addToCart(Request $request) {
         $productId = $request->get('productId');
         $quantity = $request->get('quantity');
+        $colorHex = $request->get('colorHex');
+        $colorName = $request->get('colorName');
 
         $product = Product::findOrFail($productId);
 
@@ -31,7 +33,9 @@ class CartController extends Controller
                     "name" => $product->title,
                     "quantity" => $quantity,
                     "price" => $product->price,
-                    "photo" => $product->getCatalogImage()
+                    "photo" => $product->getCatalogImage(),
+                    'colorName' => $colorName,
+                    'colorHex' => $colorHex
                 ]
             ];
             session()->put('cart', $cart);
@@ -45,7 +49,9 @@ class CartController extends Controller
             "name" => $product->title,
             "quantity" => $quantity,
             "price" => $product->price,
-            "photo" => $product->getCatalogImage()
+            "photo" => $product->getCatalogImage(),
+            'colorName' => $colorName,
+            'colorHex' => $colorHex
         ];
         session()->put('cart', $cart);
     }
@@ -102,7 +108,9 @@ class CartController extends Controller
                 'price' => $details['price'],
                 'quantity' => $details['quantity'],
                 'product_id' => $productId,
-                'preview_image' => ''
+                'preview_image' => '',
+                'color_name' => $details['colorName'],
+                'color_hex' => $details['colorHex']
             ]);
             $orderItem->uploadImage($details['photo']);
         }
