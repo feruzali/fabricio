@@ -71,7 +71,7 @@
                 <div class="block-content">
                     <div class="list-group push list-group-flush">
                         @foreach($order->orderItems as $item)
-                            <li class="list-group-item d-flex justify-content-between align-items-center"><span><img src="{{ $item->getImage() }}" class="img-avatar-rounded img-avatar48 img-avatar" alt=""><span class="ml-20 font-w600 font-size-md">{{ $item->title }}, {{ number_format($item->price, 0, ',', ' ') }} RMB</span></span><span class="badge badge-pill badge-primary" data-toggle="tooltip" title="Количество">{{ $item->quantity }}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center"><span><img src="{{ $item->getImage() }}" class="img-avatar-rounded img-avatar48 img-avatar" alt=""><span class="ml-20 font-w600 font-size-md">{{ $item->title }}, {{ number_format($item->price, 0, ',', ' ') }} RMB, {{ $item->color_name }}</span></span><span class="badge badge-pill badge-primary" style="background-color: {{ $item->color_hex }}" data-toggle="tooltip" title="Количество">{{ $item->quantity }}</span></li>
                         @endforeach
                     </div>
                 </div>

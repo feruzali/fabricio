@@ -18,7 +18,7 @@
                                     <div class="cart-good__img">
                                         <img src="{{ $details['photo'] }}" alt="">
                                     </div>
-                                    <span class="cart-good__title">{{ $details['name'] }}</span>
+                                <span class="cart-good__title">{{ $details['name'] }}, <span style="color: {{ $details['colorHex'] }}">{{ $details['colorName'] }}</span></span>
                                     <input type="checkbox" class="cart-good__checkbox uk-checkbox"></input>
                                     <div class="stepper stepper--style-3 js-spinner card-good__quantity-wrapper">
                                         <input autofocus type="number" min="3" max="99" step="1" value="{{ $details['quantity'] }}" data-product-id="{{ $id }}" class="stepper__input cart-good__quantity__input">
