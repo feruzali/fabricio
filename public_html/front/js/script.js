@@ -50,8 +50,8 @@ navBar();
 
     $(colorButtons).click(function() {
 
-        $('#colorHex').val($(this).data('color-hex'));
-        $('#colorName').val($(this).data('color-name'));
+        $('#colorHex').attr('value', $(this).data('color-hex'));
+        $('#colorName').attr('value', $(this).data('color-name'));
 
         for( var i = 0; i < sliders.length; i++) {
             sliders[i].style.minHeight = firstSlider.style.minHeight;
