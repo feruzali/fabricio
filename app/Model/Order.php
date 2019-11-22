@@ -32,4 +32,17 @@ class Order extends Model
             $amount += ($orderItem->price * $orderItem->quantity);
         return $amount;
     }
+
+    /**
+     * Get total products count
+     * 
+     * @return integer
+     */
+    public function getTotalProductCount()
+    {
+        $count = 0;
+        foreach ($this->orderItems as $orderItem)
+            $count += $orderItem->quantity;
+        return $count;
+    }
 }
