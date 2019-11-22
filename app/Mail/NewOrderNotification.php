@@ -45,8 +45,8 @@ class NewOrderNotification extends Mailable
      */
     public function build()
     {
-        return $this->from('mailgun@fabricio.vid.uz')
+        return $this->from(env('ADMIN_EMAIL'))
                     ->text('emails.orders.notification')
-                    ->to($this->adminEmail);
+                    ->to(env('ADMIN_EMAIL'));
     }
 }
