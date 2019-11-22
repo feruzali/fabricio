@@ -45,8 +45,7 @@
                                         <button style="background-color: transparent;" type="button" spinner-button="down"><i class="fa fa-chevron-left"></i></button>
                                     </div>
                                 </div>
-                                <span class="md_hidden" style="color: black;font-size: 16px;display: inline-block;margin-bottom: 8px;">*Минимальное количество заказа: 3шт.</span>
-                                <br class="md_hidden">
+                                <p class="md_hidden" style="color: black;font-size: 16px;margin-bottom: 8px;">*Минимальное количество заказа: 3шт.</p>
                                 <button class="card-slideshow__btn add-to-card-button" data-product-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i>&nbsp; Добавить в корзину</button>
                             </div>
                             <div class="stepper stepper--style-3 js-spinner card-stepper md_visible">
@@ -147,7 +146,7 @@
             $('.add-to-card-button').on('click', function(e) {
                 e.preventDefault();
                 let element = $(this);
-                let quantity = parseInt(element.prev().find('.card-stepper__input').val());
+                let quantity = parseInt(element.prev().prev().find('.card-stepper__input').val());
                 let productId = element.data('product-id');
                 let colorHex = $('#colorHex').val();
                 let colorName = $('#colorName').val();
