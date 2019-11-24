@@ -95,17 +95,11 @@
             <h2 class="section-title">{{ number_format($product->price, 0, ',', ' ') }} RMB</h2>
 
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <h4 class="card-descr__title">Описание</h4>
                     <p class="card-descr__txt">{{ $product->description }}</p>
                 </div>
-                <div class="col-lg-4 order-last order-lg-0">
-                    <h4 class="card-descr__title">Доставка</h4>
-                    <p class="card-descr__txt">
-                        Бесплатная доставка в Узбекистан. Политика возврата 30 дней. Оплата пошлин и налогов (DDP). Пятилетняя гарантия.
-                    </p>
-                </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <h4 class="card-descr__title">Характеристики</h4>
                     <p class="card-descr__txt">
                         Тщательно разработанный в Швеции и изготовленный в Пфорцхайме, Германия, с использованием тщательно продуманных высококачественных компонентов. Механизм от всемирно известного швейцарского производителя Ronda и стальной корпус 316L, изготовленный с тщательным сочетанием полированной и шлифованной отделки.
