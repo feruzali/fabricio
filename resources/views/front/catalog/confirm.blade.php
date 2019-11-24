@@ -22,4 +22,5 @@
 	</div>
 
 </section>
+@include('front.layouts.feedback')
 @endsection
