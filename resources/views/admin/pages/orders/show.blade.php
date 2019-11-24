@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="block-content block-content-full block-content-sm bg-body-light font-size-md">
-                    Итого: {{ number_format($order->getTotalAmount(), 0, ',', ' ')}}
+                    Итого: {{ number_format($order->getTotalAmount(), 0, ',', ' ')}}, Всего товаров: {{ $order->getTotalProductCount() }}
                 </div>
             </div>
         </div>
