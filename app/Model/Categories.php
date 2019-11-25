@@ -102,7 +102,8 @@ class Categories extends Model
         $categories = $this->descendants()->pluck('id');
         $categories[] = $this->getKey();
         $productQuery = Product::whereIn('category_id', $categories);
-        if (!Auth::check())
+        $user = auth()->user();
+        if (!$user || ($user && $user->registrationRequest && !$user->registrationRequest->confirmed))
             $productQuery = $productQuery->where('is_auth', false);
         if ($orderByPrice)
             $productQuery = $productQuery->orderBy('price', $orderByPrice);
@@ -120,7 +121,8 @@ class Categories extends Model
         $categories = $this->descendants()->pluck('id');
         $categories[] = $this->getKey();
         $productQuery = Product::whereIn('category_id', $categories);
-        if (!Auth::check())
+        $user = auth()->user();
+        if (!$user || ($user && $user->registrationRequest && !$user->registrationRequest->confirmed))
             $productQuery->where('is_auth', false);
         return $productQuery->orderBy('created_at', 'desc')->take($count)->get();
     }
