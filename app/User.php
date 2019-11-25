@@ -124,4 +124,11 @@ class User extends Authenticatable
     public function registrationRequest() {
         return $this->hasOne(\App\Model\RegistrationRequest::class);
     }
+
+    public function delete()
+    {
+        if ($this->registrationRequest)
+            $this->registrationRequest()->delete();
+        parent::delete();
+    }
 }
