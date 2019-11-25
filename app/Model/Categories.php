@@ -103,7 +103,7 @@ class Categories extends Model
         $categories[] = $this->getKey();
         $productQuery = Product::whereIn('category_id', $categories);
         $user = auth()->user();
-        if (!$user || ($user && $user->registrationRequest && !$user->registrationRequest->confirmed))
+        if (!$user || ($user && !$user->hasRole('admin') && !$user->confirmed))
             $productQuery = $productQuery->where('is_auth', false);
         if ($orderByPrice)
             $productQuery = $productQuery->orderBy('price', $orderByPrice);
@@ -122,7 +122,7 @@ class Categories extends Model
         $categories[] = $this->getKey();
         $productQuery = Product::whereIn('category_id', $categories);
         $user = auth()->user();
-        if (!$user || ($user && $user->registrationRequest && !$user->registrationRequest->confirmed))
+        if (!$user || ($user && !$user->hasRole('admin') && !$user->confirmed))
             $productQuery->where('is_auth', false);
         return $productQuery->orderBy('created_at', 'desc')->take($count)->get();
     }
