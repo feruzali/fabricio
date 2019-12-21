@@ -285,13 +285,13 @@
                                                 <div class="block-content block-content-full text-center bg-info-lighter">
                                                     <div class="input_file">
                                                         <div class="remove" style="display: none;">Удалить</div>
-                                                        <input id="gallery-photo-add" multiple accept="image/*" type="file" class="form-control input_file__input" name="color-images-{{ $key }}[]">
+                                                        <input multiple accept="image/*" type="file" class="form-control input_file__input gallery-photo-add" data-gallery-id="gallery{{ $key }}" name="color-images-{{ $key }}[]">
                                                         <div class="input_file__text">
                                                             <div class="input_file_text_first select">Выбрать</div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div style="text-align:center;" class="gallery">
+                                                <div style="text-align:center;" id="gallery{{ $key }}" class="gallery">
                                                     @foreach ($color->images as $image)
                                                         <img src="{{ $image->getCatalogImage() }}" alt="" style="width: 200px;">
                                                     @endforeach
@@ -343,13 +343,13 @@
                             <div class="block-content block-content-full text-center bg-info-lighter">
                                 <div class="input_file">
                                     <div class="remove" style="display: none;">Удалить</div>
-                                    <input id="gallery-photo-add" multiple accept="image/*" type="file" class="form-control input_file__input" name="color-images-{0}[]">
+                                    <input multiple accept="image/*" type="file" class="form-control input_file__input gallery-photo-add" data-gallery-id="gallery{0}" name="color-images-{0}[]">
                                     <div class="input_file__text">
                                         <div class="input_file_text_first select">Выбрать</div>
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align:center;" class="gallery"></div>
+                            <div style="text-align:center;" id="gallery{0}" class="gallery"></div>
                         </div>
                     </div>
                 </div>
@@ -417,30 +417,6 @@
                 readURL(this, '#blah');
                 $('#blah').attr('style', 'display: block;width:200px;');
             });
-
-
-            // Multiple images preview in browser
-            var imagesPreview = function(input, placeToInsertImagePreview) {
-
-                if (input.files) {
-                    var filesAmount = input.files.length;
-
-                    for (i = 0; i < filesAmount; i++) {
-                        var reader = new FileReader();
-
-                        reader.onload = function(event) {
-                            $($.parseHTML('<img style="width: 200px;">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
-                        };
-
-                        reader.readAsDataURL(input.files[i]);
-                    }
-                }
-
-            };
-
-            $('#gallery-photo-add').on('change', function() {
-                imagesPreview(this, 'div.gallery');
-            });
         });
 
     </script>
@@ -469,6 +445,25 @@
             $(`#${blockId}`).remove();
         }
 
+        // Multiple images preview in browser
+        var imagesPreview = function(input, placeToInsertImagePreview) {
+
+            if (input.files) {
+                var filesAmount = input.files.length;
+
+                for (i = 0; i < filesAmount; i++) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img style="width: 200px;">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                    };
+
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+
+        };
+
         jQuery(function() {
             let counter = {{ count($product->colors) }};
             let templateString = $('#color-item-template').html();
@@ -477,6 +472,10 @@
                 let colorItemString = templateString.format(counter);
                 let colorItem = $(colorItemString);
                 colorItem.find('.delete-button').on('click', deleteColorItem);
+                colorItem.find('.gallery-photo-add').on('change', function() {
+                    let galleryId = $(this).data('gallery-id');
+                    imagesPreview(this, `div#${galleryId}`);
+                });
                 $('#color-items').append(colorItem);
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $(`#color-item-${counter}`).offset().top
@@ -484,6 +483,10 @@
                 Codebase.helper('colorpicker');
             });
             $('.delete-button').on('click', deleteColorItem);
+            $('.gallery-photo-add').on('change', function() {
+                let galleryId = $(this).data('gallery-id');
+                imagesPreview(this, `div#${galleryId}`);
+            });
         });
     </script>
     <script>
