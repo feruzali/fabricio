@@ -272,13 +272,13 @@
                             <div class="block-content block-content-full text-center bg-info-lighter">
                                 <div class="input_file">
                                     <div class="remove" style="display: none;">Удалить</div>
-                                    <input id="gallery-photo-add" multiple accept="image/*" type="file" class="form-control input_file__input" name="color-images-{0}[]">
+                                    <input multiple accept="image/*" type="file" class="form-control input_file__input gallery-photo-add" data-gallery-id="gallery{0}" name="color-images-{0}[]">
                                     <div class="input_file__text">
                                         <div class="input_file_text_first select">Выбрать</div>
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align:center;" class="gallery"></div>
+                            <div style="text-align:center;" id="gallery{0}" class="gallery"></div>
                         </div>
                     </div>
                 </div>
@@ -379,9 +379,7 @@
 
             };
 
-            $('#gallery-photo-add').on('change', function() {
-                imagesPreview(this, 'div.gallery');
-            });
+
         });
 
     </script>
@@ -418,6 +416,10 @@
                 let colorItemString = templateString.format(counter);
                 let colorItem = $(colorItemString);
                 colorItem.find('.delete-button').on('click', deleteColorItem);
+                colorItem.find('.gallery-photo-add').on('change', function() {
+                    let galleryId = $(this).data('gallery-id');
+                    imagesPreview(this, `div#${galleryId}`);
+                });
                 $('#color-items').append(colorItem);
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $(`#color-item-${counter}`).offset().top
