@@ -358,28 +358,6 @@
                 readURL(this, '#frontBlah');
                 $('#frontBlah').attr('style', 'display: block;width:200px;');
             });
-
-
-            // Multiple images preview in browser
-            var imagesPreview = function(input, placeToInsertImagePreview) {
-
-                if (input.files) {
-                    var filesAmount = input.files.length;
-
-                    for (i = 0; i < filesAmount; i++) {
-                        var reader = new FileReader();
-
-                        reader.onload = function(event) {
-                            $($.parseHTML('<img style="width: 200px;">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
-                        };
-
-                        reader.readAsDataURL(input.files[i]);
-                    }
-                }
-
-            };
-
-
         });
 
     </script>
@@ -407,6 +385,25 @@
             let blockId = deleteButton.data('block-id');
             $(`#${blockId}`).remove();
         }
+
+        // Multiple images preview in browser
+        function imagesPreview(input, placeToInsertImagePreview) {
+
+            if (input.files) {
+                var filesAmount = input.files.length;
+
+                for (i = 0; i < filesAmount; i++) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img style="width: 200px;">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                    };
+
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+
+        };
 
         jQuery(function() {
             let counter = 0;
